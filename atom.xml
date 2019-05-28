@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
-    <title>胡说</title>
-    <updated>2019-05-28T03:46:59.080Z</updated>
+    <title>码出未来</title>
+    <updated>2019-05-28T03:48:01.453Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
     <subtitle>温故而知新</subtitle>
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, 胡说</rights>
+    <rights>All rights reserved 2019, 码出未来</rights>
     <entry>
         <title type="html"><![CDATA[Mysql(1)-索引]]></title>
         <id>https://huran111.github.io/post/mysql1-suo-yin</id>
