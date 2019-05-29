@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>清风徐来</title>
-    <updated>2019-05-29T03:21:27.096Z</updated>
+    <updated>2019-05-29T03:24:09.117Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -76,7 +76,24 @@ Eureka Server之间将会通过复制的方式完成数据的同步。（详见E
 Eureka还提供了客户端缓存的机制，即使所有的Eureka Server都挂掉，客户端依然可以利用缓存中的信息消费其他服务的API。
 综上，Eureka通过心跳检测、健康检查、客户端缓存等机制，确保了系统的高可用性、灵活性和可伸缩性。
 实现Euraka Server和Client: 相关关代码已经放到GitHub上：
-https://github.com/huran111</p>
+https://github.com/huran111
+<img src="https://huran111.github.io/post-images/1559100120537.png" alt="">
+可以看到 2个服务提供者一个消费者。</p>
+<p>学习可参考官方文档：https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.1.0.RC3/single/spring-cloud-netflix.html#netflix-eureka-client-starter 其余百度都扯淡
+<img src="https://huran111.github.io/post-images/1559100134858.png" alt="">
+如下我们开启4个微服务，服务名称分别为：user-producter:8900,user-producter:8901,user-producter-2:7900,user-producter-2:7901
+一个消费端：user-consumer-ribbon
+注意请看官方文档这句话：
+<img src="https://huran111.github.io/post-images/1559100152997.png" alt="">
+大致意思就是，配置RibbonClient的时候不能放在和启动类同一个包下。否则会覆盖所有RibbonClient其他配置策略。
+解决方法是自定义在注解，进行排除。
+<img src="https://huran111.github.io/post-images/1559100202907.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100208028.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100214788.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100221099.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100230496.png" alt="">
+Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分别请求了四个服务。这里我们其请求了8次：结果如下
+<img src="https://huran111.github.io/post-images/1559100241470.png" alt=""></p>
 ]]></content>
     </entry>
     <entry>
