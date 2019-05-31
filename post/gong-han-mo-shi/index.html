@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559272257933">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559273970985">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://huran111.github.io">
-        <img src="https://huran111.github.io/images/avatar.png?v=1559272257933" class="site-logo">
+        <img src="https://huran111.github.io/images/avatar.png?v=1559273970985" class="site-logo">
         <h1 class="site-title">大千世界</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -128,6 +128,19 @@
 <img src="https://huran111.github.io/post-images/1559271869245.png" alt=""></li>
 <li>定义简单工厂
 <img src="https://huran111.github.io/post-images/1559272255417.png" alt=""></li>
+<li>如果有很多不同的披萨加盟店，根据地域不同风味也不同，怎么办？
+<ul>
+<li>我么可以写出三种不同的工厂，分别负责创建不同区域的披萨。（VarPizzaFactory,Var2PizzaFactory,Var3PizzaFactory）
+<img src="https://huran111.github.io/post-images/1559272741289.png" alt=""></li>
+<li>我们把createPizza()方法放回到PizzaStore类中，把它设置为抽象。
+<img src="https://huran111.github.io/post-images/1559273553779.png" alt="">
+<ul>
+<li>现在已经有了一个PizzaStore作为超类，让每个区域的类型都继承这个超类，各自实现制造披萨。
+<img src="https://huran111.github.io/post-images/1559273831614.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             </div>
