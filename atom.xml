@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>大千世界</title>
-    <updated>2019-05-31T08:39:54.331Z</updated>
+    <updated>2019-06-02T01:42:18.821Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 大千世界</rights>
+    <entry>
+        <title type="html"><![CDATA[volatile是什么？]]></title>
+        <id>https://huran111.github.io/post/volatile是什么？</id>
+        <link href="https://huran111.github.io/post/volatile是什么？">
+        </link>
+        <updated>2019-06-02T01:15:27.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="volatile是什么">volatile是什么？</h3>
+<ul>
+<li>volatile是java虚拟机轻量级的同步机制
+<ul>
+<li>保证可见性</li>
+<li>不保证原子性</li>
+<li>禁止指令重排序</li>
+</ul>
+</li>
+<li>硬盘&lt;内存&lt;CPU
+CPU和内存之间有缓存cache
+<img src="https://huran111.github.io/post-images/1559439468009.png" alt=""></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[工厂模式]]></title>
         <id>https://huran111.github.io/post/gong-han-mo-shi</id>
@@ -631,82 +652,6 @@ B+树维护了索引的有序性，在插入新的值的时候需要做必要的
 <p>只有一个索引</p>
 <p>改索引必须是唯一索引</p>
 <p>KV场景</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Thread]]></title>
-        <id>https://huran111.github.io/post/java-duo-xian-cheng-bi-ji</id>
-        <link href="https://huran111.github.io/post/java-duo-xian-cheng-bi-ji">
-        </link>
-        <updated>2019-05-28T03:12:43.000Z</updated>
-        <content type="html"><![CDATA[<p>线程的概念：
-线程是程序中执行的线程。Java虚拟机允许应用程序同时运行多个执行线程。每个线程都有一个优先级。优先级较高的线程优先于优先级较低的线程执行。每个线程也可以标记为守护进程，也可以不标记为守护进程。当在某个线程中运行的代码创建一个新线程对象时，新线程的优先级初始设置为创建线程的优先级，并且只有当创建线程是一个守护进程时，新线程才是守护进程。当Java虚拟机启动时，通常有一个非守护进程线程(它通常调用一些指定类的main方法)。Java虚拟机继续执行线程，直到下列情况之一发生:
-+ 调用了类运行时的退出方法，并且安全管理器允许执行退出操作。
-+ 不是守护进程线程的所有线程都已死亡，要么从对run方法的调用返回，要么抛出一个在run方法之外传播的异常。</p>
-<hr>
-<ul>
-<li>线程的创建方式
-<ul>
-<li>继承Thread类</li>
-<li>实现Rubbable接口</li>
-<li>实现Callable接口</li>
-</ul>
-</li>
-<li>线程的六种状态
-<ul>
-<li>NEW 尚未启动的线程处于此状态。
-<ul>
-<li>线程尚未启动的时候的状态 也就是NEW出来的时候。</li>
-</ul>
-</li>
-<li>RUNNABLE 在 java虚拟机中执行的线程处于此状态。
-<ul>
-<li>可运行线程的线程状态。 可运行状态的线程正在Java虚拟机中执行，但它可能正在等待来自操作系统（例如处理器）的其他资源。</li>
-</ul>
-</li>
-<li>BLOCKED  等待监视器锁的阻塞线程的线程状态。
-<ul>
-<li>一个线程的线程状态阻塞等待监视器锁定。 处于阻塞状态的线程正在等待监视器锁定进入同步块/方法，或者在调用Object.wait后重新输入同步的块/方法。</li>
-</ul>
-</li>
-<li>WAITING 正在等待另一个线程执行特定动作的线程处于此状态。
-<ul>
-<li>等待线程的线程状态 由于调用以下方法之一，线程处于等待状态：
-<ul>
-<li>Object.wait没有超时</li>
-<li>Thread.join没有超时</li>
-<li>LockSupport.park</li>
-<li>等待状态的线程正在等待另一个线程执行特定的动作。 例如，已经在对象上调用Object.wait()线程正在等待另一个线程调用该对象上Object.notify() Object.notifyAll()或。 调用Thread.join()的线程正在等待指定的线程终止</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>TIMED_WAITING 正在等待另一个线程执行动作达到指定等待时间的线程处于此状态。
-<ul>
-<li>具有指定等待时间的等待线程的线程状态。 线程处于定时等待状态，因为在指定的正等待时间内调用以下方法之一：
-<ul>
-<li>Thread.sleep</li>
-<li>Object.wait与超时</li>
-<li>Thread.join与超时</li>
-<li>LockSupport.parkNanos</li>
-<li>LockSupport.parkUntil</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>TEARMINATED 已退出的线程处于此状态。
-<ul>
-<li>终止线程的线程状态。 线程已完成执行。</li>
-</ul>
-</li>
-<li>ThreadFactory
-<ul>
-<li>根据需要创建新线程的对象。 使用线程工厂可以删除new Thread的硬连线 ，使应用程序能够使用特殊的线程子类，优先级等。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
