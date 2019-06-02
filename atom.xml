@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
-    <title>静净敬</title>
-    <updated>2019-06-02T08:19:18.630Z</updated>
+    <title>生有涯-知无涯</title>
+    <updated>2019-06-02T08:20:18.200Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
     <subtitle>温故而知新-欢迎关注公众号《Java精选笔记》</subtitle>
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, 静净敬</rights>
+    <rights>All rights reserved 2019, 生有涯-知无涯</rights>
     <entry>
         <title type="html"><![CDATA[单利模式下可能存在的安全性问题]]></title>
         <id>https://huran111.github.io/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti</id>
