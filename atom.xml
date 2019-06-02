@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>静净敬</title>
-    <updated>2019-06-02T03:43:33.713Z</updated>
+    <updated>2019-06-02T05:55:14.468Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -51,8 +51,9 @@ CPU和内存之间有缓存cache
 <ul>
 <li>单线程环境里面确保程序最终执行结果和代码顺序的结果一致。</li>
 <li>处理器在进行重排序时必须考虑指令之间的数据依赖性。</li>
-<li>多线程环境中线程交替 执行，由于编译器优化重排的存在，两个线程中使用变量能否保证一致性是无法确定的，结果无法预测。</li>
-<li></li>
+<li>多线程环境中线程交替 执行，由于编译器优化重排的存在，两个线程中使用变量能否保证一致性是无法确定的，结果无法预测。
+<img src="https://huran111.github.io/post-images/1559454100086.png" alt="">
+<img src="https://huran111.github.io/post-images/1559454899757.png" alt=""></li>
 </ul>
 </li>
 </ul>
