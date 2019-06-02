@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-02T08:37:31.234Z</updated>
+    <updated>2019-06-02T09:33:13.729Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -11,12 +11,19 @@
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
     <entry>
-        <title type="html"><![CDATA[原子引用]]></title>
+        <title type="html"><![CDATA[原子引用和ABA问题]]></title>
         <id>https://huran111.github.io/post/yuan-zi-yin-yong</id>
         <link href="https://huran111.github.io/post/yuan-zi-yin-yong">
         </link>
         <updated>2019-06-02T08:36:59.000Z</updated>
-        <content type="html"><![CDATA[<p>1</p>
+        <content type="html"><![CDATA[<ul>
+<li>原子引用
+<img src="https://huran111.github.io/post-images/1559465629149.png" alt=""></li>
+<li>原子引用+版本号（解决ABA问题）类似版本号</li>
+<li>ABA产生演示：
+<img src="https://huran111.github.io/post-images/1559466969163.png" alt="">
+<img src="https://huran111.github.io/post-images/1559467989470.png" alt=""></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
