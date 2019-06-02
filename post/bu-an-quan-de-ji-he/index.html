@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>生有涯-知无涯</title>
+<title>不安全的集合 | 生有涯-知无涯</title>
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -23,6 +29,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
@@ -76,145 +83,68 @@
   </div>
 </nav>
 
-
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
+          <article class="article">
+            <h1>不安全的集合</h1>
+            <p class="article-meta">
+              2019-06-02
+              
+                <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge warning">
+                  集合
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>ArrayLis
+<img src="https://huran111.github.io/post-images/1559471218693.png" alt="">
+<ul>
+<li>排除异常为：ConcurrentModificationException</li>
+<li>解决
+<ul>
+<li>List<String> list = Collections.synchronizedList(new ArrayList&lt;&gt;());</li>
+<li>List<String> list =new CopyOnWriteArrayList&lt;&gt;(); (使用与读多写少，否则很慢)</li>
+<li>CopyOnWriteArrayList</li>
+<li></li>
+</ul>
+</li>
+<li>导致的原因
++</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
           
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/elastic-job-fen-bu-shi-ding-shi-ren-wu-kuang-jia-shi-zhan">Elastic-Job——分布式定时任务框架实战</a>
-    </h2>
-    <p class="article-meta">
-      2019-05-28
-      
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge success">
-          框架
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/elastic-job-fen-bu-shi-ding-shi-ren-wu-kuang-jia-shi-zhan" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/mysql1-suo-yin">Mysql-索引（1）</a>
-    </h2>
-    <p class="article-meta">
-      2019-05-28
-      
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
-          Mysql
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/mysql1-suo-yin" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/java-duo-xian-cheng-bi-ji">Thread</a>
-    </h2>
-    <p class="article-meta">
-      2019-05-28
-      
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
-          Java多线程
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/java-duo-xian-cheng-bi-ji" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/volatile是什么？">volatile是什么？</a>
-    </h2>
-    <p class="article-meta">
-      2018-10-19
-      
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
-          Java多线程
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/volatile是什么？" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/cas-shi-shi-me">CAS是什么？</a>
-    </h2>
-    <p class="article-meta">
-      2018-09-12
-      
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
-          Java多线程
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/cas-shi-shi-me" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/yuan-zi-yin-yong">
+                <h3 class="post-title">
+                  原子引用和ABA问题
+                </h3>
+              </a>
+            </div>
+          
         </div>
         
-        <div class="row flex-edges">
-  
-    <a href="https://huran111.github.io/" class="paper-btn">
-      上一页
-    </a>
-  
-  
-</div>
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
-      
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://huran111.github.io/images/avatar.png?v=1559472681774" class="no-responsive avatar">
@@ -319,11 +249,11 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge success">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge warning">
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
           Java多线程
         </a>
       
@@ -331,11 +261,11 @@
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge success">
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
           Mysql
         </a>
       
@@ -350,7 +280,9 @@
   </div>
 </div>
 
+
     </div>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 <script type="application/javascript">
@@ -360,6 +292,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 

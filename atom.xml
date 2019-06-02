@@ -2,14 +2,40 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-02T10:26:31.133Z</updated>
+    <updated>2019-06-02T10:51:23.185Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
-    <subtitle>温故而知新-欢迎关注公众号《Java精选笔记》</subtitle>
+    <subtitle>知其然，知其所以然</subtitle>
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
+    <entry>
+        <title type="html"><![CDATA[不安全的集合]]></title>
+        <id>https://huran111.github.io/post/bu-an-quan-de-ji-he</id>
+        <link href="https://huran111.github.io/post/bu-an-quan-de-ji-he">
+        </link>
+        <updated>2019-06-02T10:26:33.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>ArrayLis
+<img src="https://huran111.github.io/post-images/1559471218693.png" alt="">
+<ul>
+<li>排除异常为：ConcurrentModificationException</li>
+<li>解决
+<ul>
+<li>List<String> list = Collections.synchronizedList(new ArrayList&lt;&gt;());</li>
+<li>List<String> list =new CopyOnWriteArrayList&lt;&gt;(); (使用与读多写少，否则很慢)</li>
+<li>CopyOnWriteArrayList</li>
+<li></li>
+</ul>
+</li>
+<li>导致的原因
++</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[原子引用和ABA问题]]></title>
         <id>https://huran111.github.io/post/yuan-zi-yin-yong</id>
@@ -522,108 +548,6 @@ Mysql事务启动方式有一下几种：</p>
 <p>在建立联合索引的时候，如何安排索引内的字符顺序？</p>
 <p>当有(a,b)两个联合索引后，一般就不需要单独在a上建立索引了，因此，第一原则是，如果通过调整顺序，可以少维护一个索引，那么这个顺序往往就是需要优先考虑采用的。</p>
 <p>那么，如果既有联合查询，又有基于 a、b 各自的查询呢？查询条件里面只有 b 的语句，是无法使用 (a,b) 这个联索引的，这时候你不得不维护另外一个索引，也就是说你需要同时维护 (a,b)、(b) 这两个索引。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Elastic-Job——分布式定时任务框架实战]]></title>
-        <id>https://huran111.github.io/post/elastic-job-fen-bu-shi-ding-shi-ren-wu-kuang-jia-shi-zhan</id>
-        <link href="https://huran111.github.io/post/elastic-job-fen-bu-shi-ding-shi-ren-wu-kuang-jia-shi-zhan">
-        </link>
-        <updated>2019-05-28T04:42:02.000Z</updated>
-        <content type="html"><![CDATA[<p>Elastic-Job是ddframe中dd-job的作业模块中分离出来的分布式弹性作业框架。去掉了和dd-job中的监控和ddframe接入规范部分。该项目基于成熟的开源产品Quartz和Zookeeper及其客户端Curator进行二次开发。 ddframe其他模块也有可独立开源的部分，之前当当曾开源过dd-soa的基石模块DubboX。 项目开源地址：https://github.com/dangdangdotcom/elastic-job
-Elastic-Job是ddframe中dd-job的作业模块中分离出来的分布式弹性作业框架。去掉了和dd-job中的监控和ddframe接入规范部分。该项目基于成熟的开源产品Quartz和Zookeeper及其客户端Curator进行二次开发。
-**Elastic-Job主要功能
-**定时任务： 基于成熟的定时任务作业框架Quartz cron表达式执行定时任务
-作业注册中心： 基于Zookeeper和其客户端Curator实现的全局作业注册控制中心。用于注册，控制和协调分布式作业执行。</p>
-<p>**作业分片： 将一个任务分片成为多个小任务项在多服务器上同时执行。</p>
-<p>**弹性扩容缩容： 运行中的作业服务器崩溃，或新增加n台作业服务器，作业框架将在下次作业执行前重新分片，不影响当前作业执行。</p>
-<p>**支持多种作业执行模式： 支持OneOff，Perpetual和SequencePerpetual三种作业模式。</p>
-<p>**失效转移： 运行中的作业服务器崩溃不会导致重新分片，只会在下次作业启动时分片。启用失效转移功能可以在本次作业执行过程中，监测其他作业服务器空闲，抓取未完成的孤儿分片项执行。</p>
-<p>**运行时状态收集： 监控作业运行时状态，统计最近一段时间处理的数据成功和失败数量，记录作业上次运行开始时间，结束时间和下次运行时间。</p>
-<p>**作业停止，恢复和禁用：用于操作作业启停，并可以禁止某作业运行（上线时常用）。</p>
-<p>被错过执行的作业重触发：自动记录错过执行的作业，并在上次作业完成后自动触发。可参考Quartz的misfire。</p>
-<p>**多线程快速处理数据：使用多线程处理抓取到的数据，提升吞吐量。</p>
-<p>**幂等性：重复作业任务项判定，不重复执行已运行的作业任务项。由于开启幂等性需要监听作业运行状态，对瞬时反复运行的作业对性能有较大影响。</p>
-<p>**容错处理：作业服务器与Zookeeper服务器通信失败则立即停止作业运行，防止作业注册中心将失效的分片分项配给其他作业服务器，而当前作业服务器仍在执行任务，导致重复执行。</p>
-<p>**Spring支持：支持spring容器，自定义命名空间，支持占位符。
-** 运维平台：提供运维界面，可以管理作业和注册中心。</p>
-<h3 id="目录结构说明">目录结构说明</h3>
-<p>lastic-job-core</p>
-<p>elastic-job核心模块，只通过Quartz和Curator就可执行分布式作业。</p>
-<p>elastic-job-spring</p>
-<p>elastic-job对spring支持的模块，包括命名空间，依赖注入，占位符等。</p>
-<p>elastic-job-console</p>
-<p>elastic-job web控制台，可将编译之后的war放入tomcat等servlet容器中使用。</p>
-<p>elastic-job-example</p>
-<p>使用例子。</p>
-<p>elastic-job-test</p>
-<p>测试elastic-job使用的公用类，使用方无需关注。
-下面进行实战案例：
-本案例是SpringBoot+Jpa+Zookeeper+Elastic-job进行讲解。案例代码已经放到本人GitHub上面，地址为：https://github.com/huran111/elastic-job 可自行下载运行。
-(1)项目准备。</p>
-<p>1.1 新建三个一样的spring boot项目，在实际生产中 分别部署在三台服务器上。
-<img src="https://huran111.github.io/post-images/1559018656404.png" alt="">
-1.2 安装zookeeper，安装非常简单，可百度，实际生产可部署三台zookeeper集群做高可用，本项目安装一台作为讲解用。
-1.3 引入jar.
-<img src="https://huran111.github.io/post-images/1559018719225.png" alt="">
-1.4 配置参数
-application.yum
-<img src="https://huran111.github.io/post-images/1559018739375.png" alt="">
-application-dev.yum  具体配置在GitHub上。
-<img src="https://huran111.github.io/post-images/1559018752312.png" alt="">
-<img src="https://huran111.github.io/post-images/1559018762594.png" alt="">
-1.5 配置Job.xml
-1.5.1 在启动类上面加入注解
-<img src="https://huran111.github.io/post-images/1559018787851.png" alt="">
-1.5.2 Job.xml详细配置
-<img src="https://huran111.github.io/post-images/1559018803717.png" alt="">
-这里三台服务器分成了9片
-<img src="https://huran111.github.io/post-images/1559018950785.png" alt="">
-(2).数据准备。<br>
-实体类：
-<img src="https://huran111.github.io/post-images/1559018964639.png" alt="">
-（3）生成100条数据，实际场景数据可能会更多（1000万条也是有可能的）。
-<img src="https://huran111.github.io/post-images/1559018985931.png" alt="">
-(4)运行测试用例可以看到数据已经插入成功，其中random字段作为随机数，不是业务字段，只来后序的分片处理。
-<img src="https://huran111.github.io/post-images/1559019000076.png" alt="">
-（5）验证
-5.1 启动服务器server-01，指定10秒后执行。
-可以看到分片数量：0,1,2,3,4,5,6,7,8
-<img src="https://huran111.github.io/post-images/1559019023412.png" alt="">
-5.2启动服务器server-02，同样指定10秒后执行。
-可以看到分片数量：0,1,2,3,4，8
-<img src="https://huran111.github.io/post-images/1559019036213.png" alt="">
-而此时server-01的分片数量自动变为：4,5,6,7
-<img src="https://huran111.github.io/post-images/1559019045770.png" alt="">
-5.3 下面我们在启动第三台服务器server-03:
-可以看到分片数量：6,7,8
-<img src="https://huran111.github.io/post-images/1559019054861.png" alt="">
-而此时server-01和server-02有什么变化呢？
-<img src="https://huran111.github.io/post-images/1559019064557.png" alt="">
-可以看到server-01变成了3,4,5，server-02变成了 0,1,2
-<img src="https://huran111.github.io/post-images/1559019079952.png" alt="">
-5.4 下面我们关闭一台机器，比如server-03:
-<img src="https://huran111.github.io/post-images/1559019089909.png" alt="">
-再来查看分片数量;
-<img src="https://huran111.github.io/post-images/1559019100068.png" alt="">
-什么情况？ 这是基于zookeeper的调度算法，来进行自动分片的，当有一台机器挂了或者加入了会自动分配数量。从而实现分布式调度以及处理大数据量的数据。 分片策略可以看：https://blog.csdn.net/tanga842428/article/details/52689119这篇文章</p>
-<p>真正的企业里面怎么用的呢？
-还记得刚才模拟的100条数据吧 。正常企业中可能会有几百万或者千万的数据，这里来模拟100条数据怎么分布式处理。</p>
-<p>Job类编写如下：实现SimpleJob接口
-<img src="https://huran111.github.io/post-images/1559019122344.png" alt="">
-分别启动三台服务：查看处理数据情况
---------------------------------------------server-01---------------------------------------------</p>
-<p><img src="https://huran111.github.io/post-images/1559019131188.png" alt="">
-------------------------------------------------server-02------------------------------------------</p>
-<p><img src="https://huran111.github.io/post-images/1559019139364.png" alt="">
-------------------------------------------------server-03----------------------------------------
-<img src="https://huran111.github.io/post-images/1559019146096.png" alt=""></p>
-<p>可以看到 三台服务分别处理了这100条数据，这就是分布式调度的意思。在大数据处理中，可以结合该框架，将同一个项目部署在多台机器上，同属处理大数据量的数据，再结合多线程技术,大大增加了效率。</p>
-<p>扩展：如果数据多达千万级，此时对mysql的性能影响会很大，此时建议使用ElasticSearch分布式搜索引擎存储读写频率高的数据。主要定时业务可使用Redis作为分布式锁避免重复执行。</p>
-<p>---------------------------------------------控制搭建-----------------------------------------------
-控制台手动触发任务：
-<img src="https://huran111.github.io/post-images/1559019158960.png" alt="">
-<img src="https://huran111.github.io/post-images/1559019165136.png" alt=""></p>
 ]]></content>
     </entry>
 </feed>
