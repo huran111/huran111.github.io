@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559439737021">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559442095207">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://huran111.github.io">
-        <img src="https://huran111.github.io/images/avatar.png?v=1559439737021" class="site-logo">
+        <img src="https://huran111.github.io/images/avatar.png?v=1559442095207" class="site-logo">
         <h1 class="site-title">大千世界</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -118,6 +118,18 @@
 <li>硬盘&lt;内存&lt;CPU
 CPU和内存之间有缓存cache
 <img src="https://huran111.github.io/post-images/1559439468009.png" alt=""></li>
+<li>为什么volatile不能保证原子性？
+<img src="https://huran111.github.io/post-images/1559441127719.png" alt="">
+<img src="https://huran111.github.io/post-images/1559441320427.png" alt="">
+<img src="https://huran111.github.io/post-images/1559441909459.png" alt=""></li>
+<li>一个n++操作字节码指令执行了三步：
+<ul>
+<li>getfield :获取指定类的实例域，并将其值压入栈顶 (获取初始值 0)</li>
+<li>iconst_1:int型常量值1进栈</li>
+<li>iadd:栈顶两int型数值相加，并且结果进栈</li>
+<li>putfield:为指定的类的实例域赋值 写会主内存</li>
+</ul>
+</li>
 </ul>
 
             </div>
