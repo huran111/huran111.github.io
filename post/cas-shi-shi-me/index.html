@@ -7,7 +7,7 @@
 <meta name="description" content="温故而知新-欢迎关注公众号《Java精选笔记》">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559461814031">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559463557393">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2018-09-12
               
-                <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+                <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
                   Java多线程
                 </a>
               
@@ -99,19 +99,36 @@
             
             <div class="post-content">
               <ul>
-<li>比较和交换</li>
-<li>底层依赖unsafe类
+<li>
+<p>比较和交换</p>
+</li>
+<li>
+<p>底层依赖unsafe类</p>
 <ul>
 <li>AtomicInteger
 <img src="https://huran111.github.io/post-images/1559460747278.png" alt=""></li>
 </ul>
 </li>
-<li>Unsafe类是CAS的核心类，基于该类可以直接操作特定内存的数据，Unsafe类存在于sun.misc包中，其中内部方法可以像C的指针一样直接操作内存，因为Java中CAS操作的执行依赖于Unsafe类的方法。
+<li>
+<p>Unsafe类是CAS的核心类，基于该类可以直接操作特定内存的数据，Unsafe类存在于sun.misc包中，其中内部方法可以像C的指针一样直接操作内存，因为Java中CAS操作的执行依赖于Unsafe类的方法。</p>
 <ul>
 <li>类中所有的方法都是native修饰的，直接调用操作系统底层资源执行相应的任务。</li>
 <li>JVM会帮我们实现初CAS汇编指令，CAS是一种系统原语，也就是说CAS是是一条CPU的原子指令，不会造成数据不一致问题。
 <img src="https://huran111.github.io/post-images/1559461811364.png" alt=""></li>
 </ul>
+</li>
+<li>
+<p>假设A和B两个线程同时执行getAndAddInt操作（分别跑在不同的CPU上）</p>
+<ul>
+<li>AtomicInteger里面的值为3，即主内存中的值为3，根据JMM模型，A和B线程各自持   + 有一个值为3的value的副本分别到各自的工作内存。</li>
+<li>线程A通过getIntvolatile(var1,var2)拿到value的值3，这时A被挂起。</li>
+<li>线程B通过getIntvolatile(var1,var2)拿到value的值3，这时B没有被挂起，一比较为true加个1，成功修改为内存值为4，OK</li>
+<li>此时A被唤醒，此时3和主内存的4不一致，修改失败，只能重新读取，在比较一次。由于value是被volatile修饰的，其他线程是可见的，因此，执行compareAndSwapInt，直到成功。
+<img src="https://huran111.github.io/post-images/1559463428894.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>CAS有3个操作数，内存值V,旧的预期值A,要修改的更新值B.当且仅当预期值A和内存值V相同时候，将内存值修改为更新值B，否则什么都不做。</p>
 </li>
 </ul>
 
@@ -134,7 +151,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1559461814031" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1559463557393" class="no-responsive avatar">
     <div class="text-muted">温故而知新-欢迎关注公众号《Java精选笔记》</div>
     <div class="social-container">
       
@@ -232,7 +249,7 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge ">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
           Java多线程
         </a>
       
@@ -240,7 +257,7 @@
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge success">
           Spring Cloud
         </a>
       
@@ -248,7 +265,7 @@
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge success">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
           框架
         </a>
       
