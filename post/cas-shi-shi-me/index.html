@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>nginx | 静净敬</title>
+<title>CAS是什么？ | 静净敬</title>
 <meta name="description" content="温故而知新-欢迎关注公众号《Java精选笔记》">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -23,6 +29,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://huran111.github.io">静净敬</a></h3>
@@ -79,64 +86,51 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: nginx</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming">nginx基本配置与参数说明</a>
-    </h2>
-    <p class="article-meta">
-      2019-05-30
-      
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
-          nginx
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+          <article class="article">
+            <h1>CAS是什么？</h1>
+            <p class="article-meta">
+              2018-09-12
+              
+                <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
+                  Java多线程
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>比较和交换</li>
+<li>底层依赖unsafe类
+<ul>
+<li>AtomicInteger
+<img src="https://huran111.github.io/post-images/1559460747278.png" alt=""></li>
+</ul>
+</li>
+<li>Unsafe类是CAS的核心类，基于该类可以直接操作特定内存的数据，Unsafe类存在于sun.misc包中，其中内部方法可以像C的指针一样直接操作内存，因为Java中CAS操作的执行依赖于Unsafe类的方法。
+<ul>
+<li>类中所有的方法都是native修饰的，直接调用操作系统底层资源执行相应的任务。</li>
+<li></li>
+</ul>
+</li>
+</ul>
 
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/nginxyi">Nginx（一）</a>
-    </h2>
-    <p class="article-meta">
-      2019-05-30
-      
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
-          nginx
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/nginxyi" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-  
-</div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://huran111.github.io/images/avatar.png?v=1559461170628" class="no-responsive avatar">
@@ -237,11 +231,11 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
           nginx
         </a>
       
@@ -253,7 +247,7 @@
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
           框架
         </a>
       
@@ -263,6 +257,7 @@
     Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
+
 
     </div>
 
@@ -275,6 +270,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
