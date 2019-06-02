@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
-    <title>大千世界</title>
-    <updated>2019-06-02T02:21:36.577Z</updated>
+    <title>静，净，敬</title>
+    <updated>2019-06-02T03:43:10.125Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
     <subtitle>温故而知新-欢迎关注公众号《Java精选笔记》</subtitle>
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2019, 大千世界</rights>
+    <rights>All rights reserved 2019, 静，净，敬</rights>
     <entry>
         <title type="html"><![CDATA[volatile是什么？]]></title>
         <id>https://huran111.github.io/post/volatile是什么？</id>
@@ -38,6 +38,21 @@ CPU和内存之间有缓存cache
 <li>iconst_1:int型常量值1进栈</li>
 <li>iadd:栈顶两int型数值相加，并且结果进栈</li>
 <li>putfield:为指定的类的实例域赋值 写会主内存</li>
+</ul>
+</li>
+<li>如何解决？
+<ul>
+<li>synchronized</li>
+<li>AtomicInteger</li>
+</ul>
+</li>
+<li>指令重排序
+<img src="https://huran111.github.io/post-images/1559446684850.png" alt="">
+<ul>
+<li>单线程环境里面确保程序最终执行结果和代码顺序的结果一致。</li>
+<li>处理器在进行重排序时必须考虑指令之间的数据依赖性。</li>
+<li>多线程环境中线程交替 执行，由于编译器优化重排的存在，两个线程中使用变量能否保证一致性是无法确定的，结果无法预测。</li>
+<li></li>
 </ul>
 </li>
 </ul>

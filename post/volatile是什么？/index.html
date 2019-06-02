@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>volatile是什么？ | 大千世界</title>
+<title>volatile是什么？ | 静，净，敬</title>
 <meta name="description" content="温故而知新-欢迎关注公众号《Java精选笔记》">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559442095207">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559446987967">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
@@ -36,8 +36,8 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://huran111.github.io">
-        <img src="https://huran111.github.io/images/avatar.png?v=1559442095207" class="site-logo">
-        <h1 class="site-title">大千世界</h1>
+        <img src="https://huran111.github.io/images/avatar.png?v=1559446987967" class="site-logo">
+        <h1 class="site-title">静，净，敬</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
         <div class="line"></div>
@@ -128,6 +128,21 @@ CPU和内存之间有缓存cache
 <li>iconst_1:int型常量值1进栈</li>
 <li>iadd:栈顶两int型数值相加，并且结果进栈</li>
 <li>putfield:为指定的类的实例域赋值 写会主内存</li>
+</ul>
+</li>
+<li>如何解决？
+<ul>
+<li>synchronized</li>
+<li>AtomicInteger</li>
+</ul>
+</li>
+<li>指令重排序
+<img src="https://huran111.github.io/post-images/1559446684850.png" alt="">
+<ul>
+<li>单线程环境里面确保程序最终执行结果和代码顺序的结果一致。</li>
+<li>处理器在进行重排序时必须考虑指令之间的数据依赖性。</li>
+<li>多线程环境中线程交替 执行，由于编译器优化重排的存在，两个线程中使用变量能否保证一致性是无法确定的，结果无法预测。</li>
+<li></li>
 </ul>
 </li>
 </ul>
