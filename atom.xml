@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-03T00:48:45.623Z</updated>
+    <updated>2019-06-03T01:16:48.797Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -16,7 +16,15 @@
         <link href="https://huran111.github.io/post/zi-xuan-suo">
         </link>
         <updated>2019-06-03T00:48:31.000Z</updated>
-        <content type="html"><![CDATA[<p>1</p>
+        <content type="html"><![CDATA[<h3 id="自旋锁">自旋锁</h3>
+<ul>
+<li>是指尝试获取的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，这样的好处就是减少线程上下文切换的消耗，缺点是循环会消耗CPU.
+<img src="https://huran111.github.io/post-images/1559523394198.png" alt=""></li>
+<li>手写一个自旋锁
+<img src="https://huran111.github.io/post-images/1559524541420.png" alt="">
+<img src="https://huran111.github.io/post-images/1559524551437.png" alt=""></li>
+<li></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
