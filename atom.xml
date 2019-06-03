@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>C:/Users/BUCHU/Documents/Gridea/output</id>
+    <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-03T06:21:24.581Z</updated>
+    <updated>2019-06-03T11:23:40.946Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="C:/Users/BUCHU/Documents/Gridea/output"/>
-    <link rel="self" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml"/>
+    <link rel="alternate" href="https://huran111.github.io"/>
+    <link rel="self" href="https://huran111.github.io/atom.xml"/>
     <subtitle>知其然，知其所以然</subtitle>
-    <logo>C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png</logo>
-    <icon>C:/Users/BUCHU/Documents/Gridea/output/favicon.ico</icon>
+    <logo>https://huran111.github.io/images/avatar.png</logo>
+    <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
     <entry>
         <title type="html"><![CDATA[阻塞队列]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/zu-sai-dui-lie/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/zu-sai-dui-lie/index.html">
+        <id>https://huran111.github.io/post/zu-sai-dui-lie</id>
+        <link href="https://huran111.github.io/post/zu-sai-dui-lie">
         </link>
         <updated>2019-06-03T02:14:25.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -47,56 +47,56 @@
 </li>
 <li>
 <p>BlockingQueue的核心方法
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559530754157.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559530901249.png" alt=""></p>
+<img src="https://huran111.github.io/post-images/1559530754157.png" alt="">
+<img src="https://huran111.github.io/post-images/1559530901249.png" alt=""></p>
 </li>
 <li>
 <p>队列满了报异常，队列空了报异常</p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559531013086.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559531013086.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559531060863.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559531060863.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559531074612.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559531074612.png" alt=""></p>
 </li>
 <li>
 <p>不报异常</p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559531230279.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559531230279.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559531357483.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559531357483.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559531551838.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559531551838.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559531793101.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559531793101.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559532132591.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559532132591.png" alt=""></p>
 </li>
 <li>
 <p>SynchronusQueue</p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559532512220.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559532512220.png" alt=""></p>
 </li>
 <li>
 <p>两个线程一个加一个减</p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559540593074.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559540593074.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559540599595.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559540599595.png" alt=""></p>
 </li>
 <li>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559540605293.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559540605293.png" alt=""></p>
 </li>
 <li>
 <p>synchronizd和lock的区别</p>
@@ -110,27 +110,42 @@
 </li>
 <li>
 <p>A-B-C三个线程相互调用
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559542850687.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559542858546.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559542870155.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559542881257.png" alt=""></p>
+<img src="https://huran111.github.io/post-images/1559542850687.png" alt="">
+<img src="https://huran111.github.io/post-images/1559542858546.png" alt="">
+<img src="https://huran111.github.io/post-images/1559542870155.png" alt="">
+<img src="https://huran111.github.io/post-images/1559542881257.png" alt=""></p>
+</li>
+<li>
+<p>阻塞队列版本</p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559560990288.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559561001147.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559561007626.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559561012205.png" alt=""></p>
 </li>
 </ul>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[自旋锁，独占锁，共享锁]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/zi-xuan-suo/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/zi-xuan-suo/index.html">
+        <id>https://huran111.github.io/post/zi-xuan-suo</id>
+        <link href="https://huran111.github.io/post/zi-xuan-suo">
         </link>
         <updated>2019-06-03T00:48:31.000Z</updated>
         <content type="html"><![CDATA[<h3 id="自旋锁">自旋锁</h3>
 <ul>
 <li>是指尝试获取的线程不会立即阻塞，而是采用循环的方式去尝试获取锁，这样的好处就是减少线程上下文切换的消耗，缺点是循环会消耗CPU.
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559523394198.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559523394198.png" alt=""></li>
 <li>手写一个自旋锁
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559524541420.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559524551437.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559524541420.png" alt="">
+<img src="https://huran111.github.io/post-images/1559524551437.png" alt=""></li>
 </ul>
 <h3 id="独占锁">独占锁</h3>
 <ul>
@@ -143,10 +158,10 @@
 <li>读写锁案例
 <ul>
 <li>读读可共存，读写，写写不可共存
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559527061678.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559527068671.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559527075194.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559527118621.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559527061678.png" alt="">
+<img src="https://huran111.github.io/post-images/1559527068671.png" alt="">
+<img src="https://huran111.github.io/post-images/1559527075194.png" alt="">
+<img src="https://huran111.github.io/post-images/1559527118621.png" alt=""></li>
 </ul>
 </li>
 </ul>
@@ -154,13 +169,13 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[不安全的集合]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/bu-an-quan-de-ji-he/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/bu-an-quan-de-ji-he/index.html">
+        <id>https://huran111.github.io/post/bu-an-quan-de-ji-he</id>
+        <link href="https://huran111.github.io/post/bu-an-quan-de-ji-he">
         </link>
         <updated>2019-06-02T10:26:33.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>ArrayLis
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559471218693.png" alt="">
+<img src="https://huran111.github.io/post-images/1559471218693.png" alt="">
 <ul>
 <li>排除异常为：ConcurrentModificationException</li>
 <li>解决
@@ -180,58 +195,58 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[原子引用和ABA问题]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/yuan-zi-yin-yong/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/yuan-zi-yin-yong/index.html">
+        <id>https://huran111.github.io/post/yuan-zi-yin-yong</id>
+        <link href="https://huran111.github.io/post/yuan-zi-yin-yong">
         </link>
         <updated>2019-06-02T08:36:59.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>原子引用
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559465629149.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559465629149.png" alt=""></li>
 <li>原子引用+版本号（解决ABA问题）类似版本号</li>
 <li>ABA产生演示：
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559466969163.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559467989470.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559466969163.png" alt="">
+<img src="https://huran111.github.io/post-images/1559467989470.png" alt=""></li>
 </ul>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[单利模式下可能存在的安全性问题]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti/index.html">
+        <id>https://huran111.github.io/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti</id>
+        <link href="https://huran111.github.io/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti">
         </link>
         <updated>2019-06-02T06:15:07.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>第一种
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559456638703.png" alt="">
+<img src="https://huran111.github.io/post-images/1559456638703.png" alt="">
 <ul>
 <li>单线程下加上synchronized可以解决该问题，但是在高并发情况下，很消耗性能</li>
 </ul>
 </li>
 <li>DCL(双重检查锁)
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559456993966.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559456993966.png" alt=""></li>
 <li>双端检锁机制不一定安全，原因是指令重排序，在于某一个线程执行到第一次检测，读取到instance不为null时，instance的引用对象可能没有完成初始化。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559458772074.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559458772074.png" alt=""></li>
 </ul>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[工厂模式]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/gong-han-mo-shi/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/gong-han-mo-shi/index.html">
+        <id>https://huran111.github.io/post/gong-han-mo-shi</id>
+        <link href="https://huran111.github.io/post/gong-han-mo-shi">
         </link>
         <updated>2019-05-31T01:54:53.000Z</updated>
         <content type="html"><![CDATA[<pre><code>1.首先，我们明确一点，我们不应该针对实现编程，但是当我们每次使用new的时候，不正是在针对实现编程么？
 </code></pre>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559268374740.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1559268374740.png" alt=""></p>
 <ul>
 <li>认识变化的方面
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559269101158.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559269101158.png" alt=""></li>
 <li>但是压力就是来自于更多的披萨
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559269422754.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559269422754.png" alt=""></li>
 <li>现在我们已经知道了哪里会发生变化，是时候开始封装了
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559270009251.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559270009251.png" alt=""></li>
 <li>工厂处理创建对象的细节，一旦有了工厂，创建对象的时候，就叫工厂做一个，现在orderPizza()方法只是关心从工厂得到了一个披萨，而所有的类型披萨都实现了Pizza接口它们的bake(),cut(),box都可以通用。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559271214457.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559271214457.png" alt=""></li>
 <li>有人会问，这不还是一样么？只是把搬到另外一个对象里面罢了。
 <ul>
 <li>但是别忘了，SimplePizzaFactory可以有很多的客户，不仅仅只有orderPizza()这个方法，所以，当以后实现改变的时候，只需要修改这个类即可。</li>
@@ -239,18 +254,18 @@
 </ul>
 </li>
 <li>重做披萨类
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559271869245.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559271869245.png" alt=""></li>
 <li>定义简单工厂
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559272255417.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559272255417.png" alt=""></li>
 <li>如果有很多不同的披萨加盟店，根据地域不同风味也不同，怎么办？
 <ul>
 <li>我么可以写出三种不同的工厂，分别负责创建不同区域的披萨。（VarPizzaFactory,Var2PizzaFactory,Var3PizzaFactory）
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559272741289.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559272741289.png" alt=""></li>
 <li>我们把createPizza()方法放回到PizzaStore类中，把它设置为抽象。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559273553779.png" alt="">
+<img src="https://huran111.github.io/post-images/1559273553779.png" alt="">
 <ul>
 <li>现在已经有了一个PizzaStore作为超类，让每个区域的类型都继承这个超类，各自实现制造披萨。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559273831614.png" alt=""></li>
+<img src="https://huran111.github.io/post-images/1559273831614.png" alt=""></li>
 </ul>
 </li>
 </ul>
@@ -260,8 +275,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[nginx基本配置与参数说明]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming/index.html">
+        <id>https://huran111.github.io/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming</id>
+        <link href="https://huran111.github.io/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming">
         </link>
         <updated>2019-05-30T08:40:30.000Z</updated>
         <content type="html"><![CDATA[<p>#运行用户
@@ -377,8 +392,8 @@ server {
     </entry>
     <entry>
         <title type="html"><![CDATA[Nginx（一）]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/nginxyi/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/nginxyi/index.html">
+        <id>https://huran111.github.io/post/nginxyi</id>
+        <link href="https://huran111.github.io/post/nginxyi">
         </link>
         <updated>2019-05-30T08:11:59.000Z</updated>
         <content type="html"><![CDATA[<h4 id="nginx是什么">Nginx是什么</h4>
@@ -431,7 +446,7 @@ server {
 <li>
 <p>以epoll为例：当事件没有准备好时，就放入epoll(队列)里面。如果有事件准备好了，那么就去处理；如果事件返回的是EAGAIN，那么继续将其放入epoll里面。从而，只要有事件准备好了，我们就去处理她，只有当所有时间都没有准备好时，才在epoll里面等着。这样 ，我们就可以并发处理大量的并发了，当然，这里的并发请求，是指未处理完的请求，线程只有一个，所以同时能处理的请求当然只有一个了，只是在请求间进行不断地切换而已，切换也是因为异步事件未准备好，而主动让出的。这里的切换是没有任何代价，你可以理 解为循环处理多个准备好的事件，事实上就是这样的
 **Nginx内部的模型
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559205024191.png" alt=""></p>
+<img src="https://huran111.github.io/post-images/1559205024191.png" alt=""></p>
 </li>
 <li>
 <p>nginx在启动后，会有一个master进程和多个worker进程。master进程主要用来管理worker进程，包含：接收来自外界的信号，向各worker进程发送信号，监控 worker进程的运行状态,当worker进程退出后(异常情况下)，会自动重新启动新的worker进程。而基本的网 络事件，则是放在worker进程中来处理了 。多个worker进程之间是对等的，他们同等竞争来自客户端的请求，各进程互相之间是独立的 。一个请求，只可能在一个worker进程中处理，一个worker进程，不可能处理其它进程的请求。 worker进程的个数是可以设置的，一般我们会设置与机器cpu核数一致，这里面的原因与nginx的进程模型以及事件处理模型是分不开的</p>
@@ -462,12 +477,12 @@ server {
     </entry>
     <entry>
         <title type="html"><![CDATA[生成环境多线程使用]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/sheng-cheng-huan-jing-duo-xian-cheng-shi-yong/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/sheng-cheng-huan-jing-duo-xian-cheng-shi-yong/index.html">
+        <id>https://huran111.github.io/post/sheng-cheng-huan-jing-duo-xian-cheng-shi-yong</id>
+        <link href="https://huran111.github.io/post/sheng-cheng-huan-jing-duo-xian-cheng-shi-yong">
         </link>
         <updated>2019-05-29T03:29:01.000Z</updated>
         <content type="html"><![CDATA[<h3 id="threadpoolexecutor简介">ThreadPoolExecutor简介：</h3>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100567965.png" alt="">
+<p><img src="https://huran111.github.io/post-images/1559100567965.png" alt="">
 int corePoolSize：该线程池中核心线程数最大值</p>
 <p>核心线程：线程池新建线程的时候，如果当前线程总数小于corePoolSize，则新建的是核心线程，如果超过corePoolSize，则新建的是非核心线程核心线程默认情况下会一直存活在线程池中，即使这个核心线程啥也不干(闲置状态)。
 如果指定ThreadPoolExecutor的allowCoreThreadTimeOut这个属性为true，那么核心线程如果不干活(闲置状态)的话，超过一定时间(时长下面参数决定)，就会被销毁掉</p>
@@ -505,33 +520,33 @@ java.util.concurrent.Future对象为我们解决了这个问题。在线程池�
 <h3 id="semaphore">semaphore:</h3>
 <p>Semaphore是一种在多线程环境下使用的设施，该设施负责协调各个线程，以保证它们能够正确、合理的使用公共资源的设施，也是操作系统中用于控制进程同步互斥的量。
 **案例：
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100823289.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100829756.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100837942.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100843372.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100823289.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100829756.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100837942.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100843372.png" alt="">
 案例二：
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100853506.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100858927.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100853506.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100858927.png" alt="">
 可见耗时为：
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100867625.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100867625.png" alt="">
 案例三：使用多线程
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100877491.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100891871.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100877491.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100891871.png" alt="">
 耗时： 很明显 快了太多
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100903945.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100903945.png" alt="">
 在并发数目较多的场景下可以加入Semaphore:
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100913600.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100919322.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100913600.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100919322.png" alt="">
 扩展：开发小技巧
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100931806.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100938350.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100944837.png" alt=""></p>
+<img src="https://huran111.github.io/post-images/1559100931806.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100938350.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100944837.png" alt=""></p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Spring Cloud微服务-Eureka+Ribbon]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/spring-cloud-wei-fu-wu-eurekaribbon/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/spring-cloud-wei-fu-wu-eurekaribbon/index.html">
+        <id>https://huran111.github.io/post/spring-cloud-wei-fu-wu-eurekaribbon</id>
+        <link href="https://huran111.github.io/post/spring-cloud-wei-fu-wu-eurekaribbon">
         </link>
         <updated>2019-05-29T03:18:40.000Z</updated>
         <content type="html"><![CDATA[<p>Spring Cloud是什么？</p>
@@ -566,15 +581,15 @@ java.util.concurrent.Future对象为我们解决了这个问题。在线程池�
 <p>(2)构建工具--Maven--Gradle</p>
 <p>(3)Spring Boot</p>
 <p>服务提供者与服务消费者:
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559099978253.png" alt="">
+<img src="https://huran111.github.io/post-images/1559099978253.png" alt="">
 **务发现组件：Eureka
 1:什么事Eureka?</p>
 <p>(1)Eureka来自生产环境</p>
 <p>(2)Spring Cloud对Eureka支持很好</p>
 <p>Eureka是Netflix开发的服务发现框架，本身是一个基于REST的服务，主要用于定位运行在AWS域中的中间层服务，以达到负载均衡和中间层服务故障转移的目的。Spring Cloud将它集成在其子项目spring-cloud-netflix中，以实现Spring Cloud的服务发现功能。</p>
 <p>1:Eureka 原理
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100003664.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100009417.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100003664.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100009417.png" alt="">
 上图是来自Eureka官方的架构图，大致描述了Eureka集群的工作过程。由于图比较复杂，可能比较难看懂，这边用通俗易懂的语言翻译一下：
 Application Service 就相当于本书中的服务提供者（用户微服务），
 Application Client就相当于本书中的服务消费者（电影微服务）；</p>
@@ -595,23 +610,23 @@ Eureka还提供了客户端缓存的机制，即使所有的Eureka Server都挂�
 综上，Eureka通过心跳检测、健康检查、客户端缓存等机制，确保了系统的高可用性、灵活性和可伸缩性。
 实现Euraka Server和Client: 相关关代码已经放到GitHub上：
 https://github.com/huran111
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100120537.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100120537.png" alt="">
 可以看到 2个服务提供者一个消费者。</p>
 <p>学习可参考官方文档：https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.1.0.RC3/single/spring-cloud-netflix.html#netflix-eureka-client-starter 其余百度都扯淡
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100134858.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100134858.png" alt="">
 如下我们开启4个微服务，服务名称分别为：user-producter:8900,user-producter:8901,user-producter-2:7900,user-producter-2:7901
 一个消费端：user-consumer-ribbon
 注意请看官方文档这句话：
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100152997.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100152997.png" alt="">
 大致意思就是，配置RibbonClient的时候不能放在和启动类同一个包下。否则会覆盖所有RibbonClient其他配置策略。
 解决方法是自定义在注解，进行排除。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100202907.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100208028.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100214788.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100221099.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100230496.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100202907.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100208028.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100214788.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100221099.png" alt="">
+<img src="https://huran111.github.io/post-images/1559100230496.png" alt="">
 Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分别请求了四个服务。这里我们其请求了8次：结果如下
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100241470.png" alt=""></p>
+<img src="https://huran111.github.io/post-images/1559100241470.png" alt=""></p>
 ]]></content>
     </entry>
 </feed>
