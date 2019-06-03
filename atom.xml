@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-03T02:14:24.119Z</updated>
+    <updated>2019-06-03T02:14:48.697Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
+    <entry>
+        <title type="html"><![CDATA[阻塞队列]]></title>
+        <id>https://huran111.github.io/post/zu-sai-dui-lie</id>
+        <link href="https://huran111.github.io/post/zu-sai-dui-lie">
+        </link>
+        <updated>2019-06-03T02:14:25.000Z</updated>
+        <content type="html"><![CDATA[<p>1</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[自旋锁，独占锁，共享锁]]></title>
         <id>https://huran111.github.io/post/zi-xuan-suo</id>
@@ -504,51 +513,6 @@ https://github.com/huran111
 <img src="https://huran111.github.io/post-images/1559100230496.png" alt="">
 Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分别请求了四个服务。这里我们其请求了8次：结果如下
 <img src="https://huran111.github.io/post-images/1559100241470.png" alt=""></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mysql事务隔离]]></title>
-        <id>https://huran111.github.io/post/mysql-shi-wu-ge-chi</id>
-        <link href="https://huran111.github.io/post/mysql-shi-wu-ge-chi">
-        </link>
-        <updated>2019-05-29T03:09:31.000Z</updated>
-        <content type="html"><![CDATA[<p>隔离性和隔离级别</p>
-<p>事务，ACID，即原子性，一致性，隔离性，持久性。</p>
-<p>当数据库上有多个事务同时执行的时候，就可能出现脏读，不可重复读，幻读的问题，就有了隔离的感念。</p>
-<p>SQL标准的事务隔离级别包括：读未提交，读提交，可重复读，和串行化。</p>
-<p>读未提交：一个事务还没提交时，它做的变更就能被别的事务看到。</p>
-<p>读提交：一个事务提交之后，它做的变更才会被其他事务看到。</p>
-<p>可重复读：一个事务执行过程中看到的数据，总是跟这个事务在启动的时候看到的数据是一致的，在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</p>
-<p>串行化：对于同一行记录，写会加锁，读会加锁，当出现读写冲突的时候，后访问的事务必须等待前一个事务执行完成，才能继续执行。</p>
-<p>栗子，如下语句</p>
-<pre><code>       create table T(c int) engine=InnoDB;
-       insert into T(c) values(1);
-				 ![](https://huran111.github.io/post-images/1559099397233.png)
-</code></pre>
-<p>若隔离级别是读未提交，则V1的值就是2，这时候事务B虽然还没有提交，但是结果已经被A看到了，因此，V2,V3也都是2</p>
-<p>若隔离级别是读提交，则V1是1，V2的值是2，事务B的更新在提交后才能被A看到，所以，V3的值也是2</p>
-<p>若隔离级别是可重复读，则V1,V2是1，V3是2，之所以V2还是1，遵循的就是这个要求：事务在执行期间看到数据前后必须是一致的</p>
-<p>若隔离级别是串行化，则在事务B执行将1改成2的时候，会被锁住，直到事务A提交后，事务B才可以继续执行，所以从A的角度看，V1,V2值是1，V3值是2</p>
-<p>在实现上，数据流里面对创建一个视图，访问的时候以视图的逻辑结果为准，在可重复读，隔离级别下，这个视图在事务启动时创建的，整个事务存在期间都用这个视图，在读提交隔离级别下，这个视图是在每个sql语句开始执行的时候创建的，这里需要注意的是，读未提交隔离级别下直接返回记录上的最新值，没有视图概念，而串行化直接用加锁的方式来避免并行访问。
-**事务隔离的实现
-以可重读读为例：</p>
-<p>在MySql中，实际上每条记录在更新的时候都会同时记录一条回滚操作，记录上的最新值，通过回滚操作，都可以得到前一个状态的值。</p>
-<p>假设一个值从1被按照顺序改成 了2，3，4在回滚日志里面就会有类似下面的记录。
-<img src="https://huran111.github.io/post-images/1559099440259.png" alt="">
-当前值是4，但是查询这条记录的时候，不同时刻启动是事务会有不同的read-view,如图，在视图A,B,C里面，这一个记录的值分别是1，2，4，同一条记录在系统中可以存多个版本，就是数据库的多版本并发控制，对于read-viewA，要得到1，就必须将当前值依次执行图中所有的回滚操作得到。</p>
-<p>回滚日志在不需要的时候才删除，系统会判断，当没有事务在需要用到这写回滚日志的时候，就会删除。</p>
-<p>在Mysql5.5以及以前的版本，回滚日志是跟数据字典放在ibdata文件里的，即使长事务最终提交，回滚段被清理，文件也不会变小，长事务会占用锁资源，可能拖垮整个库。
-**事务的启动方式
-Mysql事务启动方式有一下几种：</p>
-<p>显式的启动事务语句，begin或者start  transaction，配套的提交语句是commit，回滚语句是rollback。</p>
-<p>set autocommit=0 这个命令会将这个线程的自动提交关闭，意味着如果你执行一个select语句，这个事务就启动了，而且并不会自动提交，这个事务持续存在直到你主动执行commit或者rollback语句，或者断开连接。</p>
-<p>有些客户端连接框架会默认连接成功后先执行一个set autocommit=0的I命令，这就导致下来查询都在事务中，如果是长连接，就导致了意外的长事务。因此，建议使用set autocommit=1，通过显式语句方式来启动事务。</p>
-<p>可以在information_schema库的 innodb_trx这个表中查询长事务
-**为什么不建议使用长事务？以mysql默认级别可重复读为例。
-比如，在某个时刻（今天上午9：00点）开启了一个事务（对于可重复隔离别，此时一个视图 read-viewA也创建了）这是一个很长的事务.....</p>
-<p>事务A在今天早上9：20的时候，查询了一个记录R1的一个字段f1的值为1......</p>
-<p>今天早上9：25的时候，一个事务B（随之而来的read-viewB）也被开启了，它更新了R1.f1的值为2（同时也创建了一个由2到1 的回滚日志），这是一个短事务，事务随后就被commit了。</p>
-<p>到了下午六点，长事务A还没有呗commit,为了保证事务在执行期间看到的数据在前后必须是一致的。那些老的事务视图，回滚日志就必须存在了，这就占用了大量的存储空间.</p>
 ]]></content>
     </entry>
 </feed>
