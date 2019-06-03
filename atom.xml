@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-02T10:54:18.748Z</updated>
+    <updated>2019-06-03T00:48:45.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,15 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
+    <entry>
+        <title type="html"><![CDATA[自旋锁]]></title>
+        <id>https://huran111.github.io/post/zi-xuan-suo</id>
+        <link href="https://huran111.github.io/post/zi-xuan-suo">
+        </link>
+        <updated>2019-06-03T00:48:31.000Z</updated>
+        <content type="html"><![CDATA[<p>1</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[不安全的集合]]></title>
         <id>https://huran111.github.io/post/bu-an-quan-de-ji-he</id>
@@ -515,39 +524,6 @@ Mysql事务启动方式有一下几种：</p>
 <p>事务A在今天早上9：20的时候，查询了一个记录R1的一个字段f1的值为1......</p>
 <p>今天早上9：25的时候，一个事务B（随之而来的read-viewB）也被开启了，它更新了R1.f1的值为2（同时也创建了一个由2到1 的回滚日志），这是一个短事务，事务随后就被commit了。</p>
 <p>到了下午六点，长事务A还没有呗commit,为了保证事务在执行期间看到的数据在前后必须是一致的。那些老的事务视图，回滚日志就必须存在了，这就占用了大量的存储空间.</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mysql-索引（2）]]></title>
-        <id>https://huran111.github.io/post/mysql-suo-yin-2</id>
-        <link href="https://huran111.github.io/post/mysql-suo-yin-2">
-        </link>
-        <updated>2019-05-28T10:24:06.000Z</updated>
-        <content type="html"><![CDATA[<p>在下面的表中，执行select * from T where k between 3 and 5,需要执行几次树的搜索操作，会扫描多少行？
-<img src="https://huran111.github.io/post-images/1559039084517.png" alt="">
-<img src="https://huran111.github.io/post-images/1559039090493.png" alt="">
-这条SQL查询语句的执行流程为</p>
-<p>在A索引树上找到A=3的记录，取得ID=300</p>
-<p>再到ID索引树查到ID=300对应的A3</p>
-<p>再回到A索引数取下一个值5，取得ID=600</p>
-<p>再回到ID索引树查到ID=600对应的A5</p>
-<p>在K索引树取下一个值A=6,不满足条件，循环结束</p>
-<p>在这个过程中，回到主键索引树搜索的过程，为回表。这个例子中查询结果所需要的数据只在主键索引上有，所以不得不回表，那么，有没有可能经过索引优化，避免回表的过程呢？
-**覆盖索引
-如果执行的语句为select id from T where k between 3 and 5 这时只需要查询Id的值，而ID的值已经在A索引树上了，因此直接提供查询结果，不需要回表，在这个查询里面，索引 A已经“覆盖”了我们的查询需求，我们称为覆盖索引。</p>
-<p>由于覆盖索引减少了树的搜索次数，性能显著提升，所以使用覆盖索引是一个常用的性能优化手段。
-栗子：</p>
-<p>学生表定义
-<img src="https://huran111.github.io/post-images/1559039165559.png" alt="">
-学号是学生的唯一标识，如果有根据学号查询学生的信息，只要在学号这个字段上建立索引就够了，在建立一个（学号，姓名）的联合索引，是不是有点浪费空间？</p>
-<p>B+树这种索引结构，可以利用索引的最左前缀，来定位记录。
-可以看到，索引项是按照索引定义里面出现的字段顺序排序的。</p>
-<p>当查到所有名字是张三的人时，可以快速定位到ID4，饭后向后遍历得到所有需要的结果。</p>
-<p>当你查到所有名字第一个字为张的人，SQL语句为‘张%’,也能用上这个索引</p>
-<p>只要满足最左前缀，就可以利用索引加速检索，这个前缀索引可以使联合索引的最左N个字段，也可以是字符串索引的最左M个字符。</p>
-<p>在建立联合索引的时候，如何安排索引内的字符顺序？</p>
-<p>当有(a,b)两个联合索引后，一般就不需要单独在a上建立索引了，因此，第一原则是，如果通过调整顺序，可以少维护一个索引，那么这个顺序往往就是需要优先考虑采用的。</p>
-<p>那么，如果既有联合查询，又有基于 a、b 各自的查询呢？查询条件里面只有 b 的语句，是无法使用 (a,b) 这个联索引的，这时候你不得不维护另外一个索引，也就是说你需要同时维护 (a,b)、(b) 这两个索引。</p>
 ]]></content>
     </entry>
 </feed>
