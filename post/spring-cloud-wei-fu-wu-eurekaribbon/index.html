@@ -7,12 +7,12 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559618509003">
+<link rel="shortcut icon" href="C:/Users/BUCHU/Documents/Gridea/output/favicon.ico?v=1559639266547">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+<link rel="stylesheet" href="C:/Users/BUCHU/Documents/Gridea/output/styles/main.css">
 
 
   
@@ -32,7 +32,7 @@
   
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
-    <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
+    <h3><a href="C:/Users/BUCHU/Documents/Gridea/output">生有涯-知无涯</a></h3>
   </div>
   <div class="collapsible">
     <input id="collapsible1" type="checkbox" name="collapsible1">
@@ -48,7 +48,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 首页
               </a>
             
@@ -72,7 +72,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 关于
               </a>
             
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-05-29
               
-                <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge secondary">
                   Spring Cloud
                 </a>
               
@@ -130,15 +130,15 @@
 <p>(2)构建工具--Maven--Gradle</p>
 <p>(3)Spring Boot</p>
 <p>服务提供者与服务消费者:
-<img src="https://huran111.github.io/post-images/1559099978253.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559099978253.png" alt="">
 **务发现组件：Eureka
 1:什么事Eureka?</p>
 <p>(1)Eureka来自生产环境</p>
 <p>(2)Spring Cloud对Eureka支持很好</p>
 <p>Eureka是Netflix开发的服务发现框架，本身是一个基于REST的服务，主要用于定位运行在AWS域中的中间层服务，以达到负载均衡和中间层服务故障转移的目的。Spring Cloud将它集成在其子项目spring-cloud-netflix中，以实现Spring Cloud的服务发现功能。</p>
 <p>1:Eureka 原理
-<img src="https://huran111.github.io/post-images/1559100003664.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100009417.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100003664.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100009417.png" alt="">
 上图是来自Eureka官方的架构图，大致描述了Eureka集群的工作过程。由于图比较复杂，可能比较难看懂，这边用通俗易懂的语言翻译一下：
 Application Service 就相当于本书中的服务提供者（用户微服务），
 Application Client就相当于本书中的服务消费者（电影微服务）；</p>
@@ -159,23 +159,23 @@ Eureka还提供了客户端缓存的机制，即使所有的Eureka Server都挂�
 综上，Eureka通过心跳检测、健康检查、客户端缓存等机制，确保了系统的高可用性、灵活性和可伸缩性。
 实现Euraka Server和Client: 相关关代码已经放到GitHub上：
 https://github.com/huran111
-<img src="https://huran111.github.io/post-images/1559100120537.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100120537.png" alt="">
 可以看到 2个服务提供者一个消费者。</p>
 <p>学习可参考官方文档：https://cloud.spring.io/spring-cloud-static/spring-cloud-netflix/2.1.0.RC3/single/spring-cloud-netflix.html#netflix-eureka-client-starter 其余百度都扯淡
-<img src="https://huran111.github.io/post-images/1559100134858.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100134858.png" alt="">
 如下我们开启4个微服务，服务名称分别为：user-producter:8900,user-producter:8901,user-producter-2:7900,user-producter-2:7901
 一个消费端：user-consumer-ribbon
 注意请看官方文档这句话：
-<img src="https://huran111.github.io/post-images/1559100152997.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100152997.png" alt="">
 大致意思就是，配置RibbonClient的时候不能放在和启动类同一个包下。否则会覆盖所有RibbonClient其他配置策略。
 解决方法是自定义在注解，进行排除。
-<img src="https://huran111.github.io/post-images/1559100202907.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100208028.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100214788.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100221099.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100230496.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100202907.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100208028.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100214788.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100221099.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100230496.png" alt="">
 Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分别请求了四个服务。这里我们其请求了8次：结果如下
-<img src="https://huran111.github.io/post-images/1559100241470.png" alt=""></p>
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100241470.png" alt=""></p>
 
             </div>
           </article>
@@ -186,7 +186,7 @@ Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分�
               <div class="next">
                 下一篇
               </div>
-              <a href="https://huran111.github.io/post/mysql-shi-wu-ge-chi">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-shi-wu-ge-chi/index.html">
                 <h3 class="post-title">
                   Mysql事务隔离
                 </h3>
@@ -207,7 +207,7 @@ Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分�
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1559618509003" class="no-responsive avatar">
+    <img src="C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png?v=1559639266547" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -232,62 +232,64 @@ Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分�
         
           
             <li>
-              <a href="https://huran111.github.io/post/zu-sai-dui-lie">阻塞队列</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/threadpoolexecutor/index.html">ThreadPoolExecutor</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/zi-xuan-suo">自旋锁，独占锁，共享锁</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/zu-sai-dui-lie/index.html">阻塞队列</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/bu-an-quan-de-ji-he">不安全的集合</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/zi-xuan-suo/index.html">自旋锁，独占锁，共享锁</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/yuan-zi-yin-yong">原子引用和ABA问题</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/bu-an-quan-de-ji-he/index.html">不安全的集合</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti">单利模式下可能存在的安全性问题</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yuan-zi-yin-yong/index.html">原子引用和ABA问题</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/gong-han-mo-shi">工厂模式</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti/index.html">单利模式下可能存在的安全性问题</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming">nginx基本配置与参数说明</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/gong-han-mo-shi/index.html">工厂模式</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/nginxyi">Nginx（一）</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming/index.html">nginx基本配置与参数说明</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/sheng-cheng-huan-jing-duo-xian-cheng-shi-yong">生成环境多线程使用</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/nginxyi/index.html">Nginx（一）</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/spring-cloud-wei-fu-wu-eurekaribbon">Spring Cloud微服务-Eureka+Ribbon</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/sheng-cheng-huan-jing-duo-xian-cheng-shi-yong/index.html">生成环境多线程使用</a>
             </li>
+          
+        
           
         
           
@@ -313,34 +315,34 @@ Eureka默认是xml，可在方法是声明为JSON格式，可以看到接口分�
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge ">
-          集合
-        </a>
-      
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge warning">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/61ewhPVqI/index.html" class="badge secondary">
+          集合
+        </a>
+      
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/x05_wn6zK/index.html" class="badge secondary">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge secondary">
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge secondary">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge success">
           框架
         </a>
       
     </div>
   </div>
   <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
