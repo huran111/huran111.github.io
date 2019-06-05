@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-05T09:54:38.272Z</updated>
+    <updated>2019-06-05T10:11:05.983Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -45,6 +45,13 @@
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li>JVM参数类型
+<ul>
+<li>标配参数  -version  -help</li>
+<li>X参数</li>
+<li>XX参数</li>
 </ul>
 </li>
 </ul>
