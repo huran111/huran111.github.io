@@ -7,7 +7,7 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559727438236">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559728476930">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -113,7 +113,20 @@
 <ul>
 <li>分成标记和清除，先标记出要回收的对象，然后统一回收这些对象</li>
 <li><img src="https://huran111.github.io/post-images/1559727435884.png" alt=""></li>
-<li></li>
+<li>JVM如何确定它是个垃圾
+<ul>
+<li>简单来说就是内存中不在使用到的空间就是垃圾</li>
+<li>引用计数法，根节点的可达性</li>
+<li>哪些可以作为GC ROOT对象呢
+<ul>
+<li>虚拟机栈中引用的对象（局部变量表）</li>
+<li>方法区中的类静态属性引用的对象</li>
+<li>方法区中常量引用的对象
++ 本地方法栈中JNI引用的对象</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -148,7 +161,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1559727438236" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1559728476930" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -260,7 +273,7 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge warning">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
           JVM
         </a>
       
@@ -268,7 +281,7 @@
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge ">
           Java多线程
         </a>
       
@@ -276,19 +289,19 @@
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge ">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge warning">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge success">
           框架
         </a>
       
