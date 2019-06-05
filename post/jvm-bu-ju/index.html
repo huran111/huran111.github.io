@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>Mysql-索引（2） | 生有涯-知无涯</title>
+<title>JVM布局 | 生有涯-知无涯</title>
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -87,42 +87,36 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>Mysql-索引（2）</h1>
+            <h1>JVM布局</h1>
             <p class="article-meta">
-              2019-05-28
+              2019-06-05
               
-                <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
-                  Mysql
+                <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+                  JVM
                 </a>
               
             </p>
             
             <div class="post-content">
-              <p>在下面的表中，执行select * from T where k between 3 and 5,需要执行几次树的搜索操作，会扫描多少行？
-<img src="https://huran111.github.io/post-images/1559039084517.png" alt="">
-<img src="https://huran111.github.io/post-images/1559039090493.png" alt="">
-这条SQL查询语句的执行流程为</p>
-<p>在A索引树上找到A=3的记录，取得ID=300</p>
-<p>再到ID索引树查到ID=300对应的A3</p>
-<p>再回到A索引数取下一个值5，取得ID=600</p>
-<p>再回到ID索引树查到ID=600对应的A5</p>
-<p>在K索引树取下一个值A=6,不满足条件，循环结束</p>
-<p>在这个过程中，回到主键索引树搜索的过程，为回表。这个例子中查询结果所需要的数据只在主键索引上有，所以不得不回表，那么，有没有可能经过索引优化，避免回表的过程呢？
-**覆盖索引
-如果执行的语句为select id from T where k between 3 and 5 这时只需要查询Id的值，而ID的值已经在A索引树上了，因此直接提供查询结果，不需要回表，在这个查询里面，索引 A已经“覆盖”了我们的查询需求，我们称为覆盖索引。</p>
-<p>由于覆盖索引减少了树的搜索次数，性能显著提升，所以使用覆盖索引是一个常用的性能优化手段。
-栗子：</p>
-<p>学生表定义
-<img src="https://huran111.github.io/post-images/1559039165559.png" alt="">
-学号是学生的唯一标识，如果有根据学号查询学生的信息，只要在学号这个字段上建立索引就够了，在建立一个（学号，姓名）的联合索引，是不是有点浪费空间？</p>
-<p>B+树这种索引结构，可以利用索引的最左前缀，来定位记录。
-可以看到，索引项是按照索引定义里面出现的字段顺序排序的。</p>
-<p>当查到所有名字是张三的人时，可以快速定位到ID4，饭后向后遍历得到所有需要的结果。</p>
-<p>当你查到所有名字第一个字为张的人，SQL语句为‘张%’,也能用上这个索引</p>
-<p>只要满足最左前缀，就可以利用索引加速检索，这个前缀索引可以使联合索引的最左N个字段，也可以是字符串索引的最左M个字符。</p>
-<p>在建立联合索引的时候，如何安排索引内的字符顺序？</p>
-<p>当有(a,b)两个联合索引后，一般就不需要单独在a上建立索引了，因此，第一原则是，如果通过调整顺序，可以少维护一个索引，那么这个顺序往往就是需要优先考虑采用的。</p>
-<p>那么，如果既有联合查询，又有基于 a、b 各自的查询呢？查询条件里面只有 b 的语句，是无法使用 (a,b) 这个联索引的，这时候你不得不维护另外一个索引，也就是说你需要同时维护 (a,b)、(b) 这两个索引。</p>
+              <ul>
+<li>引用计数法</li>
+<li><img src="https://huran111.github.io/post-images/1559726465618.png" alt=""></li>
+<li>缺点</li>
+<li>每次对对象复制时要维护引用计数器，且计数器本身也有一定的消耗，较难处理循环引用</li>
+<li>JVM实现一般不采用这种方式</li>
+<li>复制算法</li>
+<li>java堆从GC的角度还可以细分为：新生代(Eden区，From Survivor区和 To Survivor 区) 和老年代。</li>
+<li><img src="https://huran111.github.io/post-images/1559727044616.png" alt=""></li>
+<li>Eden，From复制到TO，年龄加1，首先，当Eden区满的时候，会出发一个GC,把还活着的对象拷贝到From区，当Eden区再次触发GC的时候会扫描Eden区和From区，对这两个区域进行垃圾回收，经过这次回收后还活着的对象，直接复制到TO区域，如果有对象符合老年代的标准，则进入老年代，同时把这些对象年龄加1</li>
+<li>然后，情况Eden和From中的对象，复制交换，谁空谁是TO</li>
+<li>标记清除法
+<ul>
+<li>分成标记和清除，先标记出要回收的对象，然后统一回收这些对象</li>
+<li><img src="https://huran111.github.io/post-images/1559727435884.png" alt=""></li>
+<li></li>
+</ul>
+</li>
+</ul>
 
             </div>
           </article>
@@ -133,9 +127,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://huran111.github.io/post/elastic-job-fen-bu-shi-ding-shi-ren-wu-kuang-jia-shi-zhan">
+              <a href="https://huran111.github.io/post/io-liu">
                 <h3 class="post-title">
-                  Elastic-Job——分布式定时任务框架实战
+                  IO流
                 </h3>
               </a>
             </div>
@@ -266,7 +260,7 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge warning">
           JVM
         </a>
       
@@ -290,11 +284,11 @@
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge ">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
           框架
         </a>
       

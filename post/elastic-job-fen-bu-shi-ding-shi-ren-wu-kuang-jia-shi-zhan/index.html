@@ -7,12 +7,12 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="C:/Users/BUCHU/Documents/Gridea/output/favicon.ico?v=1559639324594">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1559727438236">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="C:/Users/BUCHU/Documents/Gridea/output/styles/main.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
 
   
@@ -32,7 +32,7 @@
   
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
-    <h3><a href="C:/Users/BUCHU/Documents/Gridea/output">生有涯-知无涯</a></h3>
+    <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
   </div>
   <div class="collapsible">
     <input id="collapsible1" type="checkbox" name="collapsible1">
@@ -48,7 +48,7 @@
         
           <li>
             
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
+              <a href="https://huran111.github.io" class="menu">
                 首页
               </a>
             
@@ -72,7 +72,7 @@
         
           <li>
             
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
+              <a href="https://huran111.github.io" class="menu">
                 关于
               </a>
             
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-05-28
               
-                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge secondary">
+                <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
                   框架
                 </a>
               
@@ -130,68 +130,68 @@ Elastic-Job是ddframe中dd-job的作业模块中分离出来的分布式弹性�
 本案例是SpringBoot+Jpa+Zookeeper+Elastic-job进行讲解。案例代码已经放到本人GitHub上面，地址为：https://github.com/huran111/elastic-job 可自行下载运行。
 (1)项目准备。</p>
 <p>1.1 新建三个一样的spring boot项目，在实际生产中 分别部署在三台服务器上。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018656404.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018656404.png" alt="">
 1.2 安装zookeeper，安装非常简单，可百度，实际生产可部署三台zookeeper集群做高可用，本项目安装一台作为讲解用。
 1.3 引入jar.
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018719225.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018719225.png" alt="">
 1.4 配置参数
 application.yum
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018739375.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018739375.png" alt="">
 application-dev.yum  具体配置在GitHub上。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018752312.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018762594.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018752312.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018762594.png" alt="">
 1.5 配置Job.xml
 1.5.1 在启动类上面加入注解
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018787851.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018787851.png" alt="">
 1.5.2 Job.xml详细配置
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018803717.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018803717.png" alt="">
 这里三台服务器分成了9片
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018950785.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018950785.png" alt="">
 (2).数据准备。<br>
 实体类：
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018964639.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018964639.png" alt="">
 （3）生成100条数据，实际场景数据可能会更多（1000万条也是有可能的）。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559018985931.png" alt="">
+<img src="https://huran111.github.io/post-images/1559018985931.png" alt="">
 (4)运行测试用例可以看到数据已经插入成功，其中random字段作为随机数，不是业务字段，只来后序的分片处理。
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019000076.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019000076.png" alt="">
 （5）验证
 5.1 启动服务器server-01，指定10秒后执行。
 可以看到分片数量：0,1,2,3,4,5,6,7,8
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019023412.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019023412.png" alt="">
 5.2启动服务器server-02，同样指定10秒后执行。
 可以看到分片数量：0,1,2,3,4，8
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019036213.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019036213.png" alt="">
 而此时server-01的分片数量自动变为：4,5,6,7
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019045770.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019045770.png" alt="">
 5.3 下面我们在启动第三台服务器server-03:
 可以看到分片数量：6,7,8
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019054861.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019054861.png" alt="">
 而此时server-01和server-02有什么变化呢？
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019064557.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019064557.png" alt="">
 可以看到server-01变成了3,4,5，server-02变成了 0,1,2
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019079952.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019079952.png" alt="">
 5.4 下面我们关闭一台机器，比如server-03:
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019089909.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019089909.png" alt="">
 再来查看分片数量;
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019100068.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019100068.png" alt="">
 什么情况？ 这是基于zookeeper的调度算法，来进行自动分片的，当有一台机器挂了或者加入了会自动分配数量。从而实现分布式调度以及处理大数据量的数据。 分片策略可以看：https://blog.csdn.net/tanga842428/article/details/52689119这篇文章</p>
 <p>真正的企业里面怎么用的呢？
 还记得刚才模拟的100条数据吧 。正常企业中可能会有几百万或者千万的数据，这里来模拟100条数据怎么分布式处理。</p>
 <p>Job类编写如下：实现SimpleJob接口
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019122344.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019122344.png" alt="">
 分别启动三台服务：查看处理数据情况
 --------------------------------------------server-01---------------------------------------------</p>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019131188.png" alt="">
+<p><img src="https://huran111.github.io/post-images/1559019131188.png" alt="">
 ------------------------------------------------server-02------------------------------------------</p>
-<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019139364.png" alt="">
+<p><img src="https://huran111.github.io/post-images/1559019139364.png" alt="">
 ------------------------------------------------server-03----------------------------------------
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019146096.png" alt=""></p>
+<img src="https://huran111.github.io/post-images/1559019146096.png" alt=""></p>
 <p>可以看到 三台服务分别处理了这100条数据，这就是分布式调度的意思。在大数据处理中，可以结合该框架，将同一个项目部署在多台机器上，同属处理大数据量的数据，再结合多线程技术,大大增加了效率。</p>
 <p>扩展：如果数据多达千万级，此时对mysql的性能影响会很大，此时建议使用ElasticSearch分布式搜索引擎存储读写频率高的数据。主要定时业务可使用Redis作为分布式锁避免重复执行。</p>
 <p>---------------------------------------------控制搭建-----------------------------------------------
 控制台手动触发任务：
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019158960.png" alt="">
-<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559019165136.png" alt=""></p>
+<img src="https://huran111.github.io/post-images/1559019158960.png" alt="">
+<img src="https://huran111.github.io/post-images/1559019165136.png" alt=""></p>
 
             </div>
           </article>
@@ -202,7 +202,7 @@ application-dev.yum  具体配置在GitHub上。
               <div class="next">
                 下一篇
               </div>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql1-suo-yin/index.html">
+              <a href="https://huran111.github.io/post/mysql1-suo-yin">
                 <h3 class="post-title">
                   Mysql-索引（1）
                 </h3>
@@ -223,7 +223,7 @@ application-dev.yum  具体配置在GitHub上。
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png?v=1559639324594" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1559727438236" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -248,62 +248,66 @@ application-dev.yum  具体配置在GitHub上。
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/threadpoolexecutor/index.html">ThreadPoolExecutor</a>
+              <a href="https://huran111.github.io/post/jvm-bu-ju">JVM布局</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/zu-sai-dui-lie/index.html">阻塞队列</a>
+              <a href="https://huran111.github.io/post/io-liu">IO流</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/zi-xuan-suo/index.html">自旋锁，独占锁，共享锁</a>
+              <a href="https://huran111.github.io/post/threadpoolexecutor">ThreadPoolExecutor</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/bu-an-quan-de-ji-he/index.html">不安全的集合</a>
+              <a href="https://huran111.github.io/post/zu-sai-dui-lie">阻塞队列</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yuan-zi-yin-yong/index.html">原子引用和ABA问题</a>
+              <a href="https://huran111.github.io/post/zi-xuan-suo">自旋锁，独占锁，共享锁</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti/index.html">单利模式下可能存在的安全性问题</a>
+              <a href="https://huran111.github.io/post/bu-an-quan-de-ji-he">不安全的集合</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/gong-han-mo-shi/index.html">工厂模式</a>
+              <a href="https://huran111.github.io/post/yuan-zi-yin-yong">原子引用和ABA问题</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming/index.html">nginx基本配置与参数说明</a>
+              <a href="https://huran111.github.io/post/dan-li-mo-shi-xia-ke-neng-cun-zai-de-an-quan-xing-wen-ti">单利模式下可能存在的安全性问题</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/nginxyi/index.html">Nginx（一）</a>
+              <a href="https://huran111.github.io/post/gong-han-mo-shi">工厂模式</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/sheng-cheng-huan-jing-duo-xian-cheng-shi-yong/index.html">生成环境多线程使用</a>
+              <a href="https://huran111.github.io/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming">nginx基本配置与参数说明</a>
             </li>
+          
+        
+          
+        
           
         
           
@@ -331,34 +335,42 @@ application-dev.yum  具体配置在GitHub上。
     </div>
     <div class="row">
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge secondary">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge ">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge secondary">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
           Java多线程
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/61ewhPVqI/index.html" class="badge success">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
           集合
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/x05_wn6zK/index.html" class="badge ">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
           nginx
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge success">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
           Spring Cloud
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge secondary">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
           Mysql
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge success">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
           框架
         </a>
       
     </div>
   </div>
   <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml" target="_blank">RSS</a>
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
