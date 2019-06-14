@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-14T06:26:32.544Z</updated>
+    <updated>2019-06-14T16:02:30.525Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -43,6 +43,14 @@
 <li><img src="https://huran111.github.io/post-images/1560492719898.png" alt=""></li>
 <li><img src="https://huran111.github.io/post-images/1560493255091.png" alt=""></li>
 <li><img src="https://huran111.github.io/post-images/1560493539131.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560495706338.png" alt=""></li>
+<li>Executor的功能和作用是</li>
+<li>根据传递的参数，完成SQL语句的动态解析，生成BoundSql对象，供StatementHandler使用</li>
+<li>为查询创建缓存，以提高性能；</li>
+<li>创建JDBC的Statement连接对象，传递给StatementHandler对象，返回List查询结果；</li>
+<li>StatementHandler对象负责设置Statement对象中的查询参数、处理JDBC返回的resultSet，将resultSet加工为List 集合返回</li>
+<li>prepareStatement() 方法的实现</li>
+<li></li>
 </ul>
 ]]></content>
     </entry>
