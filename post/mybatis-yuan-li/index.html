@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>框架 | 生有涯-知无涯</title>
+<title>MyBatis原理 | 生有涯-知无涯</title>
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -23,6 +29,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
@@ -79,40 +86,71 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: 框架</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/elastic-job-fen-bu-shi-ding-shi-ren-wu-kuang-jia-shi-zhan">Elastic-Job——分布式定时任务框架实战</a>
-    </h2>
-    <p class="article-meta">
-      2019-05-28
-      
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
-          框架
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/elastic-job-fen-bu-shi-ding-shi-ren-wu-kuang-jia-shi-zhan" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+          <article class="article">
+            <h1>MyBatis原理</h1>
+            <p class="article-meta">
+              2019-06-14
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>主要构件及其相互关系</li>
+<li>SqlSession：作为MyBatis工作的主要顶层API，表示和数据库交互的会话，完成必要数据库增删改查功能</li>
+<li>Executor：MyBatis执行器，是MyBatis 调度的核心，负责SQL语句的生成和查询缓存的维护</li>
+<li>StatementHandler：封装了JDBC Statement操作，负责对JDBC statement 的操作，如设置参数、将Statement结果集转换成List集合</li>
+<li>ParameterHandler：负责对用户传递的参数转换成JDBC Statement 所需要的参数；</li>
+<li>ResultSetHandler：负责将JDBC返回的ResultSet结果集对象转换成List类型的集合；</li>
+<li>TypeHandler：负责java数据类型和jdbc数据类型之间的映射和转换；</li>
+<li>MappedStatement：MappedStatement维护了一条&lt;select|update|delete|insert&gt;节点的封装；</li>
+<li>SqlSource：负责根据用户传递的parameterObject，动态地生成SQL语句，将信息封装到BoundSql对象中，并返回</li>
+<li>BoundSql：表示动态生成的SQL语句以及相应的参数信息；</li>
+<li>Configuration：MyBatis所有的配置信息都维持在Configuration对象之中；</li>
+<li><img src="https://huran111.github.io/post-images/1560488110683.png" alt=""></li>
+<li>首先，我们来看一个例子</li>
+<li><img src="https://huran111.github.io/post-images/1560489148557.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560489191829.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560489203828.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560489385433.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491269325.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491303104.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491340414.png" alt=""></li>
+<li>缓存的是一个CacheKey Value</li>
+<li><img src="https://huran111.github.io/post-images/1560491716290.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491705903.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560492719898.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560493255091.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560493539131.png" alt=""></li>
+</ul>
 
-
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-  
-</div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/mybatisyi">
+                <h3 class="post-title">
+                  Mybatis(一)
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://huran111.github.io/images/avatar.png?v=1560493540817" class="no-responsive avatar">
@@ -235,11 +273,11 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge ">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge success">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
           JVM
         </a>
       
@@ -251,11 +289,11 @@
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge warning">
           Spring Cloud
         </a>
       
@@ -274,6 +312,7 @@
   </div>
 </div>
 
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -285,6 +324,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
