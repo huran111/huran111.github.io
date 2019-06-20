@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-14T16:02:30.525Z</updated>
+    <updated>2019-06-20T09:21:47.596Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
+    <entry>
+        <title type="html"><![CDATA[一条sql语句是如何执行的]]></title>
+        <id>https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de</id>
+        <link href="https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de">
+        </link>
+        <updated>2019-06-20T09:04:53.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>当我们输入 mysql&gt; select * from T where id=1的时候
+<ul>
+<li><img src="https://huran111.github.io/post-images/1561022192410.png" alt=""></li>
+<li>Server层包括连接器，查询缓存，分析器，优化器，执行器等，以及所有的内置函数，所有跨存着引擎的功能都在这一层实现，比如存储过程，触发器，视图等。</li>
+<li>存储引擎负责数据的存储和读取，支持Innodb,MyISAM等，常用Innodb,从Mysql5.5.5成了默认。</li>
+<li></li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MyBatis原理]]></title>
         <id>https://huran111.github.io/post/mybatis-yuan-li</id>
@@ -390,32 +408,6 @@
 <img src="https://huran111.github.io/post-images/1559527068671.png" alt="">
 <img src="https://huran111.github.io/post-images/1559527075194.png" alt="">
 <img src="https://huran111.github.io/post-images/1559527118621.png" alt=""></li>
-</ul>
-</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[不安全的集合]]></title>
-        <id>https://huran111.github.io/post/bu-an-quan-de-ji-he</id>
-        <link href="https://huran111.github.io/post/bu-an-quan-de-ji-he">
-        </link>
-        <updated>2019-06-02T10:26:33.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>ArrayLis
-<img src="https://huran111.github.io/post-images/1559471218693.png" alt="">
-<ul>
-<li>排除异常为：ConcurrentModificationException</li>
-<li>解决
-<ul>
-<li>List<String> list = Collections.synchronizedList(new ArrayList&lt;&gt;());</li>
-<li>List<String> list =new CopyOnWriteArrayList&lt;&gt;(); (使用与读多写少，否则很慢)</li>
-<li>CopyOnWriteArrayList</li>
-<li></li>
-</ul>
-</li>
-<li>导致的原因
-+</li>
 </ul>
 </li>
 </ul>
