@@ -7,12 +7,12 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1561080066150">
+<link rel="shortcut icon" href="C:/Users/BUCHU/Documents/Gridea/output/favicon.ico?v=1561085078397">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+<link rel="stylesheet" href="C:/Users/BUCHU/Documents/Gridea/output/styles/main.css">
 
 
   
@@ -32,7 +32,7 @@
   
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
-    <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
+    <h3><a href="C:/Users/BUCHU/Documents/Gridea/output">生有涯-知无涯</a></h3>
   </div>
   <div class="collapsible">
     <input id="collapsible1" type="checkbox" name="collapsible1">
@@ -48,7 +48,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 首页
               </a>
             
@@ -72,7 +72,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 关于
               </a>
             
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-06-20
               
-                <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
+                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge ">
                   Mysql
                 </a>
               
@@ -101,14 +101,14 @@
               <ul>
 <li>当我们输入 mysql&gt; select * from T where id=1的时候
 <ul>
-<li><img src="https://huran111.github.io/post-images/1561022192410.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561022192410.png" alt=""></li>
 <li>Server层包括连接器，查询缓存，分析器，优化器，执行器等，以及所有的内置函数，所有跨存着引擎的功能都在这一层实现，比如存储过程，触发器，视图等。</li>
 <li>存储引擎负责数据的存储和读取，支持Innodb,MyISAM等，常用Innodb,从Mysql5.5.5成了默认。</li>
 <li><strong>连接器</strong>
 <ul>
 <li>mysql -h<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>p</mi><mo>−</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">ip -P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>port -u$user -p</li>
 <li>连接完成后，如果没有后续操作，连接就处于空闲状态，执行命令查看</li>
-<li><img src="https://huran111.github.io/post-images/1561023099898.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561023099898.png" alt=""></li>
 <li>客户端默认8小时，参数由wait_timeout控制</li>
 <li><em>Mysql在执行过程中临时使用的内存是管理在连接对象里面的，断开后才会释放。</em></li>
 <li>解决办法，定期断开长连接，再重连，也可执行mysql_reset_connection重新初始化资源（mysql5.7）</li>
@@ -118,12 +118,12 @@
 + 执行一个语句后先看看缓存中有没有,(key-value键值对)key是查询的语句，value是结果，如果拿到直接返回客户端
 + 注意：不建议使用缓存，弊大于利，缓存失效频繁，只有对一个表有更新，缓存就是失效，将参数 query_cache_type 设置成DEMAND，这样对于默认的 SQL 语句都不使用查询缓存。
 + 查看是否支持
-+ <img src="https://huran111.github.io/post-images/1561024305002.png" alt="">
++ <img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561024305002.png" alt="">
 + 查看参数设置
-+ <img src="https://huran111.github.io/post-images/1561024382868.png" alt="">
++ <img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561024382868.png" alt="">
 + 可以在my.ini配置文件中设置。
 + 也可以显示指定通过sql_cache;
-+ <img src="https://huran111.github.io/post-images/1561024668014.png" alt="">
++ <img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561024668014.png" alt="">
 + Mysql8.0版本直接将查询缓存模块功能删了。
 <ul>
 <li><strong>分析器</strong>
@@ -151,7 +151,7 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://huran111.github.io/post/mybatis-yuan-li">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatis-yuan-li/index.html">
                 <h3 class="post-title">
                   MyBatis原理
                 </h3>
@@ -172,7 +172,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1561080066150" class="no-responsive avatar">
+    <img src="C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png?v=1561085078397" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -197,61 +197,61 @@
         
           
             <li>
-              <a href="https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de">一条sql是如何更新的</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-shi-ru-he-geng-xin-de/index.html">一条sql是如何更新的</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de">一条sql语句是如何执行的</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de/index.html">一条sql语句是如何执行的</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mybatis-yuan-li">MyBatis原理</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatis-yuan-li/index.html">MyBatis原理</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mybatisyi">Mybatis(一)</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatisyi/index.html">Mybatis(一)</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/java-si-ge-yin-yong-de-li-jie">java四个引用的理解</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/java-si-ge-yin-yong-de-li-jie/index.html">java四个引用的理解</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/jvm-chang-yong-can-shu">JVM常用参数</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-chang-yong-can-shu/index.html">JVM常用参数</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/jvm-bu-ju">JVM布局</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-bu-ju/index.html">JVM布局</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/io-liu">IO流</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/io-liu/index.html">IO流</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/threadpoolexecutor">ThreadPoolExecutor</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/threadpoolexecutor/index.html">ThreadPoolExecutor</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/zu-sai-dui-lie">阻塞队列</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/zu-sai-dui-lie/index.html">阻塞队列</a>
             </li>
           
         
@@ -296,42 +296,42 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge ">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge secondary">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/lE0818Fvj/index.html" class="badge warning">
           JVM
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/ijbU1QJNd/index.html" class="badge secondary">
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/61ewhPVqI/index.html" class="badge secondary">
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge ">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/x05_wn6zK/index.html" class="badge secondary">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge secondary">
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge warning">
           框架
         </a>
       
     </div>
   </div>
   <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
