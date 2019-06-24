@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-21T03:30:58.529Z</updated>
+    <updated>2019-06-24T02:23:32.504Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -44,7 +44,16 @@
 <li><strong>(2) 将当前会话的隔离级别设置为读提交</strong></li>
 <li><img src="https://huran111.github.io/post-images/1561087817551.png" alt=""></li>
 <li><strong>(3) 将当前会话的隔离级别设置为可重复读</strong></li>
-<li></li>
+<li><img src="https://huran111.github.io/post-images/1561088709444.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561088933068.png" alt="">
+<strong>事务隔离的实现</strong></li>
+<li>在 MySQL 中，实际上每条记录在更新的时候都会同时记录一条回滚操作。记录上的最新值，通过回滚操作，都可以得到前一个状态的值。</li>
+<li><img src="https://huran111.github.io/post-images/1561096570337.png" alt=""></li>
+<li>事务的启动方式</li>
+<li>1 显示启动  start transaction -commint 回滚是rollback</li>
+<li>2 set autocommit=0 将线程的自动提交关闭，意味着手动执行一个select 事务就开启了 ，而且并不会自动提交。建议set autocommit=1</li>
+<li>也可以用 commit work and chain 意思是提交事务并自动进入下一个事务。</li>
+<li>查询长事务：select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx_started))&gt;60</li>
 </ul>
 ]]></content>
     </entry>
