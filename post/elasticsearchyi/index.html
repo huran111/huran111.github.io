@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>ThreadPoolExecutor | 生有涯-知无涯</title>
+<title>elasticsearch(一) | 生有涯-知无涯</title>
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -87,25 +87,23 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>ThreadPoolExecutor</h1>
+            <h1>elasticsearch(一)</h1>
             <p class="article-meta">
-              2019-06-04
-              
-                <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
-                  Java多线程
-                </a>
+              2019-06-24
               
             </p>
             
             <div class="post-content">
               <ul>
-<li>ThreadPoolExecuto
-<ul>
-<li><img src="https://huran111.github.io/post-images/1559638580944.png" alt=""></li>
-</ul>
-</li>
-<li>线程池的执行流程</li>
-<li><img src="https://huran111.github.io/post-images/1559639322246.png" alt=""></li>
+<li>查看节点健康情况</li>
+<li>GET /_cat/health?v</li>
+<li>绿色 一切正常集群功能齐全</li>
+<li>黄色——所有数据可用，但有些副本尚未分配(集群功能完全)</li>
+<li>红色——有些数据由于某种原因不可用(集群部分功能)</li>
+<li>注意：当集群为红色时，它将继续从可用碎片中提供搜索请求，但是您可能需要尽快修复它，因为存在未分配的碎片。</li>
+<li><img src="https://huran111.github.io/post-images/1561359907050.png" alt=""></li>
+<li>查看所有的索引  GET /_cat/indices?v</li>
+<li><img src="https://huran111.github.io/post-images/1561359922693.png" alt=""></li>
 <li></li>
 </ul>
 
@@ -118,9 +116,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://huran111.github.io/post/zu-sai-dui-lie">
+              <a href="https://huran111.github.io/post/mysql-shi-wu-ge-chi2">
                 <h3 class="post-title">
-                  阻塞队列
+                  Mysql事务隔离
                 </h3>
               </a>
             </div>
@@ -267,15 +265,15 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge warning">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge ">
           JVM
         </a>
       
@@ -283,11 +281,11 @@
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge ">
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge success">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
           nginx
         </a>
       

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-24T02:26:44.072Z</updated>
+    <updated>2019-06-24T11:38:40.909Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,26 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
+    <entry>
+        <title type="html"><![CDATA[elasticsearch(一)]]></title>
+        <id>https://huran111.github.io/post/elasticsearchyi</id>
+        <link href="https://huran111.github.io/post/elasticsearchyi">
+        </link>
+        <updated>2019-06-24T06:24:37.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>查看节点健康情况</li>
+<li>GET /_cat/health?v</li>
+<li>绿色 一切正常集群功能齐全</li>
+<li>黄色——所有数据可用，但有些副本尚未分配(集群功能完全)</li>
+<li>红色——有些数据由于某种原因不可用(集群部分功能)</li>
+<li>注意：当集群为红色时，它将继续从可用碎片中提供搜索请求，但是您可能需要尽快修复它，因为存在未分配的碎片。</li>
+<li><img src="https://huran111.github.io/post-images/1561359907050.png" alt=""></li>
+<li>查看所有的索引  GET /_cat/indices?v</li>
+<li><img src="https://huran111.github.io/post-images/1561359922693.png" alt=""></li>
+<li></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Mysql事务隔离]]></title>
         <id>https://huran111.github.io/post/mysql-shi-wu-ge-chi2</id>
@@ -359,24 +379,6 @@
 <li>原理：底层还是基于字节流，自动所寻了制定的码表。</li>
 </ul>
 </li>
-<li></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ThreadPoolExecutor]]></title>
-        <id>https://huran111.github.io/post/threadpoolexecutor</id>
-        <link href="https://huran111.github.io/post/threadpoolexecutor">
-        </link>
-        <updated>2019-06-04T05:29:55.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>ThreadPoolExecuto
-<ul>
-<li><img src="https://huran111.github.io/post-images/1559638580944.png" alt=""></li>
-</ul>
-</li>
-<li>线程池的执行流程</li>
-<li><img src="https://huran111.github.io/post-images/1559639322246.png" alt=""></li>
 <li></li>
 </ul>
 ]]></content>
