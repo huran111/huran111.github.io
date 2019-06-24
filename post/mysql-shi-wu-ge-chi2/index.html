@@ -7,7 +7,7 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1561376318756">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1561379137816">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-06-21
               
-                <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
+                <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
                   Mysql
                 </a>
               
@@ -137,6 +137,25 @@
 <li>也可以用 commit work and chain 意思是提交事务并自动进入下一个事务。</li>
 <li>查询长事务：select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx_started))&gt;60</li>
 </ul>
+<h3 id="事务到底是隔离还是不隔离">事务到底是隔离还是不隔离</h3>
+<ul>
+<li><img src="https://huran111.github.io/post-images/1561377409110.png" alt=""></li>
+<li>Mysql里面视图有两个概念
+<ul>
+<li>一个是view,查询定义的虚拟表。</li>
+<li>另一个是Innodb在实现MVCC用到的一致性读视图，由于支持RC和RR的实现。</li>
+<li>快照在MVCC是如何工作的?
+<ul>
+<li>在可重复读级别下，事务在启动的时候就拍了个快照，基于整个库的（并没有拷贝数据）</li>
+<li>InnoDB每个事务都有一个唯一的事务Id，transaction id。在事务开始的时候想InnoDB中事务系统申请的，严格递增。</li>
+<li>每行数据也有多个版本。每次事务更新数据，就会生成一个版本。把这个事务id赋值给新的数据版本的事务id，旧版本保留。</li>
+<li>下图就是记录一个被多个事务连续更新后的状态</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
             </div>
           </article>
@@ -168,7 +187,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1561376318756" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1561379137816" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -296,11 +315,11 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
           Java多线程
         </a>
       
@@ -308,7 +327,7 @@
           JVM
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge secondary">
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge warning">
           流
         </a>
       
@@ -316,7 +335,7 @@
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
           nginx
         </a>
       
@@ -324,7 +343,7 @@
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge ">
           框架
         </a>
       
