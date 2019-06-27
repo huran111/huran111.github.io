@@ -7,12 +7,12 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="C:/Users/BUCHU/Documents/Gridea/output/favicon.ico?v=1561600984935">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1561629058070">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="C:/Users/BUCHU/Documents/Gridea/output/styles/main.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
 
   
@@ -32,7 +32,7 @@
   
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
-    <h3><a href="C:/Users/BUCHU/Documents/Gridea/output">生有涯-知无涯</a></h3>
+    <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
   </div>
   <div class="collapsible">
     <input id="collapsible1" type="checkbox" name="collapsible1">
@@ -48,7 +48,7 @@
         
           <li>
             
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
+              <a href="https://huran111.github.io" class="menu">
                 首页
               </a>
             
@@ -72,7 +72,7 @@
         
           <li>
             
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
+              <a href="https://huran111.github.io" class="menu">
                 关于
               </a>
             
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-06-21
               
-                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge ">
+                <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
                   Mysql
                 </a>
               
@@ -108,12 +108,12 @@
 <li>可重复读：一个事务执行的过程中看到的数据，总是跟这个事务在启动时候看到的数据是一致的。 当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</li>
 <li>串行化：写会加锁，读会加锁。</li>
 <li>例子：创建一个Innodb的表</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561085875549.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561085903921.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561085875549.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561085903921.png" alt=""></li>
 <li>查看当前会话的隔离级别</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561086181670.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561086181670.png" alt=""></li>
 <li>查看系统的隔离级别</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561086214373.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561086214373.png" alt=""></li>
 <li>设置会话的隔离级别，隔离级别由低到高设置依次为:</li>
 <li>set session transaction isolation level read uncommitted;</li>
 <li>set session transaction isolation level read committed;</li>
@@ -122,15 +122,15 @@
 </ul>
 </li>
 <li><strong>(1) 将当前会话的隔离级别设置为读未提交</strong></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561087288815.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561087288815.png" alt=""></li>
 <li><strong>(2) 将当前会话的隔离级别设置为读提交</strong></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561087817551.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561087817551.png" alt=""></li>
 <li><strong>(3) 将当前会话的隔离级别设置为可重复读</strong></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561088709444.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561088933068.png" alt="">
+<li><img src="https://huran111.github.io/post-images/1561088709444.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561088933068.png" alt="">
 <strong>事务隔离的实现</strong></li>
 <li>在 MySQL 中，实际上每条记录在更新的时候都会同时记录一条回滚操作。记录上的最新值，通过回滚操作，都可以得到前一个状态的值。</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561096570337.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561096570337.png" alt=""></li>
 <li>事务的启动方式</li>
 <li>1 显示启动  start transaction -commint 回滚是rollback</li>
 <li>2 set autocommit=0 将线程的自动提交关闭，意味着手动执行一个select 事务就开启了 ，而且并不会自动提交。建议set autocommit=1</li>
@@ -139,7 +139,7 @@
 </ul>
 <h3 id="事务到底是隔离还是不隔离">事务到底是隔离还是不隔离</h3>
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561377409110.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561377409110.png" alt=""></li>
 <li>Mysql里面视图有两个概念
 <ul>
 <li>一个是view,查询定义的虚拟表。</li>
@@ -150,7 +150,7 @@
 <li>InnoDB每个事务都有一个唯一的事务Id，transaction id。在事务开始的时候想InnoDB中事务系统申请的，严格递增。</li>
 <li>每行数据也有多个版本。每次事务更新数据，就会生成一个版本。把这个事务id赋值给新的数据版本的事务id，旧版本保留。</li>
 <li>下图就是记录一个被多个事务连续更新后的状态</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561424334675.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561424334675.png" alt=""></li>
 <li>InnoDB是如何定义那个&quot;100G&quot;的快照的，按照可重复读的定义，一个事务启动的时候，能够看到所有已经提交的事务结果，但是之后，这个事务执行期间，其他事务的更新对它不可见。</li>
 <li>实现上，InnoDB为每个事务构造了一个数组，用来保存这个事务启动瞬间，正在活跃的事务ID,就是值启动了还没有提交。</li>
 <li>一个数据版本，对于一个视图来说，除了自己的更新总是可以见的，另外有三种情况
@@ -178,7 +178,7 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-shi-ru-he-geng-xin-de/index.html">
+              <a href="https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de">
                 <h3 class="post-title">
                   一条sql是如何更新的
                 </h3>
@@ -199,7 +199,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png?v=1561600984935" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1561629058070" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -224,62 +224,64 @@
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-you-shi-hui-xuan-cuo-suo-yin/index.html">mysql有时会选错索引？</a>
+              <a href="https://huran111.github.io/post/redis-hyperloglog">redis-HyperLogLog</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/elasticsearchyi/index.html">elasticsearch(一)</a>
+              <a href="https://huran111.github.io/post/mysql-you-shi-hui-xuan-cuo-suo-yin">mysql有时会选错索引？</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-shi-wu-ge-chi2/index.html">Mysql事务隔离</a>
+              <a href="https://huran111.github.io/post/elasticsearchyi">elasticsearch(一)</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-shi-ru-he-geng-xin-de/index.html">一条sql是如何更新的</a>
+              <a href="https://huran111.github.io/post/mysql-shi-wu-ge-chi2">Mysql事务隔离</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de/index.html">一条sql语句是如何执行的</a>
+              <a href="https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de">一条sql是如何更新的</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatis-yuan-li/index.html">MyBatis原理</a>
+              <a href="https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de">一条sql语句是如何执行的</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatisyi/index.html">Mybatis(一)</a>
+              <a href="https://huran111.github.io/post/mybatis-yuan-li">MyBatis原理</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/java-si-ge-yin-yong-de-li-jie/index.html">java四个引用的理解</a>
+              <a href="https://huran111.github.io/post/mybatisyi">Mybatis(一)</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-chang-yong-can-shu/index.html">JVM常用参数</a>
+              <a href="https://huran111.github.io/post/java-si-ge-yin-yong-de-li-jie">java四个引用的理解</a>
             </li>
           
         
           
             <li>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-bu-ju/index.html">JVM布局</a>
+              <a href="https://huran111.github.io/post/jvm-chang-yong-can-shu">JVM常用参数</a>
             </li>
+          
+        
           
         
           
@@ -329,42 +331,46 @@
     </div>
     <div class="row">
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge warning">
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge secondary">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
           Mysql
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge warning">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
           Java多线程
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/lE0818Fvj/index.html" class="badge success">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
           JVM
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/ijbU1QJNd/index.html" class="badge secondary">
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge success">
           流
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/61ewhPVqI/index.html" class="badge success">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge warning">
           集合
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/x05_wn6zK/index.html" class="badge ">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge success">
           nginx
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge success">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
           Spring Cloud
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge warning">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
           框架
         </a>
       
     </div>
   </div>
   <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml" target="_blank">RSS</a>
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 

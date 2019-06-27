@@ -1,33 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>C:/Users/BUCHU/Documents/Gridea/output</id>
+    <id>https://huran111.github.io</id>
     <title>生有涯-知无涯</title>
-    <updated>2019-06-27T02:03:07.321Z</updated>
+    <updated>2019-06-27T09:51:00.542Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="C:/Users/BUCHU/Documents/Gridea/output"/>
-    <link rel="self" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml"/>
+    <link rel="alternate" href="https://huran111.github.io"/>
+    <link rel="self" href="https://huran111.github.io/atom.xml"/>
     <subtitle>知其然，知其所以然</subtitle>
-    <logo>C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png</logo>
-    <icon>C:/Users/BUCHU/Documents/Gridea/output/favicon.ico</icon>
+    <logo>https://huran111.github.io/images/avatar.png</logo>
+    <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 生有涯-知无涯</rights>
     <entry>
-        <title type="html"><![CDATA[mysql有时会选错索引？]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/mysql-you-shi-hui-xuan-cuo-suo-yin/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-you-shi-hui-xuan-cuo-suo-yin/index.html">
+        <title type="html"><![CDATA[redis-HyperLogLog]]></title>
+        <id>https://huran111.github.io/post/redis-hyperloglog</id>
+        <link href="https://huran111.github.io/post/redis-hyperloglog">
         </link>
-        <updated>2019-06-27T01:29:24.000Z</updated>
+        <updated>2019-06-27T09:46:06.000Z</updated>
         <content type="html"><![CDATA[<ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561599356731.png" alt=""></li>
-<li>插入10W行数据，select * from t where a between 10000 and 20000; 查看执行计划</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561599400795.png" alt=""></li>
+<li>
+<p>redis提供了HyPerLogLog数据结构就就是用来解决这种统计问题，它提供了不精确的去重计数方案，虽然不是很精确，误差在0.81，但是已经可以满足上面UV统计需求了。</p>
+</li>
+<li>
+<p>HyperLogLog 提供了两个指令 pfadd 和 pfcount，根据字面意义很好理解，一个是增加计数，一个是获取计数。pfadd 用法和 set 集合的 sadd 是一样的，来一个用户 ID，就将用户 ID 塞进去就是。pfcount 和 scard 用法是一样的，直接获取计数值。</p>
+</li>
+<li>
+<p>HyperLogLog 除了上面的 pfadd 和 pfcount 之外，还提供了第三个指令 pfmerge，用于将多个 pf 计数值累加在一起形成一个新的 pf 值。</p>
+</li>
+<li>
+<p>比如在网站中我们有两个内容差不多的页面，运营说需要这两个页面的数据进行合并。其中页面的 UV 访问量也需要合并，那这个时候 pfmerge 就可以派上用场了。</p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1561629023523.png" alt=""></p>
+</li>
+<li>
+<p>HyperLogLog 实现原理</p>
+</li>
 <li></li>
 </ul>
 ]]></content>
     </entry>
     <entry>
+        <title type="html"><![CDATA[mysql有时会选错索引？]]></title>
+        <id>https://huran111.github.io/post/mysql-you-shi-hui-xuan-cuo-suo-yin</id>
+        <link href="https://huran111.github.io/post/mysql-you-shi-hui-xuan-cuo-suo-yin">
+        </link>
+        <updated>2019-06-27T01:29:24.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li><img src="https://huran111.github.io/post-images/1561599356731.png" alt=""></li>
+<li>插入10W行数据，select * from t where a between 10000 and 20000; 查看执行计划</li>
+<li><img src="https://huran111.github.io/post-images/1561599400795.png" alt=""></li>
+<li>select * from t where (a between 1 and 1000)  and (b between 50000 and 100000) order by b limit 1;</li>
+<li>上面的语句，如果按照a进行查询，那么就是扫描a的前1000个值，然后取到对应的id，在到主键上查出每一行，然后根据B字段来过滤，显然需要扫描1000行。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[elasticsearch(一)]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/elasticsearchyi/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/elasticsearchyi/index.html">
+        <id>https://huran111.github.io/post/elasticsearchyi</id>
+        <link href="https://huran111.github.io/post/elasticsearchyi">
         </link>
         <updated>2019-06-24T06:24:37.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -37,17 +67,17 @@
 <li>黄色——所有数据可用，但有些副本尚未分配(集群功能完全)</li>
 <li>红色——有些数据由于某种原因不可用(集群部分功能)</li>
 <li>注意：当集群为红色时，它将继续从可用碎片中提供搜索请求，但是您可能需要尽快修复它，因为存在未分配的碎片。</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561359907050.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561359907050.png" alt=""></li>
 <li>查看所有的索引  GET /_cat/indices?v</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561359922693.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561359922693.png" alt=""></li>
 <li></li>
 </ul>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mysql事务隔离]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/mysql-shi-wu-ge-chi2/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-shi-wu-ge-chi2/index.html">
+        <id>https://huran111.github.io/post/mysql-shi-wu-ge-chi2</id>
+        <link href="https://huran111.github.io/post/mysql-shi-wu-ge-chi2">
         </link>
         <updated>2019-06-21T02:45:58.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -60,12 +90,12 @@
 <li>可重复读：一个事务执行的过程中看到的数据，总是跟这个事务在启动时候看到的数据是一致的。 当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</li>
 <li>串行化：写会加锁，读会加锁。</li>
 <li>例子：创建一个Innodb的表</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561085875549.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561085903921.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561085875549.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561085903921.png" alt=""></li>
 <li>查看当前会话的隔离级别</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561086181670.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561086181670.png" alt=""></li>
 <li>查看系统的隔离级别</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561086214373.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561086214373.png" alt=""></li>
 <li>设置会话的隔离级别，隔离级别由低到高设置依次为:</li>
 <li>set session transaction isolation level read uncommitted;</li>
 <li>set session transaction isolation level read committed;</li>
@@ -74,15 +104,15 @@
 </ul>
 </li>
 <li><strong>(1) 将当前会话的隔离级别设置为读未提交</strong></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561087288815.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561087288815.png" alt=""></li>
 <li><strong>(2) 将当前会话的隔离级别设置为读提交</strong></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561087817551.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561087817551.png" alt=""></li>
 <li><strong>(3) 将当前会话的隔离级别设置为可重复读</strong></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561088709444.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561088933068.png" alt="">
+<li><img src="https://huran111.github.io/post-images/1561088709444.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561088933068.png" alt="">
 <strong>事务隔离的实现</strong></li>
 <li>在 MySQL 中，实际上每条记录在更新的时候都会同时记录一条回滚操作。记录上的最新值，通过回滚操作，都可以得到前一个状态的值。</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561096570337.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561096570337.png" alt=""></li>
 <li>事务的启动方式</li>
 <li>1 显示启动  start transaction -commint 回滚是rollback</li>
 <li>2 set autocommit=0 将线程的自动提交关闭，意味着手动执行一个select 事务就开启了 ，而且并不会自动提交。建议set autocommit=1</li>
@@ -91,7 +121,7 @@
 </ul>
 <h3 id="事务到底是隔离还是不隔离">事务到底是隔离还是不隔离</h3>
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561377409110.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561377409110.png" alt=""></li>
 <li>Mysql里面视图有两个概念
 <ul>
 <li>一个是view,查询定义的虚拟表。</li>
@@ -102,7 +132,7 @@
 <li>InnoDB每个事务都有一个唯一的事务Id，transaction id。在事务开始的时候想InnoDB中事务系统申请的，严格递增。</li>
 <li>每行数据也有多个版本。每次事务更新数据，就会生成一个版本。把这个事务id赋值给新的数据版本的事务id，旧版本保留。</li>
 <li>下图就是记录一个被多个事务连续更新后的状态</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561424334675.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561424334675.png" alt=""></li>
 <li>InnoDB是如何定义那个&quot;100G&quot;的快照的，按照可重复读的定义，一个事务启动的时候，能够看到所有已经提交的事务结果，但是之后，这个事务执行期间，其他事务的更新对它不可见。</li>
 <li>实现上，InnoDB为每个事务构造了一个数组，用来保存这个事务启动瞬间，正在活跃的事务ID,就是值启动了还没有提交。</li>
 <li>一个数据版本，对于一个视图来说，除了自己的更新总是可以见的，另外有三种情况
@@ -124,8 +154,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[一条sql是如何更新的]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-shi-ru-he-geng-xin-de/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-shi-ru-he-geng-xin-de/index.html">
+        <id>https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de</id>
+        <link href="https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de">
         </link>
         <updated>2019-06-20T10:57:51.000Z</updated>
         <content type="html"><![CDATA[<pre><code>	+ 更新流程设计两个模块一个是redo log(重做日志),一个是binlog(归档日志)，Mysql里面有一个问题如果每次更新操作都需要写入磁盘，然后磁盘也要找到对应的那条记录，然后在更新，整个过程的IO成本都很高。 WAL技术也就是先写日志在写磁盘。
@@ -137,7 +167,7 @@
 	  + redolog是物理日志，记录的是在某个数据页上做了什么修改，binlog是逻辑日志，记录的是这个语句的原始逻辑。
 	  + redolog是循环写，会覆盖，空间会用完，binlog是追加写，不会覆盖。
 	  + update的语句时的执行流程
-	  + ![](C:/Users/BUCHU/Documents/Gridea/output/post-images/1561030115679.png)
+	  + ![](https://huran111.github.io/post-images/1561030115679.png)
 	  + redolog被拆成了两个步骤，准备和提交
 </code></pre>
 <ul>
@@ -151,15 +181,15 @@
 </li>
 <li>由于redolog和binlog是两个独立的逻辑，如果不用两阶段提交会有什么问题？</li>
 <li>以 update T set c=c+1 where ID=2 为例</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561084826449.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561084866299.png" alt="">
+<li><img src="https://huran111.github.io/post-images/1561084826449.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561084866299.png" alt="">
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561029787476.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561029787476.png" alt=""></li>
 <li>0：每秒将log buffer的内容写事务日志并且刷新到磁盘；</li>
 <li>1：每个事务提交后，将log_buffer的内容写事务日志并刷新数据到磁盘；</li>
 <li>2：每个事务提交，将log_buffer内容写事务日志，但不进行数据刷盘</li>
 <li>mysql默认log_bin是关闭的</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561030522520.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561030522520.png" alt=""></li>
 </ul>
 </li>
 </ul>
@@ -169,21 +199,21 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[一条sql语句是如何执行的]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de/index.html">
+        <id>https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de</id>
+        <link href="https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de">
         </link>
         <updated>2019-06-20T09:04:53.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>当我们输入 mysql&gt; select * from T where id=1的时候
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561022192410.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561022192410.png" alt=""></li>
 <li>Server层包括连接器，查询缓存，分析器，优化器，执行器等，以及所有的内置函数，所有跨存着引擎的功能都在这一层实现，比如存储过程，触发器，视图等。</li>
 <li>存储引擎负责数据的存储和读取，支持Innodb,MyISAM等，常用Innodb,从Mysql5.5.5成了默认。</li>
 <li><strong>连接器</strong>
 <ul>
 <li>mysql -h<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mi>p</mi><mo>−</mo><mi>P</mi></mrow><annotation encoding="application/x-tex">ip -P</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">i</span><span class="mord mathdefault">p</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span></span></span></span>port -u$user -p</li>
 <li>连接完成后，如果没有后续操作，连接就处于空闲状态，执行命令查看</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561023099898.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561023099898.png" alt=""></li>
 <li>客户端默认8小时，参数由wait_timeout控制</li>
 <li><em>Mysql在执行过程中临时使用的内存是管理在连接对象里面的，断开后才会释放。</em></li>
 <li>解决办法，定期断开长连接，再重连，也可执行mysql_reset_connection重新初始化资源（mysql5.7）</li>
@@ -193,12 +223,12 @@
 + 执行一个语句后先看看缓存中有没有,(key-value键值对)key是查询的语句，value是结果，如果拿到直接返回客户端
 + 注意：不建议使用缓存，弊大于利，缓存失效频繁，只有对一个表有更新，缓存就是失效，将参数 query_cache_type 设置成DEMAND，这样对于默认的 SQL 语句都不使用查询缓存。
 + 查看是否支持
-+ <img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561024305002.png" alt="">
++ <img src="https://huran111.github.io/post-images/1561024305002.png" alt="">
 + 查看参数设置
-+ <img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561024382868.png" alt="">
++ <img src="https://huran111.github.io/post-images/1561024382868.png" alt="">
 + 可以在my.ini配置文件中设置。
 + 也可以显示指定通过sql_cache;
-+ <img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1561024668014.png" alt="">
++ <img src="https://huran111.github.io/post-images/1561024668014.png" alt="">
 + Mysql8.0版本直接将查询缓存模块功能删了。
 <ul>
 <li><strong>分析器</strong>
@@ -220,8 +250,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[MyBatis原理]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/mybatis-yuan-li/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatis-yuan-li/index.html">
+        <id>https://huran111.github.io/post/mybatis-yuan-li</id>
+        <link href="https://huran111.github.io/post/mybatis-yuan-li">
         </link>
         <updated>2019-06-14T02:53:03.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -236,22 +266,22 @@
 <li>SqlSource：负责根据用户传递的parameterObject，动态地生成SQL语句，将信息封装到BoundSql对象中，并返回</li>
 <li>BoundSql：表示动态生成的SQL语句以及相应的参数信息；</li>
 <li>Configuration：MyBatis所有的配置信息都维持在Configuration对象之中；</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560488110683.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560488110683.png" alt=""></li>
 <li>首先，我们来看一个例子</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560489148557.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560489191829.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560489203828.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560489385433.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560491269325.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560491303104.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560491340414.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560489148557.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560489191829.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560489203828.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560489385433.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491269325.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491303104.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491340414.png" alt=""></li>
 <li>缓存的是一个CacheKey Value</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560491716290.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560491705903.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560492719898.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560493255091.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560493539131.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560495706338.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491716290.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560491705903.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560492719898.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560493255091.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560493539131.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560495706338.png" alt=""></li>
 <li>Executor的功能和作用是</li>
 <li>根据传递的参数，完成SQL语句的动态解析，生成BoundSql对象，供StatementHandler使用</li>
 <li>为查询创建缓存，以提高性能；</li>
@@ -264,16 +294,16 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Mybatis(一)]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/mybatisyi/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatisyi/index.html">
+        <id>https://huran111.github.io/post/mybatisyi</id>
+        <link href="https://huran111.github.io/post/mybatisyi">
         </link>
         <updated>2019-06-14T02:25:49.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>在resources目录下创建mybatis-config.xml</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560479212794.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560479266383.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560479287311.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560479302693.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560479212794.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560479266383.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560479287311.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560479302693.png" alt=""></li>
 <li>SqlSessionFactoryBuilder
 <ul>
 <li>这个类可以被实例化、使用和丢弃，一旦创建了 SqlSessionFactory，就不再需要它了。 因此 SqlSessionFactoryBuilder 实例的最佳作用域是方法作用域（也就是局部方法变量）。 你可以重用 SqlSessionFactoryBuilder 来创建多个 SqlSessionFactory 实例，但是最好还是不要让其一直存在，以保证所有的 XML 解析资源可以被释放给更重要的事情。</li>
@@ -297,7 +327,7 @@
 <li>Mybatis-Executor
 <ul>
 <li>qlSession内部维护了一个Executor，我们实际进行的增删改查都是通过这个Executor来进行的</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1560479812756.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1560479812756.png" alt=""></li>
 <li>SimpleExecutor是最简单的执行器，根据对应的sql直接执行即可，不会做一些额外的操作</li>
 <li>BatchExecutor执行器，顾名思义，通过批量操作来优化性能。通常需要注意的是批量更新操作，由于内部有缓存的实现，使用完成后记得调用flushStatements来清除缓存。</li>
 <li>ReuseExecutor 可重用的执行器，重用的对象是Statement，也就是说该执行器会缓存同一个sql的Statement，省去Statement的重新创建，优化性能。内部的实现是通过一个HashMap来维护Statement对象的。由于当前Map只在该session中有效，所以使用完成后记得调用flushStatements来清除Map，private final Map&lt;String, Statement&gt; statementMap = new HashMap&lt;String, Statement&gt;();</li>
@@ -308,8 +338,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[java四个引用的理解]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/java-si-ge-yin-yong-de-li-jie/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/java-si-ge-yin-yong-de-li-jie/index.html">
+        <id>https://huran111.github.io/post/java-si-ge-yin-yong-de-li-jie</id>
+        <link href="https://huran111.github.io/post/java-si-ge-yin-yong-de-li-jie">
         </link>
         <updated>2019-06-06T07:43:13.000Z</updated>
         <content type="html"><![CDATA[<p>·</p>
@@ -317,97 +347,25 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[JVM常用参数]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/jvm-chang-yong-can-shu/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-chang-yong-can-shu/index.html">
+        <id>https://huran111.github.io/post/jvm-chang-yong-can-shu</id>
+        <link href="https://huran111.github.io/post/jvm-chang-yong-can-shu">
         </link>
         <updated>2019-06-06T06:33:59.000Z</updated>
         <content type="html"><![CDATA[<ul>
 <li>-XX:+PrintGCDetails
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559803668436.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559803679533.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1559803668436.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1559803679533.png" alt=""></li>
 <li>FullGC</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559804512979.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1559804512979.png" alt=""></li>
 <li>SurvivorRatio 占比
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559804960529.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1559804960529.png" alt=""></li>
 </ul>
 </li>
 <li>-XX:NewRatio 设置新生代和老年代的占比</li>
 </ul>
 </li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[JVM布局]]></title>
-        <id>C:/Users/BUCHU/Documents/Gridea/output/post/jvm-bu-ju/index.html</id>
-        <link href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-bu-ju/index.html">
-        </link>
-        <updated>2019-06-05T09:19:33.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>引用计数法</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559726465618.png" alt=""></li>
-<li>缺点</li>
-<li>每次对对象复制时要维护引用计数器，且计数器本身也有一定的消耗，较难处理循环引用</li>
-<li>JVM实现一般不采用这种方式</li>
-<li>复制算法</li>
-<li>java堆从GC的角度还可以细分为：新生代(Eden区，From Survivor区和 To Survivor 区) 和老年代。</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559727044616.png" alt=""></li>
-<li>Eden，From复制到TO，年龄加1，首先，当Eden区满的时候，会出发一个GC,把还活着的对象拷贝到From区，当Eden区再次触发GC的时候会扫描Eden区和From区，对这两个区域进行垃圾回收，经过这次回收后还活着的对象，直接复制到TO区域，如果有对象符合老年代的标准，则进入老年代，同时把这些对象年龄加1</li>
-<li>然后，情况Eden和From中的对象，复制交换，谁空谁是TO</li>
-<li>标记清除法
-<ul>
-<li>分成标记和清除，先标记出要回收的对象，然后统一回收这些对象</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559727435884.png" alt=""></li>
-<li>JVM如何确定它是个垃圾
-<ul>
-<li>简单来说就是内存中不在使用到的空间就是垃圾</li>
-<li>引用计数法，根节点的可达性</li>
-<li>哪些可以作为GC ROOT对象呢
-<ul>
-<li>虚拟机栈中引用的对象（局部变量表）</li>
-<li>方法区中的类静态属性引用的对象</li>
-<li>方法区中常量引用的对象
-+ 本地方法栈中JNI引用的对象</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>JVM参数类型
-<ul>
-<li>标配参数  -version  -help</li>
-<li>X参数</li>
-<li>XX参数</li>
-</ul>
-</li>
-<li>查看jvm初始值 java -XX:+PrintFlagsInitial</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559783486769.png" alt=""></li>
-<li>查看修改更新的的内容 java -XX:+PrintFlagsFinal -version</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559783626146.png" alt=""></li>
-<li>java -XX:+PrintCommandLineFlags -version</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559799722070.png" alt=""></li>
-<li>JVM常用基本配置</li>
-<li>元空间和永久代的最大区别在于永久代使用的是JVM的堆内存，但是java8以后元空间并不在虚拟机中而是使用的物理内存。</li>
-<li>常用参数
-+ -Xms: 初始化大小内存，默认为物理内存的 1/64 等价于 -XX:InitialHeapSize
-+ -Xmx: 最大分配内存，默认物理内存的1/4  等价于 -XX:MaxHeapSize
-+ -Xss : 设置单个线程栈的大小，一般默认为512-1024K 等价于-XX:ThreadStackSize
-+ -Xmn: 设置年轻代大小
-+ -XX:MetaspaceSize
-+ 元空间的大小受本地内存限制
-+ 元空间的本质和永久代类似，都是对JVM规范中方法区的实现。不过元空间与永久代之间最大的区别在于：元空间并不在虚拟机中，而是使用本地内存。因此，默认情况下，元空间的大小仅受本地内存限制，但可以通过以下参数来指定元空间的大小：
-　　-XX:MetaspaceSize，初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。
-　　-XX:MaxMetaspaceSize，最大空间，默认是没有限制的。
-　　除了上面两个指定大小的选项以外，还有两个与 GC 相关的属性：
-　　-XX:MinMetaspaceFreeRatio，在GC之后，最小的Metaspace剩余空间容量的百分比，减少为分配空间所导致的垃圾收集
-　　-XX:MaxMetaspaceFreeRatio，在GC之后，最大的Metaspace剩余空间容量的百分比，减少为释放空间所导致的垃圾收集
-1、字符串存在永久代中，容易出现性能问题和内存溢出。
-　2、类及方法的信息等比较难确定其大小，因此对于永久代的大小指定比较困难，太小容易出现永久代溢出，太大则容易导致老年代溢出。
-　3、永久代会为 GC 带来不必要的复杂度，并且回收效率偏低。
-　4、Oracle 可能会将HotSpot 与 JRockit 合二为一</li>
 </ul>
 ]]></content>
     </entry>
