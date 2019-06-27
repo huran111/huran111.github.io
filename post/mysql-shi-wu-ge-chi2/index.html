@@ -7,7 +7,7 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1561424734733">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1561598955746">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -153,6 +153,16 @@
 <li><img src="https://huran111.github.io/post-images/1561424334675.png" alt=""></li>
 <li>InnoDB是如何定义那个&quot;100G&quot;的快照的，按照可重复读的定义，一个事务启动的时候，能够看到所有已经提交的事务结果，但是之后，这个事务执行期间，其他事务的更新对它不可见。</li>
 <li>实现上，InnoDB为每个事务构造了一个数组，用来保存这个事务启动瞬间，正在活跃的事务ID,就是值启动了还没有提交。</li>
+<li>一个数据版本，对于一个视图来说，除了自己的更新总是可以见的，另外有三种情况
+<ul>
+<li>版本未提交，不可见</li>
+<li>版本已经提交，但是是在视图创建后提交的，不可见</li>
+<li>版本已经提交，而且实在视图创建前提交的，可见</li>
+<li>InnoDB的行数据有多个版本，每个数据版本都有自己的row_trx_id,每个事务或者语句有自己的一致性视图，普通查询语句是一致性读，一致性读会根据row_trx_id和一致性视图确定数据版本的可见性。</li>
+<li>对于可重复读，查询只承认在事务启动前就已经提交完成的数据。
++ 对于读提交，查询只承认在语句启动前就已经提交完成的数据。</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -189,7 +199,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1561424734733" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1561598955746" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -317,11 +327,11 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge ">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
           Java多线程
         </a>
       
@@ -329,19 +339,19 @@
           JVM
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge warning">
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge success">
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge ">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge success">
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge success">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge ">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge success">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge warning">
           Spring Cloud
         </a>
       
