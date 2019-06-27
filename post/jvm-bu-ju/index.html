@@ -7,12 +7,12 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1561598955746">
+<link rel="shortcut icon" href="C:/Users/BUCHU/Documents/Gridea/output/favicon.ico?v=1561600984935">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+<link rel="stylesheet" href="C:/Users/BUCHU/Documents/Gridea/output/styles/main.css">
 
 
   
@@ -32,7 +32,7 @@
   
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
-    <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
+    <h3><a href="C:/Users/BUCHU/Documents/Gridea/output">生有涯-知无涯</a></h3>
   </div>
   <div class="collapsible">
     <input id="collapsible1" type="checkbox" name="collapsible1">
@@ -48,7 +48,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 首页
               </a>
             
@@ -72,7 +72,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 关于
               </a>
             
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-06-05
               
-                <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge success">
+                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/lE0818Fvj/index.html" class="badge warning">
                   JVM
                 </a>
               
@@ -100,19 +100,19 @@
             <div class="post-content">
               <ul>
 <li>引用计数法</li>
-<li><img src="https://huran111.github.io/post-images/1559726465618.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559726465618.png" alt=""></li>
 <li>缺点</li>
 <li>每次对对象复制时要维护引用计数器，且计数器本身也有一定的消耗，较难处理循环引用</li>
 <li>JVM实现一般不采用这种方式</li>
 <li>复制算法</li>
 <li>java堆从GC的角度还可以细分为：新生代(Eden区，From Survivor区和 To Survivor 区) 和老年代。</li>
-<li><img src="https://huran111.github.io/post-images/1559727044616.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559727044616.png" alt=""></li>
 <li>Eden，From复制到TO，年龄加1，首先，当Eden区满的时候，会出发一个GC,把还活着的对象拷贝到From区，当Eden区再次触发GC的时候会扫描Eden区和From区，对这两个区域进行垃圾回收，经过这次回收后还活着的对象，直接复制到TO区域，如果有对象符合老年代的标准，则进入老年代，同时把这些对象年龄加1</li>
 <li>然后，情况Eden和From中的对象，复制交换，谁空谁是TO</li>
 <li>标记清除法
 <ul>
 <li>分成标记和清除，先标记出要回收的对象，然后统一回收这些对象</li>
-<li><img src="https://huran111.github.io/post-images/1559727435884.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559727435884.png" alt=""></li>
 <li>JVM如何确定它是个垃圾
 <ul>
 <li>简单来说就是内存中不在使用到的空间就是垃圾</li>
@@ -137,11 +137,11 @@
 </ul>
 </li>
 <li>查看jvm初始值 java -XX:+PrintFlagsInitial</li>
-<li><img src="https://huran111.github.io/post-images/1559783486769.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559783486769.png" alt=""></li>
 <li>查看修改更新的的内容 java -XX:+PrintFlagsFinal -version</li>
-<li><img src="https://huran111.github.io/post-images/1559783626146.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559783626146.png" alt=""></li>
 <li>java -XX:+PrintCommandLineFlags -version</li>
-<li><img src="https://huran111.github.io/post-images/1559799722070.png" alt=""></li>
+<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559799722070.png" alt=""></li>
 <li>JVM常用基本配置</li>
 <li>元空间和永久代的最大区别在于永久代使用的是JVM的堆内存，但是java8以后元空间并不在虚拟机中而是使用的物理内存。</li>
 <li>常用参数
@@ -172,7 +172,7 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://huran111.github.io/post/io-liu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/io-liu/index.html">
                 <h3 class="post-title">
                   IO流
                 </h3>
@@ -193,7 +193,7 @@
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1561598955746" class="no-responsive avatar">
+    <img src="C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png?v=1561600984935" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -218,62 +218,64 @@
         
           
             <li>
-              <a href="https://huran111.github.io/post/elasticsearchyi">elasticsearch(一)</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-you-shi-hui-xuan-cuo-suo-yin/index.html">mysql有时会选错索引？</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mysql-shi-wu-ge-chi2">Mysql事务隔离</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/elasticsearchyi/index.html">elasticsearch(一)</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de">一条sql是如何更新的</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-shi-wu-ge-chi2/index.html">Mysql事务隔离</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de">一条sql语句是如何执行的</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-shi-ru-he-geng-xin-de/index.html">一条sql是如何更新的</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mybatis-yuan-li">MyBatis原理</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de/index.html">一条sql语句是如何执行的</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mybatisyi">Mybatis(一)</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatis-yuan-li/index.html">MyBatis原理</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/java-si-ge-yin-yong-de-li-jie">java四个引用的理解</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatisyi/index.html">Mybatis(一)</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/jvm-chang-yong-can-shu">JVM常用参数</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/java-si-ge-yin-yong-de-li-jie/index.html">java四个引用的理解</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/jvm-bu-ju">JVM布局</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-chang-yong-can-shu/index.html">JVM常用参数</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/io-liu">IO流</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-bu-ju/index.html">JVM布局</a>
             </li>
+          
+        
           
         
           
@@ -321,42 +323,42 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge ">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge secondary">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/lE0818Fvj/index.html" class="badge secondary">
           JVM
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge success">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/ijbU1QJNd/index.html" class="badge secondary">
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/61ewhPVqI/index.html" class="badge secondary">
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/x05_wn6zK/index.html" class="badge secondary">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge secondary">
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge success">
           框架
         </a>
       
     </div>
   </div>
   <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
