@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JVM常用参数 | 生有涯-知无涯</title>
+<title>HDFS组成架构 | 生有涯-知无涯</title>
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -87,30 +87,54 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>JVM常用参数</h1>
+            <h1>HDFS组成架构</h1>
             <p class="article-meta">
-              2019-06-06
+              2019-08-05
               
-                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/lE0818Fvj/index.html" class="badge ">
-                  JVM
+                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/gGeAxqZzA/index.html" class="badge warning">
+                  hadoop
                 </a>
               
             </p>
             
             <div class="post-content">
-              <ul>
-<li>-XX:+PrintGCDetails
+              <h3 id="namenode">NameNode</h3>
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559803668436.png" alt=""></li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559803679533.png" alt=""></li>
-<li>FullGC</li>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559804512979.png" alt=""></li>
-<li>SurvivorRatio 占比
+<li>就是Master，它是一个主管，管理者。
++ 管理HDFS的名称空间
++ 配置副本策略
++ 管理数据块映射信息
++ 处理客户端读写请求</li>
+</ul>
+<h3 id="datanode">DataNode</h3>
 <ul>
-<li><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559804960529.png" alt=""></li>
+<li>Slave ,NameNode下达命令，DataNode执行实际的操作。
+<ul>
+<li>存储实际的数据块</li>
+<li>执行数据块的读写操作</li>
 </ul>
 </li>
-<li>-XX:NewRatio 设置新生代和老年代的占比</li>
+</ul>
+<h3 id="client-就是客户端">Client 就是客户端</h3>
+<ul>
+<li>文件切片，文件上传HDFS的时候，Client将文件切分成一个个的Block，然后进行上传</li>
+<li>与NameNode交互，获取文件的位置信息</li>
+<li>与DataNode交互，读取或者写入数据</li>
+<li>Client提供一些命令来管理HDFS，比如NameNode 格式化</li>
+<li>Client可以通过一些命令来访问HDFS,比如对HDFS增删查改操作</li>
+</ul>
+<h3 id="secondarynamenode-并非namenode的热备当namenode挂掉的时候它并不能替换namenode提供服务">SecondaryNameNode ：并非NameNode的热备，当NameNode挂掉的时候，它并不能替换NameNode提供服务</h3>
+<ul>
+<li>辅助NameNode,分担其工作量，比如定期合并Fsimage和Edits，并推送给NameNode；</li>
+</ul>
+<h3 id="hsfs的文件大小">HSFS的文件大小</h3>
+<ul>
+<li>老版本是64M,新版本是128M</li>
+<li>HDFS的块设置的太小，会增加寻址时间，程序一直再找块的开始位置
+<ul>
+<li>如果块设置太大，从磁盘传输数据的时间就会明显大于定位这个块开始位置所需的时间，导致 程序处理这块数据的时候会非常慢。</li>
+<li>块大小 主要取决的磁盘性能</li>
+<li></li>
 </ul>
 </li>
 </ul>
@@ -124,9 +148,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/jvm-bu-ju/index.html">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/xiang-yuan-mo-shi/index.html">
                 <h3 class="post-title">
-                  JVM布局
+                  享元模式
                 </h3>
               </a>
             </div>
@@ -283,7 +307,7 @@
     </div>
     <div class="row">
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/gGeAxqZzA/index.html" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/gGeAxqZzA/index.html" class="badge secondary">
           hadoop
         </a>
       
@@ -291,15 +315,15 @@
           JVM
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/cNtOnegpc/index.html" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/cNtOnegpc/index.html" class="badge ">
           redis
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge ">
           Mysql
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge success">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge secondary">
           Java多线程
         </a>
       
@@ -315,11 +339,11 @@
           nginx
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge ">
           Spring Cloud
         </a>
       
-        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge success">
           框架
         </a>
       

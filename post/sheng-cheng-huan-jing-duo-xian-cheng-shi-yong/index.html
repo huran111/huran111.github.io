@@ -7,12 +7,12 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1563344889979">
+<link rel="shortcut icon" href="C:/Users/BUCHU/Documents/Gridea/output/favicon.ico?v=1564976314856">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
-<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+<link rel="stylesheet" href="C:/Users/BUCHU/Documents/Gridea/output/styles/main.css">
 
 
   
@@ -32,7 +32,7 @@
   
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
-    <h3><a href="https://huran111.github.io">生有涯-知无涯</a></h3>
+    <h3><a href="C:/Users/BUCHU/Documents/Gridea/output">生有涯-知无涯</a></h3>
   </div>
   <div class="collapsible">
     <input id="collapsible1" type="checkbox" name="collapsible1">
@@ -48,7 +48,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 首页
               </a>
             
@@ -72,7 +72,7 @@
         
           <li>
             
-              <a href="https://huran111.github.io" class="menu">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/index.html" class="menu">
                 关于
               </a>
             
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-05-29
               
-                <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
+                <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge success">
                   Java多线程
                 </a>
               
@@ -99,7 +99,7 @@
             
             <div class="post-content">
               <h3 id="threadpoolexecutor简介">ThreadPoolExecutor简介：</h3>
-<p><img src="https://huran111.github.io/post-images/1559100567965.png" alt="">
+<p><img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100567965.png" alt="">
 int corePoolSize：该线程池中核心线程数最大值</p>
 <p>核心线程：线程池新建线程的时候，如果当前线程总数小于corePoolSize，则新建的是核心线程，如果超过corePoolSize，则新建的是非核心线程核心线程默认情况下会一直存活在线程池中，即使这个核心线程啥也不干(闲置状态)。
 如果指定ThreadPoolExecutor的allowCoreThreadTimeOut这个属性为true，那么核心线程如果不干活(闲置状态)的话，超过一定时间(时长下面参数决定)，就会被销毁掉</p>
@@ -137,27 +137,27 @@ java.util.concurrent.Future对象为我们解决了这个问题。在线程池�
 <h3 id="semaphore">semaphore:</h3>
 <p>Semaphore是一种在多线程环境下使用的设施，该设施负责协调各个线程，以保证它们能够正确、合理的使用公共资源的设施，也是操作系统中用于控制进程同步互斥的量。
 **案例：
-<img src="https://huran111.github.io/post-images/1559100823289.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100829756.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100837942.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100843372.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100823289.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100829756.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100837942.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100843372.png" alt="">
 案例二：
-<img src="https://huran111.github.io/post-images/1559100853506.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100858927.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100853506.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100858927.png" alt="">
 可见耗时为：
-<img src="https://huran111.github.io/post-images/1559100867625.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100867625.png" alt="">
 案例三：使用多线程
-<img src="https://huran111.github.io/post-images/1559100877491.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100891871.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100877491.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100891871.png" alt="">
 耗时： 很明显 快了太多
-<img src="https://huran111.github.io/post-images/1559100903945.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100903945.png" alt="">
 在并发数目较多的场景下可以加入Semaphore:
-<img src="https://huran111.github.io/post-images/1559100913600.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100919322.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100913600.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100919322.png" alt="">
 扩展：开发小技巧
-<img src="https://huran111.github.io/post-images/1559100931806.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100938350.png" alt="">
-<img src="https://huran111.github.io/post-images/1559100944837.png" alt=""></p>
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100931806.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100938350.png" alt="">
+<img src="C:/Users/BUCHU/Documents/Gridea/output/post-images/1559100944837.png" alt=""></p>
 
             </div>
           </article>
@@ -168,7 +168,7 @@ java.util.concurrent.Future对象为我们解决了这个问题。在线程池�
               <div class="next">
                 下一篇
               </div>
-              <a href="https://huran111.github.io/post/spring-cloud-wei-fu-wu-eurekaribbon">
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/spring-cloud-wei-fu-wu-eurekaribbon/index.html">
                 <h3 class="post-title">
                   Spring Cloud微服务-Eureka+Ribbon
                 </h3>
@@ -189,7 +189,7 @@ java.util.concurrent.Future对象为我们解决了这个问题。在线程池�
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1563344889979" class="no-responsive avatar">
+    <img src="C:/Users/BUCHU/Documents/Gridea/output/images/avatar.png?v=1564976314856" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -214,62 +214,66 @@ java.util.concurrent.Future对象为我们解决了这个问题。在线程池�
         
           
             <li>
-              <a href="https://huran111.github.io/post/cheng-xu-bian-man-de-fen-xi">程序变慢的分析</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/hdfs-zu-cheng-jia-gou/index.html">HDFS组成架构</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/redis-hyperloglog">redis-HyperLogLog</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/xiang-yuan-mo-shi/index.html">享元模式</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mysql-you-shi-hui-xuan-cuo-suo-yin">mysql有时会选错索引？</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/cheng-xu-bian-man-de-fen-xi/index.html">程序变慢的分析</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/elasticsearchyi">elasticsearch(一)</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/redis-hyperloglog/index.html">redis-HyperLogLog</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mysql-shi-wu-ge-chi2">Mysql事务隔离</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-you-shi-hui-xuan-cuo-suo-yin/index.html">mysql有时会选错索引？</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de">一条sql是如何更新的</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/elasticsearchyi/index.html">elasticsearch(一)</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de">一条sql语句是如何执行的</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mysql-shi-wu-ge-chi2/index.html">Mysql事务隔离</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mybatis-yuan-li">MyBatis原理</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-shi-ru-he-geng-xin-de/index.html">一条sql是如何更新的</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/mybatisyi">Mybatis(一)</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de/index.html">一条sql语句是如何执行的</a>
             </li>
           
         
           
             <li>
-              <a href="https://huran111.github.io/post/java-si-ge-yin-yong-de-li-jie">java四个引用的理解</a>
+              <a href="C:/Users/BUCHU/Documents/Gridea/output/post/mybatis-yuan-li/index.html">MyBatis原理</a>
             </li>
+          
+        
+          
+        
           
         
           
@@ -323,46 +327,50 @@ java.util.concurrent.Future对象为我们解决了这个问题。在线程池�
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge ">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/gGeAxqZzA/index.html" class="badge secondary">
+          hadoop
+        </a>
+      
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/lE0818Fvj/index.html" class="badge warning">
           JVM
         </a>
       
-        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge ">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/cNtOnegpc/index.html" class="badge warning">
           redis
         </a>
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/-CcwPBag2/index.html" class="badge ">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/4jsQE0AEu/index.html" class="badge secondary">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge ">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/ijbU1QJNd/index.html" class="badge secondary">
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge success">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/61ewhPVqI/index.html" class="badge success">
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/x05_wn6zK/index.html" class="badge secondary">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/aLMqRC6Gb/index.html" class="badge secondary">
           Spring Cloud
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
+        <a href="C:/Users/BUCHU/Documents/Gridea/output/tag/q_IlhgQxu/index.html" class="badge secondary">
           框架
         </a>
       
     </div>
   </div>
   <div class="paper">
-    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="C:/Users/BUCHU/Documents/Gridea/output/atom.xml" target="_blank">RSS</a>
   </div>
 </div>
 
