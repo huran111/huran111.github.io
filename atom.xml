@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-09-29T04:45:28.248Z</updated>
+    <updated>2019-09-29T08:43:06.131Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,80 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 胡的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[kafka入门介绍]]></title>
+        <id>https://huran111.github.io/post/kafka-ru-men-jie-shao</id>
+        <link href="https://huran111.github.io/post/kafka-ru-men-jie-shao">
+        </link>
+        <updated>2019-09-29T08:39:01.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="kafka作为一个分布式的流平台这到底意味着什么">Kafka作为一个分布式的流平台，这到底意味着什么？</h3>
+<p>我们认为，一个流处理平台具有三个关键能力：</p>
+<p>发布和订阅消息(流)，在这方面，它类似于一个消息队列或企业消息系统。
+以容错(故障转移)的方式存储消息(流)。
+在消息流发生时处理它们。
+什么是kafka的优势？它主要应用于2大类应用：
+构建实时的流数据管道，可靠地获取系统和应用程序之间的数据。
+构建实时流的应用程序，对数据流进行转换或反应。
+要了解kafka是如何做这些事情的，让我们从下到上深入探讨kafka的能力。</p>
+<p>首先几个概念：
+kafka作为一个集群运行在一个或多个服务器上。
+kafka集群存储的消息是以topic为类别记录的。
+每个消息（也叫记录record，我习惯叫消息）是由一个key，一个value和时间戳构成。
+kafka有四个核心API：
+应用程序使用 Producer API 发布消息到1个或多个topic（主题）。
+应用程序使用 Consumer API 来订阅一个或多个topic，并处理产生的消息。
+应用程序使用 Streams API 充当一个流处理器，从1个或多个topic消费输入流，并生产一个输出流到1个或多个输出topic，有效地将输入流转换到输出流。
+Connector API允许构建或运行可重复使用的生产者或消费者，将topic连接到现有的应用程序或数据系统。例如，一个关系数据库的连接器可捕获每一个变化。
+<img src="https://huran111.github.io/post-images/1569746404947.png" alt=""></p>
+<h3 id="首先来了解一下kafka所使用的基本术语">首先来了解一下Kafka所使用的基本术语：</h3>
+<p>Topic
+Kafka将消息种子(Feed)分门别类，每一类的消息称之为一个主题(Topic).</p>
+<p>Producer
+发布消息的对象称之为主题生产者(Kafka topic producer)</p>
+<p>Consumer
+订阅消息并处理发布的消息的种子的对象称之为主题消费者(consumers)</p>
+<p>Broker
+已发布的消息保存在一组服务器中，称之为Kafka集群。集群中的每一个服务器都是一个代理(Broker). 消费者可以订阅一个或多个主题（topic），并从Broker拉数据，从而消费这些已发布的消息。</p>
+<h3 id="主题和日志-topic和log">主题和日志 (Topic和Log)</h3>
+<p><img src="https://huran111.github.io/post-images/1569746451359.png" alt=""></p>
+<p>作者：半兽人
+链接：https://www.orchome.com/5
+来源：OrcHome
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>每一个分区都是一个顺序的、不可变的消息队列， 并且可以持续的添加。分区中的消息都被分了一个序列号，称之为偏移量(offset)，在每个分区中此偏移量都是唯一的。</p>
+<p>Kafka集群保持所有的消息，直到它们过期， 无论消息是否被消费了。 实际上消费者所持有的仅有的元数据就是这个偏移量，也就是消费者在这个log中的位置。 这个偏移量由消费者控制：正常情况当消费者消费消息的时候，偏移量也线性的的增加。但是实际偏移量由消费者控制，消费者可以将偏移量重置为更老的一个偏移量，重新读取消息。 可以看到这种设计对消费者来说操作自如， 一个消费者的操作不会影响其它消费者对此log的处理。 再说说分区。Kafka中采用分区的设计有几个目的。一是可以处理更多的消息，不受单台服务器的限制。Topic拥有多个分区意味着它可以不受限的处理更多的数据。第二，分区可以作为并行处理的单元，稍后会谈到这一点。
+<img src="https://huran111.github.io/post-images/1569746475414.png" alt=""></p>
+<h3 id="kafka作为一个存储系统">kafka作为一个存储系统</h3>
+<p>作者：半兽人
+链接：https://www.orchome.com/5
+来源：OrcHome
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>所有发布消息到消息队列和消费分离的系统，实际上都充当了一个存储系统（发布的消息先存储起来）。Kafka比别的系统的优势是它是一个非常高性能的存储系统。</p>
+<p>写入到kafka的数据将写到磁盘并复制到集群中保证容错性。并允许生产者等待消息应答，直到消息完全写入。</p>
+<p>kafka的磁盘结构 - 无论你服务器上有50KB或50TB，执行是相同的。</p>
+<p>client来控制读取数据的位置。你还可以认为kafka是一种专用于高性能，低延迟，提交日志存储，复制，和传播特殊用途的分布式文件系统。</p>
+<h3 id="kafka的流处理">kafka的流处理</h3>
+<p>作者：半兽人
+链接：https://www.orchome.com/5
+来源：OrcHome
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>仅仅读，写和存储是不够的，kafka的目标是实时的流处理。</p>
+<p>在kafka中，流处理持续获取输入topic的数据，进行处理加工，然后写入输出topic。例如，一个零售APP，接收销售和出货的输入流，统计数量或调整价格后输出。</p>
+<p>可以直接使用producer和consumer API进行简单的处理。对于复杂的转换，Kafka提供了更强大的Streams API。可构建聚合计算或连接流到一起的复杂应用程序。</p>
+<p>助于解决此类应用面临的硬性问题：处理无序的数据，代码更改的再处理，执行状态计算等。</p>
+<p>Sterams API在Kafka中的核心：使用producer和consumer API作为输入，利用Kafka做状态存储，使用相同的组机制在stream处理器实例之间进行容错保障。</p>
+<p>作者：半兽人
+链接：https://www.orchome.com/5
+来源：OrcHome
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>消息传递，存储和流处理的组合看似反常，但对于Kafka作为流式处理平台的作用至关重要。</p>
+<p>像HDFS这样的分布式文件系统允许存储静态文件来进行批处理。这样系统可以有效地存储和处理来自过去的历史数据。</p>
+<p>传统企业的消息系统允许在你订阅之后处理未来的消息：在未来数据到达时处理它。</p>
+<p>Kafka结合了这两种能力，这种组合对于kafka作为流处理应用和流数据管道平台是至关重要的。</p>
+<p>批处理以及消息驱动应用程序的流处理的概念：通过组合存储和低延迟订阅，流处理应用可以用相同的方式对待过去和未来的数据。它是一个单一的应用程序，它可以处理历史的存储数据，当它处理到最后一个消息时，它进入等待未来的数据到达，而不是结束。</p>
+<p>同样，对于流数据管道（pipeline），订阅实时事件的组合使得可以将Kafka用于非常低延迟的管道；但是，可靠地存储数据的能力使得它可以将其用于必须保证传递的关键数据，或与仅定期加载数据或长时间维护的离线系统集成在一起。流处理可以在数据到达时转换它。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Flume + Kafka + Spark Streaming整合]]></title>
         <id>https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he</id>
@@ -313,84 +387,6 @@ ssc.awaitTermination()
 <li>查看所有的索引  GET /_cat/indices?v</li>
 <li><img src="https://huran111.github.io/post-images/1561359922693.png" alt=""></li>
 <li></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mysql事务隔离]]></title>
-        <id>https://huran111.github.io/post/mysql-shi-wu-ge-chi2</id>
-        <link href="https://huran111.github.io/post/mysql-shi-wu-ge-chi2">
-        </link>
-        <updated>2019-06-21T02:45:58.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>ACID:原子性，一致性，隔离性，持久性</li>
-<li>脏读，不可重复读，幻读</li>
-<li>隔离级别：读未提交，读提交，可重复读，串行化
-<ul>
-<li>读未提交：一个事务还没提交时，它做的变化就能被其他事务看到</li>
-<li>读提交：一个事务提交之后，它做的变化才能被其他事务看到</li>
-<li>可重复读：一个事务执行的过程中看到的数据，总是跟这个事务在启动时候看到的数据是一致的。 当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</li>
-<li>串行化：写会加锁，读会加锁。</li>
-<li>例子：创建一个Innodb的表</li>
-<li><img src="https://huran111.github.io/post-images/1561085875549.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1561085903921.png" alt=""></li>
-<li>查看当前会话的隔离级别</li>
-<li><img src="https://huran111.github.io/post-images/1561086181670.png" alt=""></li>
-<li>查看系统的隔离级别</li>
-<li><img src="https://huran111.github.io/post-images/1561086214373.png" alt=""></li>
-<li>设置会话的隔离级别，隔离级别由低到高设置依次为:</li>
-<li>set session transaction isolation level read uncommitted;</li>
-<li>set session transaction isolation level read committed;</li>
-<li>set session transaction isolation level repeatable read;</li>
-<li>set session transaction isolation level serializable;</li>
-</ul>
-</li>
-<li><strong>(1) 将当前会话的隔离级别设置为读未提交</strong></li>
-<li><img src="https://huran111.github.io/post-images/1561087288815.png" alt=""></li>
-<li><strong>(2) 将当前会话的隔离级别设置为读提交</strong></li>
-<li><img src="https://huran111.github.io/post-images/1561087817551.png" alt=""></li>
-<li><strong>(3) 将当前会话的隔离级别设置为可重复读</strong></li>
-<li><img src="https://huran111.github.io/post-images/1561088709444.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1561088933068.png" alt="">
-<strong>事务隔离的实现</strong></li>
-<li>在 MySQL 中，实际上每条记录在更新的时候都会同时记录一条回滚操作。记录上的最新值，通过回滚操作，都可以得到前一个状态的值。</li>
-<li><img src="https://huran111.github.io/post-images/1561096570337.png" alt=""></li>
-<li>事务的启动方式</li>
-<li>1 显示启动  start transaction -commint 回滚是rollback</li>
-<li>2 set autocommit=0 将线程的自动提交关闭，意味着手动执行一个select 事务就开启了 ，而且并不会自动提交。建议set autocommit=1</li>
-<li>也可以用 commit work and chain 意思是提交事务并自动进入下一个事务。</li>
-<li>查询长事务：select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx_started))&gt;60</li>
-</ul>
-<h3 id="事务到底是隔离还是不隔离">事务到底是隔离还是不隔离</h3>
-<ul>
-<li><img src="https://huran111.github.io/post-images/1561377409110.png" alt=""></li>
-<li>Mysql里面视图有两个概念
-<ul>
-<li>一个是view,查询定义的虚拟表。</li>
-<li>另一个是Innodb在实现MVCC用到的一致性读视图，由于支持RC和RR的实现。</li>
-<li>快照在MVCC是如何工作的?
-<ul>
-<li>在可重复读级别下，事务在启动的时候就拍了个快照，基于整个库的（并没有拷贝数据）</li>
-<li>InnoDB每个事务都有一个唯一的事务Id，transaction id。在事务开始的时候想InnoDB中事务系统申请的，严格递增。</li>
-<li>每行数据也有多个版本。每次事务更新数据，就会生成一个版本。把这个事务id赋值给新的数据版本的事务id，旧版本保留。</li>
-<li>下图就是记录一个被多个事务连续更新后的状态</li>
-<li><img src="https://huran111.github.io/post-images/1561424334675.png" alt=""></li>
-<li>InnoDB是如何定义那个&quot;100G&quot;的快照的，按照可重复读的定义，一个事务启动的时候，能够看到所有已经提交的事务结果，但是之后，这个事务执行期间，其他事务的更新对它不可见。</li>
-<li>实现上，InnoDB为每个事务构造了一个数组，用来保存这个事务启动瞬间，正在活跃的事务ID,就是值启动了还没有提交。</li>
-<li>一个数据版本，对于一个视图来说，除了自己的更新总是可以见的，另外有三种情况
-<ul>
-<li>版本未提交，不可见</li>
-<li>版本已经提交，但是是在视图创建后提交的，不可见</li>
-<li>版本已经提交，而且实在视图创建前提交的，可见</li>
-<li>InnoDB的行数据有多个版本，每个数据版本都有自己的row_trx_id,每个事务或者语句有自己的一致性视图，普通查询语句是一致性读，一致性读会根据row_trx_id和一致性视图确定数据版本的可见性。</li>
-<li>对于可重复读，查询只承认在事务启动前就已经提交完成的数据。
-+ 对于读提交，查询只承认在语句启动前就已经提交完成的数据。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 ]]></content>
     </entry>
