@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-09-29T04:42:38.635Z</updated>
+    <updated>2019-09-29T04:44:25.786Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -83,7 +83,7 @@ ssc.awaitTermination()
 <h3 id="什么是sparksql">什么是SparkSql?</h3>
 <p>Spark SQL是Spark用来处理结构化数据的一个模块，它提供了2个编程抽象：DataFrame和DataSet，并且作为分布式SQL查询引擎的作用。</p>
 <p>我们已经学习了Hive，它是将Hive SQL转换成MapReduce然后提交到集群上执行，大大简化了编写MapReduc的程序的复杂性，由于MapReduce这种计算模型执行效率比较慢。所有Spark SQL的应运而生，它是将Spark SQL转换成RDD，然后提交到集群执行，执行效率非常快！</p>
-<h3 id="sparksql特定">SparkSql特定？</h3>
+<h3 id="sparksql特点">SparkSql特点？</h3>
 <ol>
 <li>易整合
 <img src="https://huran111.github.io/post-images/1569731678073.png" alt="">
