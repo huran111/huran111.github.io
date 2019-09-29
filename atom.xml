@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-09-29T04:37:45.526Z</updated>
+    <updated>2019-09-29T04:39:18.461Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -48,6 +48,16 @@
 <h3 id="dsl风格语法">DSL风格语法</h3>
 <p><img src="https://huran111.github.io/post-images/1569731843143.png" alt=""></p>
 <p><img src="https://huran111.github.io/post-images/1569731858597.png" alt=""></p>
+<h3 id="sparkstreaming是什么">SparkStreaming是什么？</h3>
+<pre><code>Spark Streaming用于流式数据的处理。Spark Streaming支持的数据输入源很多，例如：Kafka、Flume、Twitter、ZeroMQ和简单的TCP套接字等等。数据输入后可以用Spark的高度抽象原语如：map、reduce、join、window等进行运算。而结果也能保存在很多地方，如HDFS，数据库等。
+</code></pre>
+<p><img src="https://huran111.github.io/post-images/1569731912291.png" alt="">
+和Spark基于RDD的概念很相似，Spark Streaming使用离散化流(discretized stream)作为抽象表示，叫作DStream。DStream 是随时间推移而收到的数据的序列。在内部，每个时间区间收到的数据都作为 RDD 存在，而DStream是由这些RDD所组成的序列(因此得名“离散化”)。</p>
+<h3 id="sparkstreaming特点">SparkStreaming特点</h3>
+<p><img src="https://huran111.github.io/post-images/1569731935208.png" alt="">
+<img src="https://huran111.github.io/post-images/1569731939464.png" alt="">
+<img src="https://huran111.github.io/post-images/1569731943730.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1569731953410.png" alt=""></p>
 ]]></content>
     </entry>
     <entry>
