@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-09-29T08:43:06.131Z</updated>
+    <updated>2019-09-29T08:45:29.471Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -81,7 +81,9 @@ Kafka将消息种子(Feed)分门别类，每一类的消息称之为一个主题
 <p>传统企业的消息系统允许在你订阅之后处理未来的消息：在未来数据到达时处理它。</p>
 <p>Kafka结合了这两种能力，这种组合对于kafka作为流处理应用和流数据管道平台是至关重要的。</p>
 <p>批处理以及消息驱动应用程序的流处理的概念：通过组合存储和低延迟订阅，流处理应用可以用相同的方式对待过去和未来的数据。它是一个单一的应用程序，它可以处理历史的存储数据，当它处理到最后一个消息时，它进入等待未来的数据到达，而不是结束。</p>
-<p>同样，对于流数据管道（pipeline），订阅实时事件的组合使得可以将Kafka用于非常低延迟的管道；但是，可靠地存储数据的能力使得它可以将其用于必须保证传递的关键数据，或与仅定期加载数据或长时间维护的离线系统集成在一起。流处理可以在数据到达时转换它。</p>
+<p>同样，对于流数据管道（pipeline），订阅实时事件的组合使得可以将Kafka用于非常低延迟的管道；但是，可靠地存储数据的能力使得它可以将其用于必须保证传递的关键数据，或与仅定期加载数据或长时间维护的离线系统集成在一起。流处理可以在数据到达时转换它。
+<img src="https://huran111.github.io/post-images/1569746708640.png" alt="">
+<img src="https://huran111.github.io/post-images/1569746724920.png" alt=""></p>
 ]]></content>
     </entry>
     <entry>
