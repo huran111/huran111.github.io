@@ -7,7 +7,7 @@
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1569732281283">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1569732326106">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -91,7 +91,7 @@
             <p class="article-meta">
               2019-09-29
               
-                <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
+                <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge success">
                   框架
                 </a>
               
@@ -99,10 +99,10 @@
             
             <div class="post-content">
               <p><strong>1. 启动kafka,创建一个主题</strong>
-./kafka-topics.sh –create –zookeeper hadoop:2181 –replication-factor 1 –partitions 1 –topic flume-kafka-streaming-topic
-<strong>2.删除主题：</strong>
-/bin/kafka-topics –delete –topic test –zookeeper localhost:2181
-<strong>3.配置Flume文件：</strong>
+./kafka-topics.sh –create –zookeeper hadoop:2181 –replication-factor 1 –partitions 1 –topic flume-kafka-streaming-topic</p>
+<p><strong>2.删除主题：</strong>
+/bin/kafka-topics –delete –topic test –zookeeper localhost:2181</p>
+<p><strong>3.配置Flume文件：</strong>
 agent1.sources=avro-source
 agent1.channels=logger-channel
 agent1.sinks=kafka-sink</p>
@@ -119,19 +119,19 @@ agent1.sinks.kafka-sink.brokerList = hadoop:9092
 agent1.sinks.kafka-sink.requiredAcks = 1
 agent1.sinks.kafka-sink.batchSize = 20</p>
 <p>agent1.sources.avro-source.channels=logger-channel
-agent1.sinks.kafka-sink.channel=logger-channel
-<strong>启动flume-ng</strong></p>
+agent1.sinks.kafka-sink.channel=logger-channel</p>
+<p><strong>启动flume-ng</strong></p>
 <p>flume-ng agent <br>
 --conf $FLUME_HOME/conf <br>
 --conf-file $FLUME_HOME/conf/streaming.conf <br>
 --name agent1 <br>
--Dflume.root.logger=INFO,console
-<strong>启动日志生产程序</strong>
+-Dflume.root.logger=INFO,console</p>
+<p><strong>启动日志生产程序</strong>
 bin/kafka-console-producer.sh –broker-list  hadoop:9092  –topic lume-kafka-streaming-topic</p>
 <p>bin/kafka-console-consumer.sh –bootstrap-server hadoop02:9092 –topic flume-kafka-streaming-topic –from-beginning</p>
 <p><strong>测试Flume</strong></p>
-<p>bin/flume-ng avro-client -c conf -H 192.168.10.179 -p 41414 -F /app/log/test.log
-<strong>运行本地spark程序：</strong></p>
+<p>bin/flume-ng avro-client -c conf -H 192.168.10.179 -p 41414 -F /app/log/test.log</p>
+<p><strong>运行本地spark程序：</strong></p>
 <p>def main(args: Array[String]): Unit = {
 if (args.length &lt; 4) {
 //Edit Configuration : 192.168.10.179:2181 test flume-kafka-streaming-topic 1
@@ -179,7 +179,7 @@ ssc.awaitTermination()
 
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1569732281283" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1569732326106" class="no-responsive avatar">
     <div class="text-muted">知其然，知其所以然</div>
     <div class="social-container">
       
@@ -323,15 +323,15 @@ ssc.awaitTermination()
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge ">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge success">
           框架
         </a>
       
-        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge success">
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge ">
           hadoop
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge ">
           JVM
         </a>
       
@@ -347,11 +347,11 @@ ssc.awaitTermination()
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge warning">
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge success">
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge success">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge warning">
           集合
         </a>
       
@@ -359,7 +359,7 @@ ssc.awaitTermination()
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge success">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
           Spring Cloud
         </a>
       
