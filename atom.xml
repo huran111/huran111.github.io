@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-09-29T04:22:19.079Z</updated>
+    <updated>2019-09-29T04:29:01.615Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,62 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 胡的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Azkaban]]></title>
+        <id>https://huran111.github.io/post/azkaban</id>
+        <link href="https://huran111.github.io/post/azkaban">
+        </link>
+        <updated>2019-09-29T04:24:24.000Z</updated>
+        <summary type="html"><![CDATA[<h3 id="为什么需要工作流调度系统">为什么需要工作流调度系统</h3>
+<ol>
+<li>一个完整的数据分析系统通常都是由大量任务单元组成：shell脚本程序，java程序，mapreduce程序、hive脚本等</li>
+<li>各任务单元之间存在时间先后及前后依赖关系</li>
+<li>为了很好地组织起这样的复杂执行计划，需要一个工作流调度系统来调度执行</li>
+<li>例如，我们可能有这样一个需求，某个业务系统每天产生20G原始数据，我们每天都要对其进行处理，处理步骤如下所示：
+通过Hadoop先将原始数据同步到HDFS上；
+借助MapReduce计算框架对原始数据进行计算，生成的数据以分区表的形式存储到多张Hive表中；
+需要对Hive中多个表的数据进行JOIN处理，得到一个明细数据Hive大表；
+将明细数据进行复杂的统计分析，得到结果报表信息；
+需要将统计分析得到的结果数据同步到业务系统中，供业务调用使用。</li>
+</ol>
+]]></summary>
+        <content type="html"><![CDATA[<h3 id="为什么需要工作流调度系统">为什么需要工作流调度系统</h3>
+<ol>
+<li>一个完整的数据分析系统通常都是由大量任务单元组成：shell脚本程序，java程序，mapreduce程序、hive脚本等</li>
+<li>各任务单元之间存在时间先后及前后依赖关系</li>
+<li>为了很好地组织起这样的复杂执行计划，需要一个工作流调度系统来调度执行</li>
+<li>例如，我们可能有这样一个需求，某个业务系统每天产生20G原始数据，我们每天都要对其进行处理，处理步骤如下所示：
+通过Hadoop先将原始数据同步到HDFS上；
+借助MapReduce计算框架对原始数据进行计算，生成的数据以分区表的形式存储到多张Hive表中；
+需要对Hive中多个表的数据进行JOIN处理，得到一个明细数据Hive大表；
+将明细数据进行复杂的统计分析，得到结果报表信息；
+需要将统计分析得到的结果数据同步到业务系统中，供业务调用使用。</li>
+</ol>
+<!-- more -->
+<h3 id="azkaban与oozie对比">Azkaban与Oozie对比</h3>
+<p>对市面上最流行的两种调度器，给出以下详细对比，以供技术选型参考。总体来说，ooize相比azkaban是一个重量级的任务调度系统，功能全面，但配置使用也更复杂。如果可以不在意某些功能的缺失，轻量级调度器azkaban是很不错的候选对象</p>
+<h3 id="什么是azkaban">什么是Azkaban？</h3>
+<p>Azkaban是由Linkedin开源的一个批量工作流任务调度器。用于在一个工作流内以一个特定的顺序运行一组工作和流程。Azkaban定义了一种KV文件格式来建立任务之间的依赖关系，并提供一个易于使用的web用户界面维护和跟踪你的工作流。</p>
+<ul>
+<li>它有如下功能特点：</li>
+<li>Web用户界面</li>
+<li>方便上传工作流</li>
+<li>方便设置任务之间的关系</li>
+<li>调度工作流</li>
+<li>认证/授权(权限的工作)</li>
+<li>能够杀死并重新启动工作流</li>
+<li>模块化和可插拔的插件机制</li>
+<li>项目工作区</li>
+<li>工作流和任务的日志记录和审计
+<img src="https://huran111.github.io/post-images/1569731319199.png" alt=""></li>
+</ul>
+<ol>
+<li>AzkabanWebServer:是整个Azkaban工作流系统的主要管理者，它用户登录认证，负责project管理，定时执行工作流，跟踪工作流执行进度等一系列任务。</li>
+<li>AzkabanExecutorServer:负责具体的工作流的提交，执行，他们通过mysql数据库来协调任务的执行</li>
+<li>关系型数据库：存储大部分执行流状态</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[HDFS组成架构]]></title>
         <id>https://huran111.github.io/post/hdfs-zu-cheng-jia-gou</id>
@@ -323,50 +379,6 @@
 </li>
 </ul>
 </li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MyBatis原理]]></title>
-        <id>https://huran111.github.io/post/mybatis-yuan-li</id>
-        <link href="https://huran111.github.io/post/mybatis-yuan-li">
-        </link>
-        <updated>2019-06-14T02:53:03.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>主要构件及其相互关系</li>
-<li>SqlSession：作为MyBatis工作的主要顶层API，表示和数据库交互的会话，完成必要数据库增删改查功能</li>
-<li>Executor：MyBatis执行器，是MyBatis 调度的核心，负责SQL语句的生成和查询缓存的维护</li>
-<li>StatementHandler：封装了JDBC Statement操作，负责对JDBC statement 的操作，如设置参数、将Statement结果集转换成List集合</li>
-<li>ParameterHandler：负责对用户传递的参数转换成JDBC Statement 所需要的参数；</li>
-<li>ResultSetHandler：负责将JDBC返回的ResultSet结果集对象转换成List类型的集合；</li>
-<li>TypeHandler：负责java数据类型和jdbc数据类型之间的映射和转换；</li>
-<li>MappedStatement：MappedStatement维护了一条&lt;select|update|delete|insert&gt;节点的封装；</li>
-<li>SqlSource：负责根据用户传递的parameterObject，动态地生成SQL语句，将信息封装到BoundSql对象中，并返回</li>
-<li>BoundSql：表示动态生成的SQL语句以及相应的参数信息；</li>
-<li>Configuration：MyBatis所有的配置信息都维持在Configuration对象之中；</li>
-<li><img src="https://huran111.github.io/post-images/1560488110683.png" alt=""></li>
-<li>首先，我们来看一个例子</li>
-<li><img src="https://huran111.github.io/post-images/1560489148557.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560489191829.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560489203828.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560489385433.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560491269325.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560491303104.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560491340414.png" alt=""></li>
-<li>缓存的是一个CacheKey Value</li>
-<li><img src="https://huran111.github.io/post-images/1560491716290.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560491705903.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560492719898.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560493255091.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560493539131.png" alt=""></li>
-<li><img src="https://huran111.github.io/post-images/1560495706338.png" alt=""></li>
-<li>Executor的功能和作用是</li>
-<li>根据传递的参数，完成SQL语句的动态解析，生成BoundSql对象，供StatementHandler使用</li>
-<li>为查询创建缓存，以提高性能；</li>
-<li>创建JDBC的Statement连接对象，传递给StatementHandler对象，返回List查询结果；</li>
-<li>StatementHandler对象负责设置Statement对象中的查询参数、处理JDBC返回的resultSet，将resultSet加工为List 集合返回</li>
-<li>prepareStatement() 方法的实现</li>
-<li></li>
 </ul>
 ]]></content>
     </entry>
