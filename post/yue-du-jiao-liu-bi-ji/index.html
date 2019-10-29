@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>mysql有时会选错索引？ | 胡的博客</title>
+<title>月度交流笔记 | 胡的博客</title>
 <meta name="description" content="知其然，知其所以然">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -87,24 +87,50 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>mysql有时会选错索引？</h1>
+            <h1>月度交流笔记</h1>
             <p class="article-meta">
-              2019-06-27
+              2019-10-29
               
-                <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
-                  Mysql
+                <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge success">
+                  hadoop
                 </a>
               
             </p>
             
             <div class="post-content">
-              <ul>
-<li><img src="https://huran111.github.io/post-images/1561599356731.png" alt=""></li>
-<li>插入10W行数据，select * from t where a between 10000 and 20000; 查看执行计划</li>
-<li><img src="https://huran111.github.io/post-images/1561599400795.png" alt=""></li>
-<li>select * from t where (a between 1 and 1000)  and (b between 50000 and 100000) order by b limit 1;</li>
-<li>上面的语句，如果按照a进行查询，那么就是扫描a的前1000个值，然后取到对应的id，在到主键上查出每一行，然后根据B字段来过滤，显然需要扫描1000行。</li>
-</ul>
+              <h3 id="启动spark-shell">启动spark shell</h3>
+<pre><code>./spark-shell  --master spark://hadoop:7077 --executor-memory 1g --total-executor-cores 12 
+</code></pre>
+<h3 id="运行demo">运行demo</h3>
+<pre><code>bin/spark-submit  --master  spark://hadoop:7077 --class org.apache.spark.examples.SparkPi --executor-memory 2048mb --total-executor-cores 1  examples/jars/spark-examples_2.11-2.4.4.jar  50
+</code></pre>
+<h3 id="将数据导入hive">将数据导入hive</h3>
+<pre><code> sqoop import --connect jdbc:mysql://192.168.10.30:3306/test --username root --password root --table  ins_entry_201905 --hive-import --hive-table ins_entry_201905-m 3
+</code></pre>
+<h3 id="保存到hdfs">保存到hdfs</h3>
+<pre><code>insert overwrite directory &quot;/cheliang/20191029&quot; row format delimited fields terminated by ',' select  count(1),vehicle_class  from ins_entry_201905 group by vehicle_class;
+</code></pre>
+<h3 id="将结果保存到mysql">将结果保存到mysql</h3>
+<p>sqoop export  <br>
+--connect &quot;jdbc:mysql://192.168.10.30:3306/test?useUnicode=true&amp;characterEncoding=utf-8&quot;<br>
+--username root <br>
+--password root <br>
+--table class_count <br>
+--m 1 <br>
+--export-dir /cheliang/20191029/ <br>
+--input-fields-terminated-by ','<br>
+--columns=&quot;count,class&quot;</p>
+<h3 id="sqoop导入结果到hdfs">sqoop导入结果到hdfs</h3>
+<p>sqoop import --connect jdbc:mysql://192.168.10.30:3306/test --username root --password root --table ins_entry_201905 --target-dir /cheliang/20191030</p>
+<h3 id="启动spark-sql">启动spark sql</h3>
+<p>./spark-sql  --master spark://hadoop:7077</p>
+<ol>
+<li>在sparkSQL中执行
+create table users(id bigint,name string) row format delimited fields terminated by ',';</li>
+<li>load data local inpath '/root/user.txt' into table users;
+<img src="https://huran111.github.io/post-images/1572317275723.png" alt=""></li>
+<li></li>
+</ol>
 
             </div>
           </article>
@@ -115,9 +141,9 @@
               <div class="next">
                 下一篇
               </div>
-              <a href="https://huran111.github.io/post/elasticsearchyi">
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">
                 <h3 class="post-title">
-                  elasticsearch(一)
+                  kafka入门介绍
                 </h3>
               </a>
             </div>
@@ -284,15 +310,15 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge warning">
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge ">
           hadoop
         </a>
       
-        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge success">
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
           框架
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge success">
           JVM
         </a>
       
@@ -304,11 +330,11 @@
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge secondary">
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge success">
           流
         </a>
       
@@ -316,11 +342,11 @@
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge success">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge ">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge success">
           Spring Cloud
         </a>
       

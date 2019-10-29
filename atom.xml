@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-09-30T01:13:20.999Z</updated>
+    <updated>2019-10-29T02:48:13.358Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,47 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 胡的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[月度交流笔记]]></title>
+        <id>https://huran111.github.io/post/yue-du-jiao-liu-bi-ji</id>
+        <link href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">
+        </link>
+        <updated>2019-10-29T01:13:16.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="启动spark-shell">启动spark shell</h3>
+<pre><code>./spark-shell  --master spark://hadoop:7077 --executor-memory 1g --total-executor-cores 12 
+</code></pre>
+<h3 id="运行demo">运行demo</h3>
+<pre><code>bin/spark-submit  --master  spark://hadoop:7077 --class org.apache.spark.examples.SparkPi --executor-memory 2048mb --total-executor-cores 1  examples/jars/spark-examples_2.11-2.4.4.jar  50
+</code></pre>
+<h3 id="将数据导入hive">将数据导入hive</h3>
+<pre><code> sqoop import --connect jdbc:mysql://192.168.10.30:3306/test --username root --password root --table  ins_entry_201905 --hive-import --hive-table ins_entry_201905-m 3
+</code></pre>
+<h3 id="保存到hdfs">保存到hdfs</h3>
+<pre><code>insert overwrite directory &quot;/cheliang/20191029&quot; row format delimited fields terminated by ',' select  count(1),vehicle_class  from ins_entry_201905 group by vehicle_class;
+</code></pre>
+<h3 id="将结果保存到mysql">将结果保存到mysql</h3>
+<p>sqoop export  <br>
+--connect &quot;jdbc:mysql://192.168.10.30:3306/test?useUnicode=true&amp;characterEncoding=utf-8&quot;<br>
+--username root <br>
+--password root <br>
+--table class_count <br>
+--m 1 <br>
+--export-dir /cheliang/20191029/ <br>
+--input-fields-terminated-by ','<br>
+--columns=&quot;count,class&quot;</p>
+<h3 id="sqoop导入结果到hdfs">sqoop导入结果到hdfs</h3>
+<p>sqoop import --connect jdbc:mysql://192.168.10.30:3306/test --username root --password root --table ins_entry_201905 --target-dir /cheliang/20191030</p>
+<h3 id="启动spark-sql">启动spark sql</h3>
+<p>./spark-sql  --master spark://hadoop:7077</p>
+<ol>
+<li>在sparkSQL中执行
+create table users(id bigint,name string) row format delimited fields terminated by ',';</li>
+<li>load data local inpath '/root/user.txt' into table users;
+<img src="https://huran111.github.io/post-images/1572317275723.png" alt=""></li>
+<li></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[kafka入门介绍]]></title>
         <id>https://huran111.github.io/post/kafka-ru-men-jie-shao</id>
@@ -353,26 +394,6 @@ ssc.awaitTermination()
 <li><img src="https://huran111.github.io/post-images/1561599400795.png" alt=""></li>
 <li>select * from t where (a between 1 and 1000)  and (b between 50000 and 100000) order by b limit 1;</li>
 <li>上面的语句，如果按照a进行查询，那么就是扫描a的前1000个值，然后取到对应的id，在到主键上查出每一行，然后根据B字段来过滤，显然需要扫描1000行。</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[elasticsearch(一)]]></title>
-        <id>https://huran111.github.io/post/elasticsearchyi</id>
-        <link href="https://huran111.github.io/post/elasticsearchyi">
-        </link>
-        <updated>2019-06-24T06:24:37.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>查看节点健康情况</li>
-<li>GET /_cat/health?v</li>
-<li>绿色 一切正常集群功能齐全</li>
-<li>黄色——所有数据可用，但有些副本尚未分配(集群功能完全)</li>
-<li>红色——有些数据由于某种原因不可用(集群部分功能)</li>
-<li>注意：当集群为红色时，它将继续从可用碎片中提供搜索请求，但是您可能需要尽快修复它，因为存在未分配的碎片。</li>
-<li><img src="https://huran111.github.io/post-images/1561359907050.png" alt=""></li>
-<li>查看所有的索引  GET /_cat/indices?v</li>
-<li><img src="https://huran111.github.io/post-images/1561359922693.png" alt=""></li>
-<li></li>
 </ul>
 ]]></content>
     </entry>
