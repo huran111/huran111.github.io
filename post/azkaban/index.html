@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Azkaban | 胡的博客</title>
+<meta name="description" content="知其然，知其所以然">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1572573177169">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://huran111.github.io">胡的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>Azkaban</h1>
+            <p class="article-meta">
+              2019-09-29
+              
+                <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
+                  框架
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <h3 id="为什么需要工作流调度系统">为什么需要工作流调度系统</h3>
+<ol>
+<li>一个完整的数据分析系统通常都是由大量任务单元组成：shell脚本程序，java程序，mapreduce程序、hive脚本等</li>
+<li>各任务单元之间存在时间先后及前后依赖关系</li>
+<li>为了很好地组织起这样的复杂执行计划，需要一个工作流调度系统来调度执行</li>
+<li>例如，我们可能有这样一个需求，某个业务系统每天产生20G原始数据，我们每天都要对其进行处理，处理步骤如下所示：
+通过Hadoop先将原始数据同步到HDFS上；
+借助MapReduce计算框架对原始数据进行计算，生成的数据以分区表的形式存储到多张Hive表中；
+需要对Hive中多个表的数据进行JOIN处理，得到一个明细数据Hive大表；
+将明细数据进行复杂的统计分析，得到结果报表信息；
+需要将统计分析得到的结果数据同步到业务系统中，供业务调用使用。</li>
+</ol>
+<!-- more -->
+<h3 id="azkaban与oozie对比">Azkaban与Oozie对比</h3>
+<p>对市面上最流行的两种调度器，给出以下详细对比，以供技术选型参考。总体来说，ooize相比azkaban是一个重量级的任务调度系统，功能全面，但配置使用也更复杂。如果可以不在意某些功能的缺失，轻量级调度器azkaban是很不错的候选对象</p>
+<h3 id="什么是azkaban">什么是Azkaban？</h3>
+<p>Azkaban是由Linkedin开源的一个批量工作流任务调度器。用于在一个工作流内以一个特定的顺序运行一组工作和流程。Azkaban定义了一种KV文件格式来建立任务之间的依赖关系，并提供一个易于使用的web用户界面维护和跟踪你的工作流。</p>
+<ul>
+<li>它有如下功能特点：</li>
+<li>Web用户界面</li>
+<li>方便上传工作流</li>
+<li>方便设置任务之间的关系</li>
+<li>调度工作流</li>
+<li>认证/授权(权限的工作)</li>
+<li>能够杀死并重新启动工作流</li>
+<li>模块化和可插拔的插件机制</li>
+<li>项目工作区</li>
+<li>工作流和任务的日志记录和审计
+<img src="https://huran111.github.io/post-images/1569731319199.png" alt=""></li>
+</ul>
+<ol>
+<li>AzkabanWebServer:是整个Azkaban工作流系统的主要管理者，它用户登录认证，负责project管理，定时执行工作流，跟踪工作流执行进度等一系列任务。</li>
+<li>AzkabanExecutorServer:负责具体的工作流的提交，执行，他们通过mysql数据库来协调任务的执行</li>
+<li>关系型数据库：存储大部分执行流状态</li>
+</ol>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">
+                <h3 class="post-title">
+                  HDFS组成架构
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://huran111.github.io/images/avatar.png?v=1572573177169" class="no-responsive avatar">
+    <div class="text-muted">知其然，知其所以然</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-rdd">SPARK RDD</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">月度交流笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">kafka入门介绍</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he">Flume + Kafka + Spark Streaming整合</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark">Spark</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/xiang-yuan-mo-shi">享元模式</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/cheng-xu-bian-man-de-fen-xi">程序变慢的分析</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/redis-hyperloglog">redis-HyperLogLog</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge warning">
+          hadoop
+        </a>
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+          框架
+        </a>
+      
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge success">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
+          Mysql
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
+          Java多线程
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge secondary">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+          集合
+        </a>
+      
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+          nginx
+        </a>
+      
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+          Spring Cloud
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

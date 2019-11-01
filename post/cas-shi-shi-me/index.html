@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>CAS是什么？ | 胡的博客</title>
+<meta name="description" content="知其然，知其所以然">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1572573177169">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://huran111.github.io">胡的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>CAS是什么？</h1>
+            <p class="article-meta">
+              2018-09-12
+              
+                <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
+                  Java多线程
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>
+<p>比较和交换</p>
+</li>
+<li>
+<p>底层依赖unsafe类</p>
+<ul>
+<li>AtomicInteger
+<img src="https://huran111.github.io/post-images/1559460747278.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>Unsafe类是CAS的核心类，基于该类可以直接操作特定内存的数据，Unsafe类存在于sun.misc包中，其中内部方法可以像C的指针一样直接操作内存，因为Java中CAS操作的执行依赖于Unsafe类的方法。</p>
+<ul>
+<li>类中所有的方法都是native修饰的，直接调用操作系统底层资源执行相应的任务。</li>
+<li>JVM会帮我们实现初CAS汇编指令，CAS是一种系统原语，也就是说CAS是是一条CPU的原子指令，不会造成数据不一致问题。
+<img src="https://huran111.github.io/post-images/1559461811364.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>假设A和B两个线程同时执行getAndAddInt操作（分别跑在不同的CPU上）</p>
+<ul>
+<li>AtomicInteger里面的值为3，即主内存中的值为3，根据JMM模型，A和B线程各自持   + 有一个值为3的value的副本分别到各自的工作内存。</li>
+<li>线程A通过getIntvolatile(var1,var2)拿到value的值3，这时A被挂起。</li>
+<li>线程B通过getIntvolatile(var1,var2)拿到value的值3，这时B没有被挂起，一比较为true加个1，成功修改为内存值为4，OK</li>
+<li>此时A被唤醒，此时3和主内存的4不一致，修改失败，只能重新读取，在比较一次。由于value是被volatile修饰的，其他线程是可见的，因此，执行compareAndSwapInt，直到成功。
+<img src="https://huran111.github.io/post-images/1559463428894.png" alt=""></li>
+</ul>
+</li>
+<li>
+<p>CAS有3个操作数，内存值V,旧的预期值A,要修改的更新值B.当且仅当预期值A和内存值V相同时候，将内存值修改为更新值B，否则什么都不做。</p>
+</li>
+<li>
+<p>CAS缺点</p>
+<ul>
+<li>开销大</li>
+<li>时间长</li>
+<li>只能保证一个共享变量的原子操作（多个不行）
++CAS优点</li>
+<li>无锁</li>
+<li>并发性高</li>
+</ul>
+</li>
+<li>
+<p>ABA问题
+<img src="https://huran111.github.io/post-images/1559464357898.png" alt=""></p>
+<ul>
+<li>CAS算法实现一个重要的前提需要取出内存中某时刻的数据并当下时刻笔记并替换，那么在这个时间差会导致数据的变化。</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://huran111.github.io/images/avatar.png?v=1572573177169" class="no-responsive avatar">
+    <div class="text-muted">知其然，知其所以然</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-rdd">SPARK RDD</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">月度交流笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">kafka入门介绍</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he">Flume + Kafka + Spark Streaming整合</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark">Spark</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/xiang-yuan-mo-shi">享元模式</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/cheng-xu-bian-man-de-fen-xi">程序变慢的分析</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/redis-hyperloglog">redis-HyperLogLog</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge secondary">
+          hadoop
+        </a>
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge success">
+          框架
+        </a>
+      
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge warning">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge success">
+          Mysql
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+          Java多线程
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge secondary">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+          集合
+        </a>
+      
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+          nginx
+        </a>
+      
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge warning">
+          Spring Cloud
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

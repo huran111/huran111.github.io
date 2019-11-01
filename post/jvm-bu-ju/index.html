@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JVM布局 | 胡的博客</title>
+<meta name="description" content="知其然，知其所以然">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1572573177169">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://huran111.github.io">胡的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>JVM布局</h1>
+            <p class="article-meta">
+              2019-06-05
+              
+                <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge warning">
+                  JVM
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>引用计数法</li>
+<li><img src="https://huran111.github.io/post-images/1559726465618.png" alt=""></li>
+<li>缺点</li>
+<li>每次对对象复制时要维护引用计数器，且计数器本身也有一定的消耗，较难处理循环引用</li>
+<li>JVM实现一般不采用这种方式</li>
+<li>复制算法</li>
+<li>java堆从GC的角度还可以细分为：新生代(Eden区，From Survivor区和 To Survivor 区) 和老年代。</li>
+<li><img src="https://huran111.github.io/post-images/1559727044616.png" alt=""></li>
+<li>Eden，From复制到TO，年龄加1，首先，当Eden区满的时候，会出发一个GC,把还活着的对象拷贝到From区，当Eden区再次触发GC的时候会扫描Eden区和From区，对这两个区域进行垃圾回收，经过这次回收后还活着的对象，直接复制到TO区域，如果有对象符合老年代的标准，则进入老年代，同时把这些对象年龄加1</li>
+<li>然后，情况Eden和From中的对象，复制交换，谁空谁是TO</li>
+<li>标记清除法
+<ul>
+<li>分成标记和清除，先标记出要回收的对象，然后统一回收这些对象</li>
+<li><img src="https://huran111.github.io/post-images/1559727435884.png" alt=""></li>
+<li>JVM如何确定它是个垃圾
+<ul>
+<li>简单来说就是内存中不在使用到的空间就是垃圾</li>
+<li>引用计数法，根节点的可达性</li>
+<li>哪些可以作为GC ROOT对象呢
+<ul>
+<li>虚拟机栈中引用的对象（局部变量表）</li>
+<li>方法区中的类静态属性引用的对象</li>
+<li>方法区中常量引用的对象
++ 本地方法栈中JNI引用的对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>JVM参数类型
+<ul>
+<li>标配参数  -version  -help</li>
+<li>X参数</li>
+<li>XX参数</li>
+</ul>
+</li>
+<li>查看jvm初始值 java -XX:+PrintFlagsInitial</li>
+<li><img src="https://huran111.github.io/post-images/1559783486769.png" alt=""></li>
+<li>查看修改更新的的内容 java -XX:+PrintFlagsFinal -version</li>
+<li><img src="https://huran111.github.io/post-images/1559783626146.png" alt=""></li>
+<li>java -XX:+PrintCommandLineFlags -version</li>
+<li><img src="https://huran111.github.io/post-images/1559799722070.png" alt=""></li>
+<li>JVM常用基本配置</li>
+<li>元空间和永久代的最大区别在于永久代使用的是JVM的堆内存，但是java8以后元空间并不在虚拟机中而是使用的物理内存。</li>
+<li>常用参数
++ -Xms: 初始化大小内存，默认为物理内存的 1/64 等价于 -XX:InitialHeapSize
++ -Xmx: 最大分配内存，默认物理内存的1/4  等价于 -XX:MaxHeapSize
++ -Xss : 设置单个线程栈的大小，一般默认为512-1024K 等价于-XX:ThreadStackSize
++ -Xmn: 设置年轻代大小
++ -XX:MetaspaceSize
++ 元空间的大小受本地内存限制
++ 元空间的本质和永久代类似，都是对JVM规范中方法区的实现。不过元空间与永久代之间最大的区别在于：元空间并不在虚拟机中，而是使用本地内存。因此，默认情况下，元空间的大小仅受本地内存限制，但可以通过以下参数来指定元空间的大小：
+　　-XX:MetaspaceSize，初始空间大小，达到该值就会触发垃圾收集进行类型卸载，同时GC会对该值进行调整：如果释放了大量的空间，就适当降低该值；如果释放了很少的空间，那么在不超过MaxMetaspaceSize时，适当提高该值。
+　　-XX:MaxMetaspaceSize，最大空间，默认是没有限制的。
+　　除了上面两个指定大小的选项以外，还有两个与 GC 相关的属性：
+　　-XX:MinMetaspaceFreeRatio，在GC之后，最小的Metaspace剩余空间容量的百分比，减少为分配空间所导致的垃圾收集
+　　-XX:MaxMetaspaceFreeRatio，在GC之后，最大的Metaspace剩余空间容量的百分比，减少为释放空间所导致的垃圾收集
+1、字符串存在永久代中，容易出现性能问题和内存溢出。
+　2、类及方法的信息等比较难确定其大小，因此对于永久代的大小指定比较困难，太小容易出现永久代溢出，太大则容易导致老年代溢出。
+　3、永久代会为 GC 带来不必要的复杂度，并且回收效率偏低。
+　4、Oracle 可能会将HotSpot 与 JRockit 合二为一</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/io-liu">
+                <h3 class="post-title">
+                  IO流
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://huran111.github.io/images/avatar.png?v=1572573177169" class="no-responsive avatar">
+    <div class="text-muted">知其然，知其所以然</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-rdd">SPARK RDD</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">月度交流笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">kafka入门介绍</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he">Flume + Kafka + Spark Streaming整合</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark">Spark</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/xiang-yuan-mo-shi">享元模式</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/cheng-xu-bian-man-de-fen-xi">程序变慢的分析</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/redis-hyperloglog">redis-HyperLogLog</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge warning">
+          hadoop
+        </a>
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge ">
+          框架
+        </a>
+      
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge ">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge ">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
+          Mysql
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge ">
+          Java多线程
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge ">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+          集合
+        </a>
+      
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge ">
+          nginx
+        </a>
+      
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
+          Spring Cloud
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

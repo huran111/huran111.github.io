@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Spark | 胡的博客</title>
+<meta name="description" content="知其然，知其所以然">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1572573177169">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://huran111.github.io">胡的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>Spark</h1>
+            <p class="article-meta">
+              2019-09-29
+              
+                <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+                  框架
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <h3 id="spark是什么">Spark是什么</h3>
+<pre><code>   Apache Spark 是专为大规模数据处理而设计的快速通用的计算引擎。Spark是UC Berkeley AMP lab (加州大学伯克利分校的AMP实验室)所开源的类Hadoop MapReduce的通用并行框架，Spark，拥有Hadoop MapReduce所具有的优点；但不同于MapReduce的是——Job中间输出结果可以保存在内存中，从而不再需要读写HDFS，因此Spark能更好地适用于数据挖掘与机器学习等需要迭代的MapReduce的算法。
+ Spark 是一种与 Hadoop 相似的开源集群计算环境，但是两者之间还存在一些不同之处，这些有用的不同之处使 Spark 在某些工作负载方面表现得更加优越，换句话说，Spark 启用了内存分布数据集，除了能够提供交互式查询外，它还可以优化迭代工作负载。
+</code></pre>
+<p>Spark 是在 Scala 语言中实现的，它将 Scala 用作其应用程序框架。与 Hadoop 不同，Spark 和 Scala 能够紧密集成，其中的 Scala 可以像操作本地集合对象一样轻松地操作分布式数据集。
+尽管创建 Spark 是为了支持分布式数据集上的迭代作业，但是实际上它是对 Hadoop 的补充，可以在 Hadoop 文件系统中并行运行。通过名为 Mesos 的第三方集群框架可以支持此行为。Spark 由加州大学伯克利分校 AMP 实验室 (Algorithms, Machines, and People Lab) 开发，可用来构建大型的、低延迟的数据分析应用程序。</p>
+<h3 id="什么是sparksql">什么是SparkSql?</h3>
+<p>Spark SQL是Spark用来处理结构化数据的一个模块，它提供了2个编程抽象：DataFrame和DataSet，并且作为分布式SQL查询引擎的作用。</p>
+<p>我们已经学习了Hive，它是将Hive SQL转换成MapReduce然后提交到集群上执行，大大简化了编写MapReduc的程序的复杂性，由于MapReduce这种计算模型执行效率比较慢。所有Spark SQL的应运而生，它是将Spark SQL转换成RDD，然后提交到集群执行，执行效率非常快！</p>
+<h3 id="sparksql特点">SparkSql特点？</h3>
+<ol>
+<li>易整合
+<img src="https://huran111.github.io/post-images/1569731678073.png" alt="">
+2.统一的数据访问方式
+<img src="https://huran111.github.io/post-images/1569731706084.png" alt="">
+3.兼容Hive
+<img src="https://huran111.github.io/post-images/1569731720818.png" alt="">
+4.标准的数据连接
+<img src="https://huran111.github.io/post-images/1569731734307.png" alt=""></li>
+</ol>
+<h3 id="什么是dataframe">什么是DataFrame?</h3>
+<pre><code> 与RDD类似，DataFrame也是一个分布式数据容器。然而DataFrame更像传统数据库的二维表格，除了数据以外，还记录数据的结构信息，即schema。同时，与Hive类似，DataFrame也支持嵌套数据类型（struct、array和map）。从API易用性的角度上看，DataFrame API提供的是一套高层的关系操作，比函数式的RDD API要更加友好，门槛更低。
+	 ![](https://huran111.github.io/post-images/1569731760042.png)
+</code></pre>
+<p>上图直观地体现了DataFrame和RDD的区别。左侧的RDD[Person]虽然以Person为类型参数，但Spark框架本身不了解Person类的内部结构。而右侧的DataFrame却提供了详细的结构信息，使得Spark SQL可以清楚地知道该数据集中包含哪些列，每列的名称和类型各是什么。DataFrame是为数据提供了Schema的视图。可以把它当做数据库中的一张表来对待，DataFrame也是懒执行的。性能上比RDD要高，主要原因：</p>
+<p>优化的执行计划：查询计划通过Spark catalyst optimiser进行优化。</p>
+<p><img src="https://huran111.github.io/post-images/1569731782276.png" alt="">
+<img src="https://huran111.github.io/post-images/1569731797929.png" alt="">
+注意：临时表是Session范围内的，Session退出后，表就失效了。如果想应用范围内有效，可以使用全局表。注意使用全局表时需要全路径访问，如：global_temp.people</p>
+<h3 id="dsl风格语法">DSL风格语法</h3>
+<p><img src="https://huran111.github.io/post-images/1569731843143.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1569731858597.png" alt=""></p>
+<h3 id="sparkstreaming是什么">SparkStreaming是什么？</h3>
+<pre><code>Spark Streaming用于流式数据的处理。Spark Streaming支持的数据输入源很多，例如：Kafka、Flume、Twitter、ZeroMQ和简单的TCP套接字等等。数据输入后可以用Spark的高度抽象原语如：map、reduce、join、window等进行运算。而结果也能保存在很多地方，如HDFS，数据库等。
+</code></pre>
+<p><img src="https://huran111.github.io/post-images/1569731912291.png" alt="">
+和Spark基于RDD的概念很相似，Spark Streaming使用离散化流(discretized stream)作为抽象表示，叫作DStream。DStream 是随时间推移而收到的数据的序列。在内部，每个时间区间收到的数据都作为 RDD 存在，而DStream是由这些RDD所组成的序列(因此得名“离散化”)。</p>
+<h3 id="sparkstreaming特点">SparkStreaming特点</h3>
+<p><img src="https://huran111.github.io/post-images/1569731935208.png" alt="">
+<img src="https://huran111.github.io/post-images/1569731939464.png" alt="">
+<img src="https://huran111.github.io/post-images/1569731943730.png" alt=""></p>
+<p><img src="https://huran111.github.io/post-images/1569731953410.png" alt=""></p>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/azkaban">
+                <h3 class="post-title">
+                  Azkaban
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://huran111.github.io/images/avatar.png?v=1572573177169" class="no-responsive avatar">
+    <div class="text-muted">知其然，知其所以然</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-rdd">SPARK RDD</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">月度交流笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">kafka入门介绍</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he">Flume + Kafka + Spark Streaming整合</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark">Spark</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/xiang-yuan-mo-shi">享元模式</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/cheng-xu-bian-man-de-fen-xi">程序变慢的分析</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/redis-hyperloglog">redis-HyperLogLog</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge warning">
+          hadoop
+        </a>
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge warning">
+          框架
+        </a>
+      
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge warning">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
+          Mysql
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
+          Java多线程
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge ">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge warning">
+          集合
+        </a>
+      
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge success">
+          nginx
+        </a>
+      
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge warning">
+          Spring Cloud
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
