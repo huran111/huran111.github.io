@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-11-01T01:59:13.748Z</updated>
+    <updated>2019-11-01T08:46:07.128Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,19 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 胡的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[scala学习]]></title>
+        <id>https://huran111.github.io/post/scala-xue-xi</id>
+        <link href="https://huran111.github.io/post/scala-xue-xi">
+        </link>
+        <updated>2019-11-01T06:20:58.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://huran111.github.io/post-images/1572589264856.png" alt=""></p>
+<ol>
+<li>val f1=(name:String)=&gt;println(name）
+<img src="https://huran111.github.io/post-images/1572590165231.png" alt=""></li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[SPARK RDD]]></title>
         <id>https://huran111.github.io/post/spark-rdd</id>
@@ -35,6 +48,14 @@ rdd2.collect
 <img src="https://huran111.github.io/post-images/1572572883250.png" alt="">
 <img src="https://huran111.github.io/post-images/1572573175761.png" alt="">
 <img src="https://huran111.github.io/post-images/1572573550433.png" alt=""></p>
+<h3 id="rdd分区的数据取决于哪些因素">RDD分区的数据取决于哪些因素？</h3>
+<ol>
+<li>如果是将Driver端的Scala集合并行化创建RDD,并且没有指定RDD的分区，RDD的分区就是为该app分配中的核数</li>
+<li>如果是从hdfs中读取数据创建RDD，并且设置了最新的分区数量是1，那么RDD的分区数据即使输入切片的数据，如果不设置最小的分区数量，即spark调用textfile方法会默认传入2，那么RDD的分区数量会大于等于输入的切片的数量</li>
+</ol>
+<h3 id="rdd的map方法真正在executor中执行时是一条一条的将数据拿出来处理">RDD的map方法，真正在Executor中执行时，是一条一条的将数据拿出来处理</h3>
+<p>mapPartitionsWithIndex 一次拿出一个分区（分区中没有数据，记录要读取有多少条数据）并且可以将分区的编号取出来。
+功能：取分区中对应的数据时还可以将分区的编号取出来，这样就可以知道这个数据时哪个分区的</p>
 ]]></content>
     </entry>
     <entry>
@@ -381,35 +402,6 @@ ssc.awaitTermination()
 <li>查看CPU-vmstat</li>
 <li><img src="https://huran111.github.io/post-images/1562223534688.png" alt=""></li>
 <li><img src="https://huran111.github.io/post-images/1562225055548.png" alt=""></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[redis-HyperLogLog]]></title>
-        <id>https://huran111.github.io/post/redis-hyperloglog</id>
-        <link href="https://huran111.github.io/post/redis-hyperloglog">
-        </link>
-        <updated>2019-06-27T09:46:06.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>
-<p>redis提供了HyPerLogLog数据结构就就是用来解决这种统计问题，它提供了不精确的去重计数方案，虽然不是很精确，误差在0.81，但是已经可以满足上面UV统计需求了。</p>
-</li>
-<li>
-<p>HyperLogLog 提供了两个指令 pfadd 和 pfcount，根据字面意义很好理解，一个是增加计数，一个是获取计数。pfadd 用法和 set 集合的 sadd 是一样的，来一个用户 ID，就将用户 ID 塞进去就是。pfcount 和 scard 用法是一样的，直接获取计数值。</p>
-</li>
-<li>
-<p>HyperLogLog 除了上面的 pfadd 和 pfcount 之外，还提供了第三个指令 pfmerge，用于将多个 pf 计数值累加在一起形成一个新的 pf 值。</p>
-</li>
-<li>
-<p>比如在网站中我们有两个内容差不多的页面，运营说需要这两个页面的数据进行合并。其中页面的 UV 访问量也需要合并，那这个时候 pfmerge 就可以派上用场了。</p>
-</li>
-<li>
-<p><img src="https://huran111.github.io/post-images/1561629023523.png" alt=""></p>
-</li>
-<li>
-<p>HyperLogLog 实现原理</p>
-</li>
-<li></li>
 </ul>
 ]]></content>
     </entry>
