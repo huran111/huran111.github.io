@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-10-30T08:20:13.110Z</updated>
+    <updated>2019-11-01T01:32:06.762Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 胡的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[SPARK RDD]]></title>
+        <id>https://huran111.github.io/post/spark-rdd</id>
+        <link href="https://huran111.github.io/post/spark-rdd">
+        </link>
+        <updated>2019-11-01T01:10:35.000Z</updated>
+        <content type="html"><![CDATA[<ol>
+<li>RDD是一个基本的抽象，操作RDD就像操作一个本地集合一样，降低了编程的复杂度</li>
+<li>RDD的算子分为两类，一类是TRansformation（lazy） 一类是Action（触发任务执行）</li>
+<li>创建RDD的几种方式？
+1.通过外部的存储系统创建RDD(parallelize函数和makeRDD函数(只能在driver端))
+2.将Driver的Scala集合通过冰箱华的方式编程RDD(试验，测验)
+3.调用一个已经存在的RDD的TRansformation，会生成一个新的RDD</li>
+</ol>
+<h3 id="rdd算子">RDD算子</h3>
+<p>val rdd2=sc.parallelize(List(5,6,4,7,3,8,3,4,23)).map(_*2).sortBy(x=&gt;x,true)
+rdd2.collect
+<img src="https://huran111.github.io/post-images/1572571797119.png" alt="">
+<img src="https://huran111.github.io/post-images/1572571921917.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[月度交流笔记]]></title>
         <id>https://huran111.github.io/post/yue-du-jiao-liu-bi-ji</id>
@@ -383,21 +404,6 @@ ssc.awaitTermination()
 <p>HyperLogLog 实现原理</p>
 </li>
 <li></li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[mysql有时会选错索引？]]></title>
-        <id>https://huran111.github.io/post/mysql-you-shi-hui-xuan-cuo-suo-yin</id>
-        <link href="https://huran111.github.io/post/mysql-you-shi-hui-xuan-cuo-suo-yin">
-        </link>
-        <updated>2019-06-27T01:29:24.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li><img src="https://huran111.github.io/post-images/1561599356731.png" alt=""></li>
-<li>插入10W行数据，select * from t where a between 10000 and 20000; 查看执行计划</li>
-<li><img src="https://huran111.github.io/post-images/1561599400795.png" alt=""></li>
-<li>select * from t where (a between 1 and 1000)  and (b between 50000 and 100000) order by b limit 1;</li>
-<li>上面的语句，如果按照a进行查询，那么就是扫描a的前1000个值，然后取到对应的id，在到主键上查出每一行，然后根据B字段来过滤，显然需要扫描1000行。</li>
 </ul>
 ]]></content>
     </entry>
