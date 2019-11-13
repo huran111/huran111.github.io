@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-11-01T08:46:07.128Z</updated>
+    <updated>2019-11-13T05:46:09.899Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -56,6 +56,11 @@ rdd2.collect
 <h3 id="rdd的map方法真正在executor中执行时是一条一条的将数据拿出来处理">RDD的map方法，真正在Executor中执行时，是一条一条的将数据拿出来处理</h3>
 <p>mapPartitionsWithIndex 一次拿出一个分区（分区中没有数据，记录要读取有多少条数据）并且可以将分区的编号取出来。
 功能：取分区中对应的数据时还可以将分区的编号取出来，这样就可以知道这个数据时哪个分区的</p>
+<ul>
+<li>一个分区对应一个Task</li>
+<li><img src="https://huran111.github.io/post-images/1572599528370.png" alt=""></li>
+<li></li>
+</ul>
 ]]></content>
     </entry>
     <entry>
