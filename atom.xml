@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-11-14T01:46:34.188Z</updated>
+    <updated>2019-11-14T01:49:09.906Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -17,6 +17,11 @@
         </link>
         <updated>2019-11-14T01:46:16.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://huran111.github.io/post-images/1573695989442.png" alt=""></p>
+<p>四个过程：
+1 构建RDD(driver端)
+2 切分stage（Driver端）
+3 调度task(Driver端)
+4 执行task（Executor）</p>
 ]]></content>
     </entry>
     <entry>

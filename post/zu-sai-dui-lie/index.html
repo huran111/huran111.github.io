@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>阻塞队列 | 胡的博客</title>
+<meta name="description" content="相信代码改变世界,公众号请关注&lt;小胡的博客&gt; CSND地址 : https://blog.csdn.net/qq_31493829">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1573696147950">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://huran111.github.io">胡的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>阻塞队列</h1>
+            <p class="article-meta">
+              2019-06-03
+              
+                <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge success">
+                  集合
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>
+<p>ArrayBlockingQueue 是一个基于数据结构的有界阻塞队列，此队列按照FIFO原则对元素进行排序</p>
+</li>
+<li>
+<p>LinkedBlockingQueue 一个基于链表结构的阻塞队列，按照FIFO，吞吐量大于ArrayBlockingQueue（有界）</p>
+</li>
+<li>
+<p>SynchronusQueue 一个不存储元素的阻塞队列，每个插入操作必须等待另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量高。</p>
+</li>
+<li>
+<p>PriorityBlockingQueue: 支持优先级的无界阻塞队列</p>
+</li>
+<li>
+<p>DelayQueue:使用优先级队列实现的延迟无界阻塞队列</p>
+</li>
+<li>
+<p>LinkedTransferQueue:由链表结构组成的无界阻塞队列</p>
+</li>
+<li>
+<p>LinkedBlockingDeque:由链表结构组成的双向阻塞队列</p>
+</li>
+<li>
+<p>阻塞队列</p>
+<ul>
+<li>阻塞队列好不好</li>
+<li>如何管理</li>
+</ul>
+</li>
+<li>
+<p>BlockingQueue的核心方法
+<img src="https://huran111.github.io/post-images/1559530754157.png" alt="">
+<img src="https://huran111.github.io/post-images/1559530901249.png" alt=""></p>
+</li>
+<li>
+<p>队列满了报异常，队列空了报异常</p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559531013086.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559531060863.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559531074612.png" alt=""></p>
+</li>
+<li>
+<p>不报异常</p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559531230279.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559531357483.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559531551838.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559531793101.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559532132591.png" alt=""></p>
+</li>
+<li>
+<p>SynchronusQueue</p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559532512220.png" alt=""></p>
+</li>
+<li>
+<p>两个线程一个加一个减</p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559540593074.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559540599595.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559540605293.png" alt=""></p>
+</li>
+<li>
+<p>synchronizd和lock的区别</p>
+<ul>
+<li>synchronizd 不需要用户手动去释放锁，当synchronizd代码块执行的时候系统会自动让现场释放对锁的占用，需要lock和unlock方法配合使用</li>
+<li>synchronizd 不可中断，除非抛出异常和正常退出</li>
+<li>ReentrantLock 可中断，可设置超时</li>
+<li>synchronizd 是非公平锁，</li>
+<li>ReentrantLock可以绑定多个条件</li>
+</ul>
+</li>
+<li>
+<p>A-B-C三个线程相互调用
+<img src="https://huran111.github.io/post-images/1559542850687.png" alt="">
+<img src="https://huran111.github.io/post-images/1559542858546.png" alt="">
+<img src="https://huran111.github.io/post-images/1559542870155.png" alt="">
+<img src="https://huran111.github.io/post-images/1559542881257.png" alt=""></p>
+</li>
+<li>
+<p>阻塞队列版本</p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559560990288.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559561001147.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559561007626.png" alt=""></p>
+</li>
+<li>
+<p><img src="https://huran111.github.io/post-images/1559561012205.png" alt=""></p>
+</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/zi-xuan-suo">
+                <h3 class="post-title">
+                  自旋锁，独占锁，共享锁
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://huran111.github.io/images/avatar.png?v=1573696147950" class="no-responsive avatar">
+    <div class="text-muted">相信代码改变世界,公众号请关注<小胡的博客> CSND地址 : https://blog.csdn.net/qq_31493829</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-zhi-xing-guo-cheng">Spark执行过程</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/scala-xue-xi">scala学习</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-rdd">SPARK RDD</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">月度交流笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">kafka入门介绍</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he">Flume + Kafka + Spark Streaming整合</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark">Spark</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/xiang-yuan-mo-shi">享元模式</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge ">
+          hadoop
+        </a>
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+          框架
+        </a>
+      
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge warning">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge secondary">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
+          Mysql
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge warning">
+          Java多线程
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge ">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+          集合
+        </a>
+      
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge success">
+          nginx
+        </a>
+      
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge success">
+          Spring Cloud
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    相信代码改变世界,公众号<小胡的博客> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
