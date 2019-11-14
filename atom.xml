@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-11-14T07:17:25.425Z</updated>
+    <updated>2019-11-14T07:26:20.632Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -26,6 +26,12 @@
 </ol>
 <h3 id="datafrage">DataFrage</h3>
 <p><img src="https://huran111.github.io/post-images/1573715841094.png" alt=""></p>
+<h3 id="rdd和dataframe的区别">RDD和DataFrame的区别</h3>
+<ol>
+<li>DataFrame里面存放的结构化数据的描述信息，DataFrame要有表头（表的描述信息）,描述了有多少列，类型的信息</li>
+<li>DataFrame是特殊的RDD(RDD+Schema信息就变成了DataFrame)
+<img src="https://huran111.github.io/post-images/1573716239364.png" alt=""></li>
+</ol>
 ]]></content>
     </entry>
     <entry>

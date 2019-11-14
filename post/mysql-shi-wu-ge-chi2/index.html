@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Mysql事务隔离 | 胡的博客</title>
+<meta name="description" content="相信代码改变世界,公众号请关注&lt;小胡的博客&gt; CSND地址 : https://blog.csdn.net/qq_31493829">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1573716378812">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://huran111.github.io">胡的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>Mysql事务隔离</h1>
+            <p class="article-meta">
+              2019-06-21
+              
+                <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
+                  Mysql
+                </a>
+              
+            </p>
+            
+            <div class="post-content">
+              <ul>
+<li>ACID:原子性，一致性，隔离性，持久性</li>
+<li>脏读，不可重复读，幻读</li>
+<li>隔离级别：读未提交，读提交，可重复读，串行化
+<ul>
+<li>读未提交：一个事务还没提交时，它做的变化就能被其他事务看到</li>
+<li>读提交：一个事务提交之后，它做的变化才能被其他事务看到</li>
+<li>可重复读：一个事务执行的过程中看到的数据，总是跟这个事务在启动时候看到的数据是一致的。 当然在可重复读隔离级别下，未提交变更对其他事务也是不可见的。</li>
+<li>串行化：写会加锁，读会加锁。</li>
+<li>例子：创建一个Innodb的表</li>
+<li><img src="https://huran111.github.io/post-images/1561085875549.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561085903921.png" alt=""></li>
+<li>查看当前会话的隔离级别</li>
+<li><img src="https://huran111.github.io/post-images/1561086181670.png" alt=""></li>
+<li>查看系统的隔离级别</li>
+<li><img src="https://huran111.github.io/post-images/1561086214373.png" alt=""></li>
+<li>设置会话的隔离级别，隔离级别由低到高设置依次为:</li>
+<li>set session transaction isolation level read uncommitted;</li>
+<li>set session transaction isolation level read committed;</li>
+<li>set session transaction isolation level repeatable read;</li>
+<li>set session transaction isolation level serializable;</li>
+</ul>
+</li>
+<li><strong>(1) 将当前会话的隔离级别设置为读未提交</strong></li>
+<li><img src="https://huran111.github.io/post-images/1561087288815.png" alt=""></li>
+<li><strong>(2) 将当前会话的隔离级别设置为读提交</strong></li>
+<li><img src="https://huran111.github.io/post-images/1561087817551.png" alt=""></li>
+<li><strong>(3) 将当前会话的隔离级别设置为可重复读</strong></li>
+<li><img src="https://huran111.github.io/post-images/1561088709444.png" alt=""></li>
+<li><img src="https://huran111.github.io/post-images/1561088933068.png" alt="">
+<strong>事务隔离的实现</strong></li>
+<li>在 MySQL 中，实际上每条记录在更新的时候都会同时记录一条回滚操作。记录上的最新值，通过回滚操作，都可以得到前一个状态的值。</li>
+<li><img src="https://huran111.github.io/post-images/1561096570337.png" alt=""></li>
+<li>事务的启动方式</li>
+<li>1 显示启动  start transaction -commint 回滚是rollback</li>
+<li>2 set autocommit=0 将线程的自动提交关闭，意味着手动执行一个select 事务就开启了 ，而且并不会自动提交。建议set autocommit=1</li>
+<li>也可以用 commit work and chain 意思是提交事务并自动进入下一个事务。</li>
+<li>查询长事务：select * from information_schema.innodb_trx where TIME_TO_SEC(timediff(now(),trx_started))&gt;60</li>
+</ul>
+<h3 id="事务到底是隔离还是不隔离">事务到底是隔离还是不隔离</h3>
+<ul>
+<li><img src="https://huran111.github.io/post-images/1561377409110.png" alt=""></li>
+<li>Mysql里面视图有两个概念
+<ul>
+<li>一个是view,查询定义的虚拟表。</li>
+<li>另一个是Innodb在实现MVCC用到的一致性读视图，由于支持RC和RR的实现。</li>
+<li>快照在MVCC是如何工作的?
+<ul>
+<li>在可重复读级别下，事务在启动的时候就拍了个快照，基于整个库的（并没有拷贝数据）</li>
+<li>InnoDB每个事务都有一个唯一的事务Id，transaction id。在事务开始的时候想InnoDB中事务系统申请的，严格递增。</li>
+<li>每行数据也有多个版本。每次事务更新数据，就会生成一个版本。把这个事务id赋值给新的数据版本的事务id，旧版本保留。</li>
+<li>下图就是记录一个被多个事务连续更新后的状态</li>
+<li><img src="https://huran111.github.io/post-images/1561424334675.png" alt=""></li>
+<li>InnoDB是如何定义那个&quot;100G&quot;的快照的，按照可重复读的定义，一个事务启动的时候，能够看到所有已经提交的事务结果，但是之后，这个事务执行期间，其他事务的更新对它不可见。</li>
+<li>实现上，InnoDB为每个事务构造了一个数组，用来保存这个事务启动瞬间，正在活跃的事务ID,就是值启动了还没有提交。</li>
+<li>一个数据版本，对于一个视图来说，除了自己的更新总是可以见的，另外有三种情况
+<ul>
+<li>版本未提交，不可见</li>
+<li>版本已经提交，但是是在视图创建后提交的，不可见</li>
+<li>版本已经提交，而且实在视图创建前提交的，可见</li>
+<li>InnoDB的行数据有多个版本，每个数据版本都有自己的row_trx_id,每个事务或者语句有自己的一致性视图，普通查询语句是一致性读，一致性读会根据row_trx_id和一致性视图确定数据版本的可见性。</li>
+<li>对于可重复读，查询只承认在事务启动前就已经提交完成的数据。
++ 对于读提交，查询只承认在语句启动前就已经提交完成的数据。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/yi-tiao-sql-shi-ru-he-geng-xin-de">
+                <h3 class="post-title">
+                  一条sql是如何更新的
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://huran111.github.io/images/avatar.png?v=1573716378812" class="no-responsive avatar">
+    <div class="text-muted">相信代码改变世界,公众号请关注<小胡的博客> CSND地址 : https://blog.csdn.net/qq_31493829</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/sparksql">SparkSQL</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-zhi-xing-guo-cheng">Spark执行过程</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/scala-xue-xi">scala学习</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-rdd">SPARK RDD</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">月度交流笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">kafka入门介绍</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he">Flume + Kafka + Spark Streaming整合</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark">Spark</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge ">
+          hadoop
+        </a>
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+          框架
+        </a>
+      
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge success">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge ">
+          Mysql
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+          Java多线程
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge warning">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+          集合
+        </a>
+      
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge success">
+          nginx
+        </a>
+      
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
+          Spring Cloud
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    相信代码改变世界,公众号<小胡的博客> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

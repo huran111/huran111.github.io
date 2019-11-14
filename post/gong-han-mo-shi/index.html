@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>工厂模式 | 胡的博客</title>
+<meta name="description" content="相信代码改变世界,公众号请关注&lt;小胡的博客&gt; CSND地址 : https://blog.csdn.net/qq_31493829">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1573716378812">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+  </head>
+  <body>
+  
+    <nav class="navbar border fixed split-nav">
+  <div class="nav-brand">
+    <h3><a href="https://huran111.github.io">胡的博客</a></h3>
+  </div>
+  <div class="collapsible">
+    <input id="collapsible1" type="checkbox" name="collapsible1">
+    <button>
+      <label for="collapsible1">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </label>
+    </button>
+    <div class="collapsible-body">
+      <ul class="inline">
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                首页
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/archives" class="menu">
+                归档
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/tags" class="menu">
+                标签
+              </a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://huran111.github.io" class="menu">
+                关于
+              </a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div id="top" class="row site">
+      <div class="sm-12 md-8 col">
+        <div class="paper">
+          <article class="article">
+            <h1>工厂模式</h1>
+            <p class="article-meta">
+              2019-05-31
+              
+            </p>
+            
+            <div class="post-content">
+              <pre><code>1.首先，我们明确一点，我们不应该针对实现编程，但是当我们每次使用new的时候，不正是在针对实现编程么？
+</code></pre>
+<p><img src="https://huran111.github.io/post-images/1559268374740.png" alt=""></p>
+<ul>
+<li>认识变化的方面
+<img src="https://huran111.github.io/post-images/1559269101158.png" alt=""></li>
+<li>但是压力就是来自于更多的披萨
+<img src="https://huran111.github.io/post-images/1559269422754.png" alt=""></li>
+<li>现在我们已经知道了哪里会发生变化，是时候开始封装了
+<img src="https://huran111.github.io/post-images/1559270009251.png" alt=""></li>
+<li>工厂处理创建对象的细节，一旦有了工厂，创建对象的时候，就叫工厂做一个，现在orderPizza()方法只是关心从工厂得到了一个披萨，而所有的类型披萨都实现了Pizza接口它们的bake(),cut(),box都可以通用。
+<img src="https://huran111.github.io/post-images/1559271214457.png" alt=""></li>
+<li>有人会问，这不还是一样么？只是把搬到另外一个对象里面罢了。
+<ul>
+<li>但是别忘了，SimplePizzaFactory可以有很多的客户，不仅仅只有orderPizza()这个方法，所以，当以后实现改变的时候，只需要修改这个类即可。</li>
+<li>静态工厂不需要使用创建对象的方法来实例化对象，但是，它不能通过继承来改变创建方法的行为。</li>
+</ul>
+</li>
+<li>重做披萨类
+<img src="https://huran111.github.io/post-images/1559271869245.png" alt=""></li>
+<li>定义简单工厂
+<img src="https://huran111.github.io/post-images/1559272255417.png" alt=""></li>
+<li>如果有很多不同的披萨加盟店，根据地域不同风味也不同，怎么办？
+<ul>
+<li>我么可以写出三种不同的工厂，分别负责创建不同区域的披萨。（VarPizzaFactory,Var2PizzaFactory,Var3PizzaFactory）
+<img src="https://huran111.github.io/post-images/1559272741289.png" alt=""></li>
+<li>我们把createPizza()方法放回到PizzaStore类中，把它设置为抽象。
+<img src="https://huran111.github.io/post-images/1559273553779.png" alt="">
+<ul>
+<li>现在已经有了一个PizzaStore作为超类，让每个区域的类型都继承这个超类，各自实现制造披萨。
+<img src="https://huran111.github.io/post-images/1559273831614.png" alt=""></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+          </article>
+        </div>
+        <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://huran111.github.io/post/nginx-ji-ben-pei-zhi-yu-can-shu-shuo-ming">
+                <h3 class="post-title">
+                  nginx基本配置与参数说明
+                </h3>
+              </a>
+            </div>
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
+
+          
+        
+      </div>
+
+      <div class="sm-12 md-4 col sidebar">
+  <div class="paper info-container">
+    <img src="https://huran111.github.io/images/avatar.png?v=1573716378812" class="no-responsive avatar">
+    <div class="text-muted">相信代码改变世界,公众号请关注<小胡的博客> CSND地址 : https://blog.csdn.net/qq_31493829</div>
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      最新文章
+    </div>
+    <div class="row">
+      <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/sparksql">SparkSQL</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-zhi-xing-guo-cheng">Spark执行过程</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/scala-xue-xi">scala学习</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark-rdd">SPARK RDD</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/yue-du-jiao-liu-bi-ji">月度交流笔记</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/kafka-ru-men-jie-shao">kafka入门介绍</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/flume-kafka-spark-streaming-zheng-he">Flume + Kafka + Spark Streaming整合</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/spark">Spark</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+            </li>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+  <div class="paper">
+    <div class="sidebar-title">
+      标签列表
+    </div>
+    <div class="row">
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge ">
+          hadoop
+        </a>
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge ">
+          框架
+        </a>
+      
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge warning">
+          JVM
+        </a>
+      
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge secondary">
+          redis
+        </a>
+      
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge warning">
+          Mysql
+        </a>
+      
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge ">
+          Java多线程
+        </a>
+      
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge warning">
+          流
+        </a>
+      
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+          集合
+        </a>
+      
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
+          nginx
+        </a>
+      
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+          Spring Cloud
+        </a>
+      
+    </div>
+  </div>
+  <div class="paper">
+    相信代码改变世界,公众号<小胡的博客> | <a class="rss" href="https://huran111.github.io/atom.xml" target="_blank">RSS</a>
+  </div>
+</div>
+
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
