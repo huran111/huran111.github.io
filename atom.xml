@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-11-14T02:22:01.998Z</updated>
+    <updated>2019-11-14T07:17:25.425Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://huran111.github.io/images/avatar.png</logo>
     <icon>https://huran111.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, 胡的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[SparkSQL]]></title>
+        <id>https://huran111.github.io/post/sparksql</id>
+        <link href="https://huran111.github.io/post/sparksql">
+        </link>
+        <updated>2019-11-14T06:44:47.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="sparksql">SparkSql</h3>
+<ol>
+<li>是spark上的高级模块，SparkSql是一个SQL解析引擎，将SQL解析成特殊的RDD(DataFrame)，然后在Spark集群中运行</li>
+<li>SparkSQL是用来处理结构化数据的</li>
+<li>SparkSQL支持两种编程API   sql方式   DataFrame的方式</li>
+<li>SparkSQL兼容hive，元数据库，SQL语法，udf,序列化，反序列化</li>
+<li>SpqrkSql支持统一的数据源，提供标准连接</li>
+</ol>
+<h3 id="datafrage">DataFrage</h3>
+<p><img src="https://huran111.github.io/post-images/1573715841094.png" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Spark执行过程]]></title>
         <id>https://huran111.github.io/post/spark-zhi-xing-guo-cheng</id>
@@ -390,21 +408,6 @@ ssc.awaitTermination()
 <li>块大小 主要取决的磁盘性能</li>
 </ul>
 </li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[享元模式]]></title>
-        <id>https://huran111.github.io/post/xiang-yuan-mo-shi</id>
-        <link href="https://huran111.github.io/post/xiang-yuan-mo-shi">
-        </link>
-        <updated>2019-07-17T06:43:43.000Z</updated>
-        <content type="html"><![CDATA[<ul>
-<li>享元模式能够解决重复对象的内存浪费问题，当系统中有大量相似的对象，需要缓冲池，不需要总是创建对象，可以从缓冲池里面拿。</li>
-<li><img src="https://huran111.github.io/post-images/1563346983047.png" alt=""></li>
-<li>FlyWeight是抽象的享元角色，它是产品的抽象类型，同时定义出对象的外部状态和内部状态</li>
-<li>ConcreatFlyWeight是具体的享元角色，是具体的产品类，实现抽象角色相关业务。
-+FlyWeightFactory享元工厂类，构建一个容器。</li>
 </ul>
 ]]></content>
     </entry>
