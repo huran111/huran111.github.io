@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://huran111.github.io</id>
     <title>胡的博客</title>
-    <updated>2019-11-14T07:26:20.632Z</updated>
+    <updated>2019-11-18T01:51:14.155Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://huran111.github.io"/>
     <link rel="self" href="https://huran111.github.io/atom.xml"/>
@@ -45,7 +45,34 @@
 1 构建RDD(driver端)
 2 切分stage（Driver端）
 3 调度task(Driver端)
-4 执行task（Executor）</p>
+4 执行task（Executor）
+1.构建DAG 有向无环图（RDD方法）
+2.DAGScheduler 切分 stage中生成的task以taskset的形式给TaskScheduler（切分的依据是shuffle）
+3.TaskScheduler  task调度到executor里面
+4.Worker 执行线程  丢入线程池中</p>
+<p>DAG:有像无环图
+功能：描述了 多个RDD的转换过程任务执行的时候可以按照DAG的描述执行真正的计算
+DAG是有边界的：开始 通过SparkContext创建RDD 结束 触发action 调用run  job就是一个完整的DAG就形成了</p>
+<p>一个RDD只是描述了 数据计算过程中的一个环节</p>
+<p>一个DAG中可能产生多种不同类型和功能的task 会有不同的阶段</p>
+<p>DAGScheduler:将一个DAG切分成一到多个Stage,DAGScheduler切分的依据是Shuffle（宽依赖）</p>
+<p>为什么要切分 stage?
+一个复杂的业务逻辑 ，将多台机器具有相同属性的数据聚合到一台机器上
+如果有shuffle 意味着前面阶段产生的结果后，才能执行下一个阶段。
+在同一个stage中，会有多个算子，我们称其为pipeline(流水线：严格按照流程，顺序执行)</p>
+<p>RDD和它依赖的父RDD的关系又两种不同的类型：1 窄依赖 2 宽依赖</p>
+<p>shuffle重要的依据，父RDD的一个分区的数据，给子RDD的多个分区</p>
+<p>shuffle：父RDD一个分区中的数据如果给了子RDD的多个分区
+shuffle：会有网络传输数据，但是有网络传输数据，不一定就是shuffle</p>
+<p>几何平均数：</p>
+<p>DateSet 是spark1.6以后推出新的api,也是一个分布式数据集，于RDD相比，保存了很多的描述信息，概念上等同于数据库中的二维表。spark在运行时可以被优化</p>
+<p>,DateSet里面对应的数据是强类型的。</p>
+<p>DateSet特点：
+1 一系列分区
+2 依赖关系
+3 每个切片会有对应的函数
+4  kv类型shuffle
+5 优化执行计划</p>
 ]]></content>
     </entry>
     <entry>
