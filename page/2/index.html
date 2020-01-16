@@ -7,7 +7,7 @@
 <meta name="description" content="相信代码改变世界,公众号请关注&lt;小胡的博客&gt; CSND地址 : https://blog.csdn.net/qq_31493829">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1574060534811">
+<link rel="shortcut icon" href="https://huran111.github.io/favicon.ico?v=1579155573763">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://unpkg.com/papercss@1.6.1/dist/paper.min.css" />
@@ -83,6 +83,66 @@
           
   <article class="article">
     <h2 class="article-title">
+      <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
+    </h2>
+    <p class="article-meta">
+      2019-09-29
+      
+        <a href="https://huran111.github.io/tag/q_IlhgQxu" class="badge secondary">
+          框架
+        </a>
+      
+    </p>
+    <p class="text-lead">
+      <h3 id="为什么需要工作流调度系统">为什么需要工作流调度系统</h3>
+<ol>
+<li>一个完整的数据分析系统通常都是由大量任务单元组成：shell脚本程序，java程序，mapreduce程序、hive脚本等</li>
+<li>各任务单元之间存在时间先后及前后依赖关系</li>
+<li>为了很好地组织起这样的复杂执行计划，需要一个工作流调度系统来调度执行</li>
+<li>例如，我们可能有这样一个需求，某个业务系统每天产生20G原始数据，我们每天都要对其进行处理，处理步骤如下所示：
+通过Hadoop先将原始数据同步到HDFS上；
+借助MapReduce计算框架对原始数据进行计算，生成的数据以分区表的形式存储到多张Hive表中；
+需要对Hive中多个表的数据进行JOIN处理，得到一个明细数据Hive大表；
+将明细数据进行复杂的统计分析，得到结果报表信息；
+需要将统计分析得到的结果数据同步到业务系统中，供业务调用使用。</li>
+</ol>
+
+    </p>
+    <div class="row">
+      <a href="https://huran111.github.io/post/azkaban" class="readmore-link">
+        <button>
+          Read More
+        </button>
+      </a>
+    </div>
+  </article>
+
+  <article class="article">
+    <h2 class="article-title">
+      <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
+    </h2>
+    <p class="article-meta">
+      2019-08-05
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge secondary">
+          hadoop
+        </a>
+      
+    </p>
+    <p class="text-lead">
+      
+    </p>
+    <div class="row">
+      <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou" class="readmore-link">
+        <button>
+          Read More
+        </button>
+      </a>
+    </div>
+  </article>
+
+  <article class="article">
+    <h2 class="article-title">
       <a href="https://huran111.github.io/post/xiang-yuan-mo-shi">享元模式</a>
     </h2>
     <p class="article-meta">
@@ -108,7 +168,7 @@
     <p class="article-meta">
       2019-07-04
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge warning">
           JVM
         </a>
       
@@ -132,7 +192,7 @@
     <p class="article-meta">
       2019-06-27
       
-        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge warning">
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge secondary">
           redis
         </a>
       
@@ -156,7 +216,7 @@
     <p class="article-meta">
       2019-06-27
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge warning">
           Mysql
         </a>
       
@@ -248,7 +308,7 @@
     <p class="article-meta">
       2019-06-20
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge warning">
           Mysql
         </a>
       
@@ -258,46 +318,6 @@
     </p>
     <div class="row">
       <a href="https://huran111.github.io/post/yi-tiao-sql-yu-ju-shi-ru-he-zhi-xing-de" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/mybatis-yuan-li">MyBatis原理</a>
-    </h2>
-    <p class="article-meta">
-      2019-06-14
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/mybatis-yuan-li" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
-
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/mybatisyi">Mybatis(一)</a>
-    </h2>
-    <p class="article-meta">
-      2019-06-14
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/mybatisyi" class="readmore-link">
         <button>
           Read More
         </button>
@@ -325,7 +345,7 @@
       
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
-    <img src="https://huran111.github.io/images/avatar.png?v=1574060534811" class="no-responsive avatar">
+    <img src="https://huran111.github.io/images/avatar.png?v=1579155573763" class="no-responsive avatar">
     <div class="text-muted">相信代码改变世界,公众号请关注<小胡的博客> CSND地址 : https://blog.csdn.net/qq_31493829</div>
     <div class="social-container">
       
@@ -347,6 +367,18 @@
     </div>
     <div class="row">
       <ul>
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/go-yu-yan-01">GO语言-01</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://huran111.github.io/post/rabbitmq">RabbitMq</a>
+            </li>
+          
         
           
             <li>
@@ -397,15 +429,7 @@
           
         
           
-            <li>
-              <a href="https://huran111.github.io/post/azkaban">Azkaban</a>
-            </li>
-          
         
-          
-            <li>
-              <a href="https://huran111.github.io/post/hdfs-zu-cheng-jia-gou">HDFS组成架构</a>
-            </li>
           
         
           
@@ -481,7 +505,11 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge ">
+        <a href="https://huran111.github.io/tag/4ZhOx4fS6" class="badge secondary">
+          GO
+        </a>
+      
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge success">
           hadoop
         </a>
       
@@ -489,35 +517,35 @@
           框架
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge warning">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge secondary">
           JVM
         </a>
       
-        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge ">
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge secondary">
           redis
         </a>
       
-        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge warning">
+        <a href="https://huran111.github.io/tag/-CcwPBag2" class="badge secondary">
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge ">
           Java多线程
         </a>
       
-        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge secondary">
+        <a href="https://huran111.github.io/tag/ijbU1QJNd" class="badge warning">
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge ">
           集合
         </a>
       
-        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge warning">
+        <a href="https://huran111.github.io/tag/x05_wn6zK" class="badge secondary">
           nginx
         </a>
       
-        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge secondary">
+        <a href="https://huran111.github.io/tag/aLMqRC6Gb" class="badge ">
           Spring Cloud
         </a>
       
