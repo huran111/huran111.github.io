@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>redis | 胡的博客</title>
+<title>关于 | 胡的博客</title>
 <meta name="description" content="相信代码改变世界,公众号请关注&lt;小胡的博客&gt; CSND地址 : https://blog.csdn.net/qq_31493829">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -15,6 +15,12 @@
 <link rel="stylesheet" href="https://huran111.github.io/styles/main.css">
 
 
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
 
@@ -23,6 +29,7 @@
 
   </head>
   <body>
+  
     <nav class="navbar border fixed split-nav">
   <div class="nav-brand">
     <h3><a href="https://huran111.github.io">胡的博客</a></h3>
@@ -79,40 +86,33 @@
     <div id="top" class="row site">
       <div class="sm-12 md-8 col">
         <div class="paper">
-          <h2 class="current-tag">标签: redis</h2>
-          
-  <article class="article">
-    <h2 class="article-title">
-      <a href="https://huran111.github.io/post/redis-hyperloglog">redis-HyperLogLog</a>
-    </h2>
-    <p class="article-meta">
-      2019-06-27
-      
-        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge warning">
-          redis
-        </a>
-      
-    </p>
-    <p class="text-lead">
-      
-    </p>
-    <div class="row">
-      <a href="https://huran111.github.io/post/redis-hyperloglog" class="readmore-link">
-        <button>
-          Read More
-        </button>
-      </a>
-    </div>
-  </article>
+          <article class="article">
+            <h1>关于</h1>
+            <p class="article-meta">
+              2019-01-25
+              
+            </p>
+            
+            <div class="post-content">
+              <p>这是关于的页面，可以在这里向世界介绍你！</p>
 
-
+            </div>
+          </article>
         </div>
-        <div class="row flex-edges">
-  
-  
-</div>
+        <div class="paper" data-aos="fade-in">
+          
+        </div>
+        
+          
+            <div class="paper" data-aos="fade-in">
+              <div id="gitalk-container"></div>
+            </div>
+          
 
+          
+        
       </div>
+
       <div class="sm-12 md-4 col sidebar">
   <div class="paper info-container">
     <img src="https://huran111.github.io/images/avatar.png?v=1582943908318" class="no-responsive avatar">
@@ -281,11 +281,11 @@
     </div>
     <div class="row">
       
-        <a href="https://huran111.github.io/tag/4ZhOx4fS6" class="badge success">
+        <a href="https://huran111.github.io/tag/4ZhOx4fS6" class="badge secondary">
           GO
         </a>
       
-        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge warning">
+        <a href="https://huran111.github.io/tag/gGeAxqZzA" class="badge secondary">
           hadoop
         </a>
       
@@ -293,11 +293,11 @@
           框架
         </a>
       
-        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge success">
+        <a href="https://huran111.github.io/tag/lE0818Fvj" class="badge ">
           JVM
         </a>
       
-        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge success">
+        <a href="https://huran111.github.io/tag/cNtOnegpc" class="badge secondary">
           redis
         </a>
       
@@ -305,7 +305,7 @@
           Mysql
         </a>
       
-        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge secondary">
+        <a href="https://huran111.github.io/tag/4jsQE0AEu" class="badge success">
           Java多线程
         </a>
       
@@ -313,7 +313,7 @@
           流
         </a>
       
-        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge success">
+        <a href="https://huran111.github.io/tag/61ewhPVqI" class="badge secondary">
           集合
         </a>
       
@@ -340,6 +340,7 @@
   </div>
 </div>
 
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -351,6 +352,29 @@ AOS.init();
 hljs.initHighlightingOnLoad()
 
 </script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'a6fe545230f59222b880',
+        clientSecret: 'bd06e76b419a5364ea07ebf5b311038f06229ab8',
+        repo: 'https://huran111.github.io',
+        owner: 'huran111',
+        admin: ['huran111'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
 
 
 
